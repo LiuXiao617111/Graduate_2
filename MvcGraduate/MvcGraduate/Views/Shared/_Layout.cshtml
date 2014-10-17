@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/CSS/css")
+</head>
+<body>
+    <div id="logo">
+        <div id="logo_left">
+            <img src="~/Images/page_logo.png" width="325" height="55" id="page_logo" />
+            <img src="~/Images/login.png" width="50" height="50" id="loginimg" />
+            <div class="title_navigate">
+                <a href="@Url.Action("Index", "Home")"><div class="logo_left_title">我的主页</div></a>
+                <a href="@Url.Action("Index", "Study")"><div class="logo_left_title">我的学习</div></a>
+                <a href="@Url.Action("Index", "Grade")"><div class="logo_left_title">我的班级</div></a>
+                <a href="@Url.Action("Index", "NotifyNews")"><div class="logo_left_title">通知新闻</div></a>
+                <a href="@Url.Action("Index", "Interaction")"><div class="logo_left_title">我的互动</div></a>
+            </div>
+        </div>
+        <div id="logo_right">
+            <img src="~/Images/stu_page_logo.png" id="stu_page_logo" />
+        </div>
+    </div>
+    <div id="main">
+        <div id="zhuye">
+            <div class="common_top">
+                <ul>
+                    <li><img src="~/Images/sys_message_ico.png" /></li>
+                    <li class="no_news"><a href="#">无信息</a></li>
+                    <li><img src="~/Images/sys_message_ico.png" /></li>
+                    <li class="no_news"><a href="#">无信息</a></li>
+                    <li><img src="~/Images/sys_message_ico.png" /></li>
+                    <li class="no_news"><a href="#">无信息</a></li>
+                    <li class="gengduo"><a href="#">更多>></a></li>
+                </ul>
+            </div>
+            @RenderBody()
+        </div>
+    </div>
+    @RenderPage("~/Views/Shared/FriendlyLink.cshtml")
+    <div id="foot">
+        <p>北京通达信科科技有限公司</p>
+        地址： 北京市海淀区紫竹院路81号北方地产大厦1608室&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电话： 010-51905641
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/myJs")
+    @Scripts.Render("~/bundles/weiyafei")
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

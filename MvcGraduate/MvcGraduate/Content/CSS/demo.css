@@ -1,0 +1,188 @@
+﻿body{
+	font-size:12px;
+	border:none;
+	margin:0px;
+	padding:0px;
+	background:#EEEEEE;
+}
+ul,li{
+	list-style-type:none;
+}
+/*logo*/
+
+#logo{
+	width:100%;
+	height:145px;
+	background:#4994B4;
+}
+	#logo_left{
+		width:1020px;
+		height:145px;
+		float:left;
+	}
+        #page_logo
+        {
+            float:left;
+            margin-left:115px;
+            margin-top:25px;
+        }
+		#loginimg{
+            float:right;
+            margin-top:56px;
+            margin-right:63px;
+		}
+        .logo_title{
+            overflow:hidden;
+            width:583px;
+            height:47px;
+            background:#81B427;
+            margin-left:112px;
+            margin-top:98px;
+        }
+        #logo_left a
+        {
+            float:left;
+            color: #FFF;
+            text-align: center;
+            line-height: 47px;
+            font-size:22px;
+            text-decoration:none;
+        }
+            #logo_left a:hover
+            {
+                text-decoration: underline;
+            }
+            /*标题属性*/
+            .title_navigate{
+                margin-top:106px;
+                width:60%;
+                margin-left:110px;
+                height:56px;
+            }
+                /*标题鼠标放置的样式*/
+                .title_navigate a:hover{
+                    background: #649b01;
+                    top: -6px;
+                    left: -1px;
+                    height:42px;
+                }
+                /*未选中标题*/
+                .logo_left_title {
+                    width:100px;
+                    height:40px;
+                    font-size: 16px;
+                    border-left: #649b01 solid 1px;
+                    line-height: 40px;
+                    text-align: center;
+                    border-right: #649b01 solid 1px;
+                    color: #FFFFFF;
+                    background: #81b427;
+                    cursor: pointer;
+                    overflow: hidden;
+                    margin-top:2px;
+                }
+                /*选中的样式*/
+              .logo_left_title_select{
+                    border-top: #649b01 solid 2px;
+                    top: -6px;
+                    font-size: 16px;
+                    line-height: 40px;
+                    text-align: center;
+                    width:100px;
+                    height:42px;
+                    left: -1px;
+                    border-left: #eeeeee solid 2px;
+                    border-right: #eeeeee solid 2px;
+                    background: #eeeeee;
+                    color: #000000;
+                    font-weight: 800;
+                }
+	#logo_right{
+		width:328px;
+		height:145px;
+		float:right;
+	}
+        #stu_page_logo
+        {
+            float: right;
+            margin-top:20px;
+        }
+#main{
+	margin:auto;
+	height:1420px;
+	width:1125px;
+}
+
+
+/*我的主页、学习、班级、新闻、互动头部*/
+ .common_top{
+		margin:auto;
+		height:45px;
+		border-bottom:1px solid #D9D9D9;
+        
+	}
+
+	 .common_top li{
+		float:left;
+	}
+        .common_top li.no_news
+        {
+            margin-right: 200px;
+        }
+	 .common_top li a{
+		text-decoration:none;
+		color:#333333;
+		font-size:14px;
+        line-height:45px;
+	}
+	 .common_top li.gengduo{
+		float:right;
+		margin-right:20px;
+		color:#1FA9A7;
+	}
+	 .common_top li.gengduo a{
+		color:#1FA9A7;
+		text-decoration:none;
+		font-size:14px;
+	}
+
+     /*我的主页、学习、班级、新闻、互动尾部*/
+     .common_foot{
+		margin:auto;
+		height:160px;
+		border-top:2px solid #4993B3;
+	}
+    #link
+    {
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+    .common_foot_link
+    {
+        height: 85px;
+        border: 1px solid #CDCDCD;
+    }
+        .common_foot_link li
+        {
+            float: left;
+            margin-right:40px;
+            line-height:25px;
+        }
+            .common_foot_link li a
+            {
+                text-decoration: none;
+                font-size: 15px;
+                font-weight: 600;
+            }
+
+#foot{
+	height:75px;
+	background:#4993B3;
+    text-align:center;
+    font-size:15px;
+    color:#FFF;
+}
+    #foot p
+    {
+        padding-top:10px;  
+    }

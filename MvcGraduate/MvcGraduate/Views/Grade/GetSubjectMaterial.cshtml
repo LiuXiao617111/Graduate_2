@@ -1,0 +1,25 @@
+﻿<div class="frame_main">
+    <ul>
+        <li class="frame_title_line">
+            <div class="frame_title no_select">课程资料</div>
+        </li>
+        <li class="detaile_line">
+            <ul class="detaile_ul">
+                @if (Model != null)
+                {
+                    var i = 0;
+                    if (i++ < 3)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <li>
+                                <span class="info" onclick="window.open('rkzl_detail.php?id=19','','height=500,width=820,status=1,toolbar=no,menubar=no,location=no,scrollbars=yes,left=200,top=100,resizable=yes');">[@item.Subject]@item.MaterialName</span>
+                                <span class="time">@item.UploadTime.ToShortDateString()</span>
+                            </li>
+                        }
+                    }
+                }
+            </ul>
+        </li>
+    </ul>
+</div>

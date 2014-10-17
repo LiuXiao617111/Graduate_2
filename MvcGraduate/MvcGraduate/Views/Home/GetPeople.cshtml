@@ -1,0 +1,23 @@
+﻿@if (Model != null)
+{
+    var i = 0;
+
+    foreach (var item in Model)
+    {
+        if (i++ < 2)
+        {
+            <div class="head_photos">
+                <div class="user_head">
+                    <img src="@(item.Picture)" />
+                </div>
+                <div class="userinfo">
+                    <div>
+                        <span>@(item.Duty)</span>
+                        <br />
+                        @(item.Name)
+                    </div>
+                </div>
+            </div>
+        }
+    }
+}

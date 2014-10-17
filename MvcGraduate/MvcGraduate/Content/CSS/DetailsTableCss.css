@@ -1,0 +1,54 @@
+﻿#details_table_div{
+	background:#F6F7F9;
+    padding-top:5px;
+    margin:0;
+}
+#details_table_div img
+{
+    border: 0px;
+    -ms-interpolation-mode:bicubic;
+}
+#details_table_div .big3
+{
+    font-weight: 600;
+}
+#details_table_div .TableBlock
+{
+    border: 1px solid #CCCCCC;
+    line-height: 20px;
+    font-size: 9pt;
+    border-collapse: collapse;
+}
+    .TableBlock  td, .TableBlock td.TableData
+    {
+        background: #FFFFFF;
+        border: 1px solid #CCCCCC;
+        border-bottom: 1px solid #CCCCCC;
+        border-right: 1px solid #ccc;
+        padding: 3px;
+        height: 30px;
+    }
+     .TableBlock .TableDataWidth td,.TableBlock td.TableDataWidth
+    {
+        background: #FFFFFF;
+        border-bottom: 1px solid #CCCCCC;
+        border-right: 1px solid #CCCCCC;
+        padding: 3px;
+        height: 245px;
+    }
+#details_table_div .TableControl
+{
+    background: #FFFFFF;
+}
+#details_table_div input.BigButton
+{
+    background: #FAFAFA;
+    height:24px;
+    line-height:14px;
+    padding:4px 10px;
+    font-size:14px;
+    color:#333;
+    text-align:center;
+    margin:1px;
+    cursor:pointer;
+}

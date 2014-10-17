@@ -1,0 +1,40 @@
+﻿<div class="frame_title">我的课程</div>
+<table class="Study_Scheduletable" frame="border" border="1px gray">
+    <tr style="background-color: #4993B3; color: white;">
+        <th></th>
+        <th>星期一</th>
+        <th>星期二</th>
+        <th>星期三</th>
+        <th>星期四</th>
+        <th>星期五</th>
+        <th>星期六</th>
+        <th>星期日</th>
+    </tr>
+    @if (Model != null)
+    {
+        var i = 0;
+        foreach (var item in Model)
+        {
+            <tr>
+                @if (i == 0)
+                {
+                    <td rowspan="4">上午</td>
+                }
+                else if (i == 4)
+                {
+                    <td rowspan="4">下午</td>
+                }
+                @{
+            i++;
+                }
+                <td>@item.One</td>
+                <td>@item.Two</td>
+                <td>@item.Three</td>
+                <td>@item.Four</td>
+                <td>@item.Five</td>
+                <td>@item.Six</td>
+                <td>@item.Seven</td>
+            </tr>
+        }
+    }
+</table>

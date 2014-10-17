@@ -1,0 +1,196 @@
+﻿@model MvcGraduate.Models.Students
+
+@{
+    ViewBag.Title = "HomeIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts { 
+    <script>
+        $('.title_navigate a:eq(0) div').addClass('logo_left_title_select');
+        //填充分享的文章
+        $.post(
+            "@Url.Action("GetMyArt", "Home")",
+            { "id": 1208203301 },
+            function (data) {
+                $('#JS_myArtDiv').html(data);
+            });
+        //课程表
+        $.post(
+            "@Url.Action("GetSchedule", "Home")",
+            { "id": 1208203301 },
+            function (data) {
+                $('#JS_Home_TimeTable_Div').html(data);
+             });
+        $.post(
+            "@Url.Action("GetShareArt", "Home")",
+            { "id": 1208203301 },
+            function (data) {
+                $('#JS_ShareArtDiv').html(data);
+            });
+        $.post(
+            "@Url.Action("GetNotify", "Home")",
+            { "id": 1208203301 },
+            function (data) {
+                $('#JS_NotifyDiv').html(data);
+            });
+        $.post(
+            "@Url.Action("GetMyImages", "Home")",
+            { "id": 1208203301 },
+            function (data) {
+                $('#JS_MyImageDiv').html(data);
+            });
+        $.post(
+            "@Url.Action("GetShareImages", "Home")",
+            { "id": 1208203301 },
+            function(data) {
+                $('#JS_ShareImageDiv').html(data);
+            });
+        $.post(
+            "@Url.Action("GetTeacherImages", "Home")",
+            { "id": 1208203301 },
+            function (data) {
+                $('#JS_TeacherHomeDiv').html(data);
+            });
+        $.post(
+            "@Url.Action("GetBanWei", "Home")",
+            { "id": 1208203301 },
+            function (data) {
+                $('#JS_BanWeiHomeDiv').html(data);
+            });
+    </script>
+}
+
+
+    <div class="zhuye_centre">
+        <div class="zhuye_centre_left">
+            <div class="zhuye_centre_left_1">
+                <div class="wenzhang">
+                    <a href="#"><img src="~/Images/article.png" id="article" /></a>
+                    <ul>
+                        <li><a href="#">我的文章</a></li>
+                        <li class="number"><a href="#">@ViewBag.AricleCount </a></li>
+                    </ul>
+                </div>
+                <div class="zhaopian">
+                    <a href="#"><img src="~/Images/my_photo.png" id="article" /></a>
+                    <ul>
+                        <li><a href="#">我的照片</a></li>
+                        <li class="number"><a href="#">@ViewBag.ImageCount</a></li>
+                    </ul>
+                </div>
+                @*通知*@
+                <div class="xiaoxi">
+                    <a href="#"><img src="~/Images/message.png" id="article" /></a>
+                    <ul>
+                        <li><a href="#">消息</a></li>
+                        <li class="number"><a href="#">@ViewBag.NotifyCount</a></li>
+                    </ul>
+                    <div id="JS_NotifyDiv"></div>
+                </div>
+                <div class="tiwen">
+                    <a href="#"><img src="~/Images/ask.png" id="article" /></a>
+                    <ul>
+                        <li><a href="#">提问</a></li>
+                        <li class="number"><a href="#">@ViewBag.QuestionCount</a></li>
+                    </ul>
+                </div>
+                <div class="zuoye">
+                    <a href="#"><img src="~/Images/homework.png" id="article" /></a>
+                    <ul>
+                        <li><a href="#">电子作业</a></li>
+                        <li class="number"><a href="#">@ViewBag.HomeWorkCount</a></li>
+                    </ul>
+                </div>
+                <div class="ziliao">
+                    <a href="#"><img src="~/Images/kc_ziliao.png" id="article" /></a>
+                    <ul>
+                        <li><a href="#">课程资料</a></li>
+                        <li class="number"><a href="#">@ViewBag.MaterialCount</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="zhuye_centre_left_2">
+                <img src="~/Images/gonggao.png" width="148" height="37" id="menu_bg" />
+                <ul>
+                    <li><a href="#">更多>></a></li>
+                </ul>
+            </div>
+            <div class="zhuye_centre_left_3">
+                <img src="~/Images/xiaoxi.png" width="154" height="49" id="menu_bg" />
+                <ul>
+                    <li><a href="#">更多>></a></li>
+                </ul>
+            </div>
+            <div class="zhuye_centre_left_4">
+                <img src="~/Images/dashiji.png" width="150" height="50" id="menu_bg" />
+            </div>
+        </div>
+        <div id="zhuye_centre_centre">
+            <div id="zhuye_centre_centre_1">
+                <ul class="title">
+                    <li><img src="~/Images/title_bg1.png" /></li>
+                    <li class="current"><a href="#">我的文章</a></li>
+                    <li><img src="~/Images/title_bg1.png" /></li>
+                    <li class="current"><a href="#">分享文章</a></li>
+                </ul>
+                <div id="JS_myArtDiv"></div>
+                <div id="JS_ShareArtDiv" style="display:none"></div>
+            </div>
+
+            <div id="zhuye_centre_centre_2">
+                <ul class="title">
+                    <li><img src="~/Images/title_bg1.png" /></li>
+                    <li class="current"><a href="#">我的照片</a></li>
+                    <li><img src="~/Images/title_bg1.png" /></li>
+                    <li class="current"><a href="#">分享照片</a></li>
+                </ul>
+                <div id="JS_MyImageDiv"></div>
+                <div id="JS_ShareImageDiv" style="display:none"></div>
+            </div>
+        </div>
+        <div class="zhuye_centre_right">
+            <div class="zhuye_centre_right_1">
+                <div><img src="~/Images/kebiao.png" width="150" height="49" id="menu_bg" /></div> 
+                <div id="JS_Home_TimeTable_Div"></div>
+            </div>
+            @*教师*@
+            <div class="zhuye_centre_right_2">
+                <div style="width:100%;height:80px">
+                    <img src="~/Images/teacher.png" width="155" height="46" id="menu_bg" />
+                    <ul>
+                        <li><a href="#">更多>></a></li>
+                    </ul>
+                </div>
+                <div id="JS_TeacherHomeDiv"></div>
+            </div>
+            @*班委*@
+            <div class="zhuye_centre_right_3">
+                <div style="width:100%;height:80px">
+                    <img src="~/Images/banwei.png" width="152" height="49" id="menu_bg" />
+                    <ul>
+                        <li><a href="#">更多>></a></li>
+                    </ul>
+                </div>
+                <div id="JS_BanWeiHomeDiv"></div>
+            </div>
+            <div class="zhuye_centre_right_4">
+                <div class="tiwen_2">
+                    <img src="Images/tiwen.png" width="153" height="49" />
+                </div>
+                <div class="zhuye_centre_right_4_tiwen">
+                    <textarea class="zhuye_centre_right_4_tiwen_kuang"></textarea>
+                    <a href="#"><div class="zhuye_centre_right_4_tiwen_2">提问</div></a>
+                    <ul>
+                        <li class="newtiwen"><a href="#">最新提问</a></li>
+                        <li><a href="#">123123</a></li>
+                        <li><a href="#">123123</a></li>
+                        <li><a href="#">123123</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+

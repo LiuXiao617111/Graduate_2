@@ -1,0 +1,20 @@
+﻿@if (Model != null)
+{
+    var i = 0;
+    <div class="HomeImageDiv">
+        @if (i++ < 6)
+        {
+            foreach (var item in Model)
+            {
+                <div class="photo_Block">
+                    <div class="img">
+                        <a href="#"><img src="@item" /></a>
+                    </div>
+                    <div class="photo_Block_text">
+                        <a href="#" style="float: left;">评论</a>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+}

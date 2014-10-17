@@ -1,0 +1,36 @@
+﻿<div class="frame_main">
+    <ul>
+        <li class="frame_title_line">
+            <div class="frame_title">我的作业</div>
+        </li>
+
+        <li class="detaile_line">
+            <table>
+                <tbody>
+                    <tr class="td_head" height="45">
+                        <td>科目</td>
+                        <td>作业标题</td>
+                        <td>布置时间</td>
+                        <td>是否已提交作业</td>
+                        <td>操作</td>
+                    </tr>
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Subject</td>
+                                <td>@item.Title</td>
+                                <td>@item.PublishTime</td>
+                                <td>@item.State</td>
+                                <td>
+                                    <a href="javascript:;" onclick="window.open('@Url.Action("Details_HomeWork", "Study",new {id= item.ID})', '', 'height=500,width=820,status=1,toolbar=no,menubar=no,location=no,scrollbars=yes,left=200,top=100,resizable=yes');">详情</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </li>
+    </ul>
+</div>

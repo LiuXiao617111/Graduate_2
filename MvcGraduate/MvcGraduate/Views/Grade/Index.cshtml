@@ -1,0 +1,61 @@
+﻿@model MvcGraduate.Models.Students
+
+@{
+    ViewBag.Title = "GradeIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts {
+<script>
+    $('.title_navigate a:eq(2) div').addClass('logo_left_title_select');
+    $.post(
+        "@Url.Action("GetBanWei", "Grade")",
+        { "id": 1208203301 },
+        function (data) {
+            $('#Js_Study_RightBigDiv').html(data);
+        });
+    function GetBanwei() {
+        $.post(
+            "@Url.Action("GetBanWei", "Grade")",
+            { "id": 1208203301 },
+            function (data) {
+                $('#Js_Study_RightBigDiv').html(data);
+            });
+    }
+    function GetTeacher() {
+        $.post(
+            "@Url.Action("GetTeacher", "Grade")",
+            { "id": 1208203301 },
+            function (data) {
+                $('#Js_Study_RightBigDiv').html(data);
+            });
+    }
+    function GetClassmate(){
+        $.post(
+            "@Url.Action("GetClassmate", "Grade")",
+            { "id": 1208203301 },
+            function (data) {
+                $('#Js_Study_RightBigDiv').html(data);
+            });
+    }
+    function GetSubjectMaterial() {
+        $.post(
+            "@Url.Action("GetSubjectMaterial", "Grade")",
+            { "id": 1208203301 },
+            function (data) {
+                $('#Js_Study_RightBigDiv').html(data);
+            });
+        }
+</script>
+}
+
+<div class="navigation_centre">
+    <div class="navigation_centre_left">
+        <div class="navigation_menu_bg" onclick="GetBanwei()">查看班委</div>
+        <div onclick="GetTeacher()">任课老师</div>
+        <div onclick="GetSubjectMaterial()">课程资料</div>
+        <div onclick="GetClassmate()">我的同学</div>
+    </div>
+    <div class="navigation_centre_right" id="Js_Study_RightBigDiv">
+
+    </div>
+</div>
