@@ -338,6 +338,10 @@
     <Content Include="Views\Home\Details_NotiyNews.cshtml" />
     <Content Include="Views\Home\GetSchedule.cshtml" />
     <Content Include="Views\NotifyNews\GetAllNotify.cshtml" />
+    <Content Include="Views\Grade\Details_SubjectMaterial.cshtml" />
+    <Content Include="Views\NotifyNews\Detail_Notify.cshtml" />
+    <Content Include="Views\NotifyNews\GetSchoolNotify.cshtml" />
+    <Content Include="Views\NotifyNews\Details_Notify_School.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -6,20 +6,47 @@ using System.Web;
 
 namespace MvcGraduate.Models
 {
-    public class DetailsClass
+    public static class DetailsClass
     {
-        DataClassesDataContext db = new DataClassesDataContext();
-        public HomeWork HomeWork_Details(int id)
+        static DataClassesDataContext db = new DataClassesDataContext();
+        static public HomeWork Details_HomeWork(int id)
         {
-            //var tt=from c in db.Vacation
-            //       select c.State
-            var res=db.HomeWork.SingleOrDefault(n => n.ID == id);
+            return db.HomeWork.SingleOrDefault(n => n.ID == id);
+        }
+        static public Vacation Details_Vacation(int id)
+        {
+            return db.Vacation.SingleOrDefault(n => n.ID == id);
+        }
+        static public Notify Detail_Notify(int id)
+        {
+            return db.Notify.Single(n => n.ID == id);
+        }
+        static public SubjectMaterial Details_SubjectMaterial(int id)
+        {
+            return db.SubjectMaterial.Single(n => n.ID == id);
+        }
+        static public Students Details_Student(int id)
+        {
+            return db.Students.Single(n => n.ID == id);
+        }
+        //返回通知所通知的对象 string
+        static public String Details_AllNotifyPeople(int id)
+        {
+            var q = from c in db.Notify_People
+                    where c.NotifyID == id
+                    select c.Students.Name;
+            if (!q.Any())
+                return null;
+            string res = string.Join(",", q.ToList());
             return res;
         }
-        public Vacation Vacation_Details(int id)
+        static public Notify_School Details_Notify_School(int id)
         {
-            var res = db.Vacation.SingleOrDefault(n => n.ID == id);
-            return res;
+            return db.Notify_School.Single(n => n.ID == id);
+        }
+        static public IEnumerable<Notify_School> GetNotify_School()
+        {
+            return db.Notify_School;
         }
     }
 }

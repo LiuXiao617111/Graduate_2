@@ -1,35 +1,41 @@
-﻿<div id="#details_table_div">
+﻿
+
+<div id="#details_table_div">
     <table border="0" width="100%" cellspacing="0" cellpadding="3" class="small">
         <tr>
             <td>
                 <img align="absmiddle" src="~/Images/notify_new.gif" />
-                <span class="big3">公告通知</span>
+                <span class="big3">课程资料详情</span>
             </td>
         </tr>
     </table>
     <table width="80%" align="center" border-spacing="0" class="TableBlock">
         <tr>
-            <td>标题：</td>
-            <td>@Model.Title</td>
+            <td>年级</td>
+            <td>@Model.Faculty.Name</td>
         </tr>
         <tr>
-            <td>通知内容：</td>
-            <td>@Model.Summary</td>
-        </tr>   
-        <tr>
-            <td>通知对象：</td>
-            <td>@ViewBag.NotifyPeoples</td>
+            <td>科目</td>
+            <td>@Model.Subject</td>
         </tr>
         <tr>
-            <td>发布人：</td>
+            <td>上传人</td>
             <td>@Model.Students.Name</td>
         </tr>
         <tr>
-            <td>发布时间：</td>
-            <td>@Model.PublishTime</td>
+            <td>上传日期</td>
+            <td>@Model.UploadTime</td>
         </tr>
         <tr>
-            <td>附件</td>
+            <td>资料名称</td>
+            <td>@Model.MaterialName</td>
+        </tr>
+        <tr>
+            <td>资料描述</td>
+            <td>@Model.MaterialDescribe</td>
+        </tr>
+        <tr>
+            <td>附件文档：</td>
             <td>@Model.Appendix</td>
         </tr>
         <tr align="center">

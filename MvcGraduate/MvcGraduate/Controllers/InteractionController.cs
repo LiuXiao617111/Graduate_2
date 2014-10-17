@@ -8,9 +8,6 @@ namespace MvcGraduate.Controllers
 {
     public class InteractionController : Controller
     {
-        //
-        // GET: /Interaction/
-
         public ActionResult Index()
         {
             return View();

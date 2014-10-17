@@ -9,24 +9,21 @@ namespace MvcGraduate.Controllers
 {
     public class StudyController : Controller
     {
-        DetailsClass dClass = new DetailsClass();
         private StudyClass sClass = new StudyClass();
-        //
-        // GET: /Study/
-
         public ActionResult Index()
         {
             return View();
         }
+
         #region 详情页面
         public PartialViewResult Details_HomeWork(int id = 1)
         {
-            var res = dClass.HomeWork_Details(id);
+            var res = DetailsClass.Details_HomeWork(id);
             return PartialView(res);
         }
         public PartialViewResult Details_Vacation(int id = 1)
         {
-            var res = dClass.Vacation_Details(id);
+            var res = DetailsClass.Details_Vacation(id);
             return PartialView(res);
         }
         #endregion

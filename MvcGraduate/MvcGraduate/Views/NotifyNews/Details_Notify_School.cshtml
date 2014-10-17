@@ -9,24 +9,20 @@
     </table>
     <table width="80%" align="center" border-spacing="0" class="TableBlock">
         <tr>
-            <td>标题：</td>
-            <td>@Model.Title</td>
-        </tr>
-        <tr>
-            <td>通知内容：</td>
-            <td>@Model.Summary</td>
-        </tr>   
-        <tr>
-            <td>通知对象：</td>
-            <td>@ViewBag.NotifyPeoples</td>
-        </tr>
-        <tr>
             <td>发布人：</td>
             <td>@Model.Students.Name</td>
         </tr>
         <tr>
             <td>发布时间：</td>
             <td>@Model.PublishTime</td>
+        </tr>
+        <tr>
+            <td>新闻标题：</td>
+            <td>@Model.Title</td>
+        </tr>
+        <tr>
+            <td>新闻内容：</td>
+            <td>@Model.Contents</td>
         </tr>
         <tr>
             <td>附件</td>

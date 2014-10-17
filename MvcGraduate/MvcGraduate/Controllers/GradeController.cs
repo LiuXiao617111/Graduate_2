@@ -9,14 +9,20 @@ namespace MvcGraduate.Controllers
 {
     public class GradeController : Controller
     {
-        HomeClass hClass = new HomeClass();
-        //
-        // GET: /Grade/
-
+        private HomeClass hClass = new HomeClass();
         public ActionResult Index()
         {
             return View();
         }
+
+        #region 详情页
+        public PartialViewResult Details_SubjectMaterial(int id=4)
+        {
+            var res = DetailsClass.Details_SubjectMaterial(id);
+            return PartialView(res);
+        }
+        #endregion
+        #region ajax请求
         [HttpPost]
         public PartialViewResult GetBanWei(int id)
         {
@@ -46,5 +52,6 @@ namespace MvcGraduate.Controllers
             ViewBag.MyTitle = "课程资料";
             return PartialView(res);
         }
+        #endregion
     }
 }

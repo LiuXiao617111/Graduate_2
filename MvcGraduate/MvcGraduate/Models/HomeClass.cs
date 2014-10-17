@@ -8,31 +8,7 @@ namespace MvcGraduate.Models
     public class HomeClass
     {
         private DataClassesDataContext db = new DataClassesDataContext();
-        public Students GetStudent(int id)
-        {
-            var q = from c in db.Students
-                    where c.ID == id
-                    select c;
-            if (!q.Any())
-                return null;
-            return q.First();
-        }
-        public Notify GetNotify(int id)
-        {
-            var res = db.Notify.Single(n => n.ID == id);
-            return res;
-        }
-        //返回通知所通知的对象 string
-        public String GetAllNotifyPeople(int id)
-        {
-            var q = from c in db.Notify_People
-                    where c.NotifyID == id
-                    select c.Students.Name;
-            if (!q.Any())
-                return null;
-            string res = string.Join(",", q.ToList());
-            return res;
-        }
+        //获取个数
         public int GetNotifyCount(int id)
         {
             var q = from c in db.Notify_People

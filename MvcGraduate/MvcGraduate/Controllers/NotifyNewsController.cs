@@ -10,19 +10,39 @@ namespace MvcGraduate.Controllers
     public class NotifyNewsController : Controller
     {
         NotifyClass nClass = new NotifyClass();
-        //
-        // GET: /NotifyNews/
-
         public ActionResult Index()
         {
             return View();
         }
+
+        #region 详情页
+        public PartialViewResult Detail_Notify(int id = 4)
+        {
+            var res = DetailsClass.Detail_Notify(id);
+            return PartialView(res);
+        }
+        public PartialViewResult Details_Notify_School(int id = 3)
+        {
+            var res = DetailsClass.Details_Notify_School(id);
+            return PartialView(res);
+        }
+        #endregion
+
+        #region ajax请求
         [HttpPost]
-        public PartialViewResult GetAllNotify(int id)
+        public PartialViewResult GetAllNotify(int id=1208203301)
         {
             var res = nClass.GetAllNotify(id);
             ViewBag.MyTitle = "活动通知";
             return PartialView(res);
         }
+        [HttpPost]
+        public PartialViewResult GetSchoolNotify()
+        {
+            var res = DetailsClass.GetNotify_School();
+            ViewBag.MyTitle = "学校新闻";
+            return PartialView(res);
+        }
+        #endregion
     }
 }

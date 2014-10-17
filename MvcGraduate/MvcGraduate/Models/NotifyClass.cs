@@ -24,7 +24,6 @@ namespace MvcGraduate.Models
             res.AddRange(person.ToList());//2个集合合并
             return res;
         }
-
         private int GetGradeID(int id)
         {
             return db.Students.Single(n => n.ID == id).GradeID;

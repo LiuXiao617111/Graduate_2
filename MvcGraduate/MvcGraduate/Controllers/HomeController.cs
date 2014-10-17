@@ -10,13 +10,11 @@ namespace MvcGraduate.Controllers
     public class HomeController : Controller
     {
         private HomeClass homeFun = new HomeClass();
-        StudyClass studyFun = new StudyClass();
-        //
-        // GET: /Home/
+        private StudyClass studyFun = new StudyClass();
 
         public ActionResult Index(int id=1208203301)
         {
-            var res = homeFun.GetStudent(id);
+            var res = DetailsClass.Details_Student(id);
             ViewBag.AricleCount = res.Article.Count;
             ViewBag.ImageCount = res.Images.Count;
             ViewBag.NotifyCount = homeFun.GetNotifyCount(id);
@@ -25,14 +23,7 @@ namespace MvcGraduate.Controllers
             ViewBag.MaterialCount = homeFun.GetMaterialCount(id);
             return View(res);
         }
-        #region 详情页
-        public PartialViewResult Details_NotiyNews(int id = 1)
-        {
-            var res = homeFun.GetNotify(id);
-            ViewBag.NotifyPeoples = homeFun.GetAllNotifyPeople(id);
-            return PartialView(res);
-        }
-        #endregion
+
         #region HttpPost
         [HttpPost]
         public PartialViewResult GetSchedule(int id = 1208203301)

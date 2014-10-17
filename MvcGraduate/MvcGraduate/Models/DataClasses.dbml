@@ -54,17 +54,6 @@
       <Association Name="Notify_Notify_People" Member="Notify" ThisKey="NotifyID" OtherKey="ID" Type="Notify" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.SchoolNews" Member="SchoolNews">
-    <Type Name="SchoolNews">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PublisherID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PublishTime" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="Title" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="Contents" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Appendix" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="Students_SchoolNews" Member="Students" ThisKey="ID" OtherKey="ID" Type="Students" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Share_Article" Member="Share_Article">
     <Type Name="Share_Article">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -191,7 +180,6 @@
       <Column Name="Picture" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="Students_Images" Member="Images" ThisKey="ID" OtherKey="OwnerID" Type="Images" />
       <Association Name="Students_Notify_People" Member="Notify_People" ThisKey="ID" OtherKey="NotifyPeopleID" Type="Notify_People" />
-      <Association Name="Students_SchoolNews" Member="SchoolNews" ThisKey="ID" OtherKey="ID" Type="SchoolNews" Cardinality="One" />
       <Association Name="Students_Share_Article" Member="Share_Article" ThisKey="ID" OtherKey="SharedID" Type="Share_Article" />
       <Association Name="Students_Share_Images" Member="Share_Images" ThisKey="ID" OtherKey="StudentID" Type="Share_Images" />
       <Association Name="Students_SubjectMaterial" Member="SubjectMaterial" ThisKey="ID" OtherKey="UploadID" Type="SubjectMaterial" />
@@ -200,6 +188,7 @@
       <Association Name="Students_HomeWork" Member="HomeWork" ThisKey="ID" OtherKey="StudentID" Type="HomeWork" />
       <Association Name="Students_Vacation" Member="Vacation" ThisKey="ID" OtherKey="PeopleID" Type="Vacation" />
       <Association Name="Students_Notify" Member="Notify" ThisKey="ID" OtherKey="PublisherID" Type="Notify" />
+      <Association Name="Students_Notify_School" Member="Notify_School" ThisKey="ID" OtherKey="PublisherID" Type="Notify_School" />
       <Association Name="Grade_Students" Member="Grade" ThisKey="GradeID" OtherKey="ID" Type="Grade" IsForeignKey="true" />
     </Type>
   </Table>
@@ -223,6 +212,17 @@
       <Column Name="NotifyGradeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Grade_Notify_Grade" Member="Grade" ThisKey="NotifyGradeID" OtherKey="ID" Type="Grade" IsForeignKey="true" />
       <Association Name="Notify_Notify_Grade" Member="Notify" ThisKey="ID" OtherKey="ID" Type="Notify" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Notify_School" Member="Notify_School">
+    <Type Name="Notify_School">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PublisherID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PublishTime" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Contents" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Appendix" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Students_Notify_School" Member="Students" ThisKey="PublisherID" OtherKey="ID" Type="Students" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
