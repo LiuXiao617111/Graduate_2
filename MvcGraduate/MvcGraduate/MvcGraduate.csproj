@@ -142,6 +142,7 @@
     </Compile>
     <Compile Include="Models\DetailsClass.cs" />
     <Compile Include="Models\HomeClass.cs" />
+    <Compile Include="Models\NotifyClass.cs" />
     <Compile Include="Models\StudyClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -336,6 +337,7 @@
     <Content Include="Views\Grade\GetSubjectMaterial.cshtml" />
     <Content Include="Views\Home\Details_NotiyNews.cshtml" />
     <Content Include="Views\Home\GetSchedule.cshtml" />
+    <Content Include="Views\NotifyNews\GetAllNotify.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

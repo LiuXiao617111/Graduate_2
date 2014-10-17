@@ -6,18 +6,27 @@
 }
 @section Scripts {
     <script>
-    $('.title_navigate a:eq(3) div').addClass('logo_left_title_select');
+        $('.title_navigate a:eq(3) div').addClass('logo_left_title_select');
+        $.post(
+            "@Url.Action("GetAllNotify", "NotifyNews")",
+            { "id": 1208203301 },
+            function (data) {
+                $('.navigation_centre_right').html(data);
+        });
+
     </script>
 }
 
 <div class="navigation_centre">
     <div class="navigation_centre_left">
-        <div>活动通知</div>
+        <div class="navigation_menu_bg">活动通知</div>
         <div>学校新闻</div>
         <div>考试通知</div>
         <div>投票调查</div>
         <div>事务信息</div>
         <div>电子校历</div>
     </div>
-    <div class="navigation_centre_right">2</div>
+    <div class="navigation_centre_right">
+
+    </div>
 </div>
