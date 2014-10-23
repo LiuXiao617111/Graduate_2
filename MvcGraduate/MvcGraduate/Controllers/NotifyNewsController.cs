@@ -9,7 +9,7 @@ namespace MvcGraduate.Controllers
 {
     public class NotifyNewsController : Controller
     {
-        NotifyClass nClass = new NotifyClass();
+        ListClass hClass = new ListClass();
         public ActionResult Index()
         {
             return View();
@@ -32,7 +32,7 @@ namespace MvcGraduate.Controllers
         [HttpPost]
         public PartialViewResult GetAllNotify(int id=1208203301)
         {
-            var res = nClass.GetAllNotify(id);
+            var res = hClass.GetAllNotify(id);
             ViewBag.MyTitle = "活动通知";
             return PartialView(res);
         }

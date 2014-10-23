@@ -12,12 +12,20 @@
 {
     font-weight: 600;
 }
-#details_table_div .TableBlock
+body{
+    background-color:#f6f7f9;
+}
+.TableBlock
 {
+    width:80%;
+    margin:auto;
     border: 1px solid #CCCCCC;
     line-height: 20px;
-    font-size: 9pt;
-    border-collapse: collapse;
+    font-size: 12pt;
+    padding:0px;
+    margin:auto;
+    margin-top:20px;
+    border-collapse:collapse !important;
 }
     .TableBlock  td, .TableBlock td.TableData
     {
@@ -25,15 +33,15 @@
         border: 1px solid #CCCCCC;
         border-bottom: 1px solid #CCCCCC;
         border-right: 1px solid #ccc;
-        padding: 3px;
         height: 30px;
+        padding:0px;
+        margin:0px;
     }
      .TableBlock .TableDataWidth td,.TableBlock td.TableDataWidth
     {
         background: #FFFFFF;
         border-bottom: 1px solid #CCCCCC;
         border-right: 1px solid #CCCCCC;
-        padding: 3px;
         height: 245px;
     }
 #details_table_div .TableControl
@@ -45,7 +53,6 @@
     background: #FAFAFA;
     height:24px;
     line-height:14px;
-    padding:4px 10px;
     font-size:14px;
     color:#333;
     text-align:center;

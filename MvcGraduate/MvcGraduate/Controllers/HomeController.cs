@@ -9,18 +9,17 @@ namespace MvcGraduate.Controllers
 {
     public class HomeController : Controller
     {
-        private HomeClass homeFun = new HomeClass();
-        private StudyClass studyFun = new StudyClass();
+        private ListClass hClass = new ListClass();
 
         public ActionResult Index(int id=1208203301)
         {
             var res = DetailsClass.Details_Student(id);
             ViewBag.AricleCount = res.Article.Count;
             ViewBag.ImageCount = res.Images.Count;
-            ViewBag.NotifyCount = homeFun.GetNotifyCount(id);
+            ViewBag.NotifyCount = hClass.GetNotifyCount(id);
             ViewBag.QuestionCount = res.Questions.Count;
             ViewBag.HomeWorkCount = res.HomeWork.Count;
-            ViewBag.MaterialCount = homeFun.GetMaterialCount(id);
+            ViewBag.MaterialCount = hClass.GetMaterialCount(id);
             return View(res);
         }
 
@@ -28,49 +27,49 @@ namespace MvcGraduate.Controllers
         [HttpPost]
         public PartialViewResult GetSchedule(int id = 1208203301)
         {
-            var res = studyFun.GetTimeTable(id);
+            var res = hClass.GetTimeTable(id);
             return PartialView(res);
         }
         [HttpPost]
         public PartialViewResult GetMyArt(int id = 1208203301)
         {
-            var res=homeFun.GetArticle(id);
+            var res=hClass.GetArticle(id);
             return PartialView(res);
         }
         [HttpPost]
         public PartialViewResult GetShareArt(int id = 1208203301)
         {
-            var res = homeFun.GetShareicle(id);
+            var res = hClass.GetShareicle(id);
             return PartialView(res);
         }
         [HttpPost]
         public PartialViewResult GetNotify(int id = 1208203301)
         {
-            var res = homeFun.GetNotifyPeople(id);
+            var res = hClass.GetNotifyPeople(id);
             return PartialView(res);
         }
         [HttpPost]
         public PartialViewResult GetMyImages(int id=120803301)
         {
-            var res = homeFun.GetmMyImages(id);
+            var res = hClass.GetmMyImagesPath(id);
             return PartialView(res);
         }
         [HttpPost]
         public PartialViewResult GetShareImages(int id = 120803301)
         {
-            var res = homeFun.GetShareImages(id);
+            var res = hClass.GetShareImagesPath(id);
             return PartialView(res);
         }
         [HttpPost]
         public PartialViewResult GetTeacherImages(int id = 120803301)
         {
-            var res = homeFun.GetTeacher(id);
+            var res = hClass.GetTeacher(id);
             return PartialView("GetPeople",res.ToList());
         }
         [HttpPost]
         public PartialViewResult GetBanWei(int id = 120803301)
         {
-            var res = homeFun.GetBanWei(id);
+            var res = hClass.GetBanWei(id);
             return PartialView("GetPeople",res.ToList());
         }
         #endregion

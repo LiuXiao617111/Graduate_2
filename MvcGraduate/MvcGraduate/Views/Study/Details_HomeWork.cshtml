@@ -1,54 +1,57 @@
 ﻿@model MvcGraduate.Models.HomeWork
-
-<fieldset>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/DetailsTableCss.css" />
+</head>
+<body>
     <div id="#details_table_div">
-        <table border="0" width="100%" cellspacing="0" cellpadding="3" class="small">
+        <table border="0" width="80%" cellspacing="0">
             <tr>
                 <td>
-                    <img align="absmiddle" src="~/Images/notify_new.gif" />
+                    <img  src="~/Images/notify_new.gif" />
                     <span class="big3">作业提交情况</span>
                 </td>
             </tr>
         </table>
-        <table width="80%" align="center" border-spacing="0" class="TableBlock">
+        <table width="80%" align="center"  class="TableBlock">
             <tr>
-                <td>年级</td>
+                <td align="center">年级</td>
                 <td>@Html.DisplayFor(model => model.Students.Grade.Faculty.Name)</td>
             </tr>
             <tr>
-                <td>班级</td>
+                <td align="center">班级</td>
                 <td>@Html.DisplayFor(model => model.Students.Grade.Name)</td>
             </tr>
             <tr>
-                <td>提交人</td>
+                <td align="center">提交人</td>
                 <td>@Html.DisplayFor(model => model.Students.Name)</td>
             </tr>
             <tr>
-                <td>科目</td>
+                <td align="center">科目</td>
                 <td>@Html.DisplayFor(model => model.Subject)</td>
             </tr>
             <tr>
-                <td>标题</td>
+                <td align="center">标题</td>
                 <td>@Html.DisplayFor(model => model.Title)</td>
             </tr>
             <tr>
-                <td>提交时间</td>
+                <td align="center">提交时间</td>
                 <td>@Html.DisplayFor(model => model.PublishTime)</td>
             </tr>
             <tr>
-                <td class="TableDataWidth">提交内容</td>
+                <td align="center" class="TableDataWidth">提交内容</td>
                 <td class="TableDataWidth">@Html.DisplayFor(model => model.Contents)</td>
             </tr>
             <tr>
-                <td>评分</td>
+                <td align="center">评分</td>
                 <td>@Html.DisplayFor(model => model.Score)</td>
             </tr>
             <tr>
-                <td>评语</td>
+                <td align="center">评语</td>
                 <td>@Html.DisplayFor(model => model.Comment)</td>
             </tr>
             <tr>
-                <td>附件</td>
+                <td align="center">附件</td>
                 <td>@Html.DisplayFor(model => model.Appendix)</td>
             </tr>
             <tr align="center">
@@ -58,4 +61,4 @@
             </tr>
         </table>
     </div>
-</fieldset>
+</body>

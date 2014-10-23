@@ -4,16 +4,42 @@
 }
 @section Scripts {
     <script>
-    $('.title_navigate a:eq(4) div').addClass('logo_left_title_select');
+        $('.title_navigate a:eq(4) div').addClass('logo_left_title_select');
+        $.post(
+            "@Url.Action("GetShareImagesPeopleName", "Interaction")",
+            { "id": 1208203301 },
+            function (data) {
+                $('.navigation_centre_right').html(data);
+            });
+        function ManageImage()
+        {
+            $.post(
+                "@Url.Action("GetShareImagesPeopleName", "Interaction")",
+                { "id": 1208203301 },
+                function (data) {
+                    $('.navigation_centre_right').html(data);
+            });
+        }
+        function GetArticle()
+        {
+            $.post(
+                "@Url.Action("GetArticle", "Interaction")",
+        { "id": 1208203301 },
+        function (data) {
+            $('.navigation_centre_right').html(data);
+        });
+        }
     </script>
 }
 <div class="navigation_centre">
     <div class="navigation_centre_left">
-        <div>照片管理</div>
+        <div class="navigation_menu_bg" onclick="ManageImage()">照片管理</div>
         <div>分享照片</div>
-        <div>文章管理</div>
+        <div onclick="GetArticle()">文章管理</div>
         <div>分享文章</div>
         <div>我的提问</div>
     </div>
-    <div class="navigation_centre_right">2</div>
+    <div class="navigation_centre_right">
+
+    </div>
 </div>

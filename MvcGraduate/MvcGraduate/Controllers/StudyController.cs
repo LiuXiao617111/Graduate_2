@@ -9,7 +9,7 @@ namespace MvcGraduate.Controllers
 {
     public class StudyController : Controller
     {
-        private StudyClass sClass = new StudyClass();
+        private ListClass hClass = new ListClass();
         public ActionResult Index()
         {
             return View();
@@ -31,26 +31,26 @@ namespace MvcGraduate.Controllers
         [HttpPost]
         public PartialViewResult GetHomeWork(int id = 1208203301)
         {
-            var res=sClass.GetHomeWork(id);
+            var res=hClass.GetHomeWork(id);
             return PartialView(res);
         }
         [HttpPost]
         public PartialViewResult GetTimeTable(int id = 1208203301)
         {
-            var res = sClass.GetTimeTable(id);
+            var res = hClass.GetTimeTable(id);
             return PartialView(res);
         }
         [HttpPost]
         public PartialViewResult GetMyVacation(int id = 1208203301)
         {
-            var res = sClass.GetMyVacation(id);
+            var res = hClass.GetMyVacation(id);
             return PartialView(res);
         }
         //未实现
         [HttpPost]
         public PartialViewResult GetScore(int id = 1208203301)
         {
-            var res = sClass.GetScore(id);
+            var res = hClass.GetScore(id);
             return PartialView(res);
         }
         #endregion

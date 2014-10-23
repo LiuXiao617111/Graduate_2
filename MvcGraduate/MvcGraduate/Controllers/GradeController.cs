@@ -9,7 +9,7 @@ namespace MvcGraduate.Controllers
 {
     public class GradeController : Controller
     {
-        private HomeClass hClass = new HomeClass();
+        private ListClass hClass = new ListClass();
         public ActionResult Index()
         {
             return View();

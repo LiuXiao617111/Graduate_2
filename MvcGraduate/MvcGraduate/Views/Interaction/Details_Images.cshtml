@@ -1,4 +1,6 @@
-﻿<head>
+﻿@model MvcGraduate.Models.Images
+
+<head>
     <title></title>
     <link rel="stylesheet" type="text/css" href="~/Content/CSS/DetailsTableCss.css" />
 </head>
@@ -7,35 +9,31 @@
         <table border="0" width="80%" cellspacing="0">
             <tr>
                 <td>
-                    <img src="~/Images/notify_new.gif" />
-                    <span class="big3">公告通知</span>
+                    <img align="left" src="~/Images/notify_new.gif" />
+                    <span class="big3">照片管理详情</span>
                 </td>
             </tr>
         </table>
         <table width="80%" align="center" class="TableBlock">
             <tr>
-                <td align="center">标题：</td>
-                <td>@Model.Title</td>
+                <td align="center">上传时间</td>
+                <td>@Model.PubLishTime</td>
             </tr>
             <tr>
-                <td align="center">通知内容：</td>
-                <td>@Model.Summary</td>
-            </tr>
-            <tr>
-                <td align="center">通知对象：</td>
-                <td>@ViewBag.NotifyPeoples</td>
-            </tr>
-            <tr>
-                <td align="center">发布人：</td>
+                <td align="center">上传人</td>
                 <td>@Model.Students.Name</td>
             </tr>
             <tr>
-                <td align="center">发布时间：</td>
-                <td>@Model.PublishTime</td>
+                <td align="center">照片描述</td>
+                <td>@Model.Description</td>
             </tr>
             <tr>
-                <td align="center">附件</td>
-                <td>@Model.Appendix</td>
+                <td align="center">分享给：</td>
+                <td>@ViewBag.SharesName</td>
+            </tr>
+            <tr>
+                <td align="center">图片描述</td>
+                <td><img src="@Model.ImagePath"/></td>
             </tr>
             <tr align="center">
                 <td nowrap="" colspan="2" class="TableControl">

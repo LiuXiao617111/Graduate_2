@@ -2,6 +2,25 @@
 	font-family: "微软雅黑";
 	font-size: 12px;
 }
+a{
+    font-size:14px;
+}
+A:link {
+ color: #4993b3;
+ TEXT-DECORATION: none
+}
+A:visited {
+ COLOR: #4993b3;
+ TEXT-DECORATION: none
+}
+A:hover {
+ COLOR: #ff7f24;
+ text-decoration: underline;
+}
+A:active {
+ COLOR: #ff7f24;  
+ text-decoration: underline;
+}
     /*课程表*/
     .Scheduletable{
 	    vertical-align: middle;

@@ -141,9 +141,7 @@
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\DetailsClass.cs" />
-    <Compile Include="Models\HomeClass.cs" />
-    <Compile Include="Models\NotifyClass.cs" />
-    <Compile Include="Models\StudyClass.cs" />
+    <Compile Include="Models\ListClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -342,6 +340,9 @@
     <Content Include="Views\NotifyNews\Detail_Notify.cshtml" />
     <Content Include="Views\NotifyNews\GetSchoolNotify.cshtml" />
     <Content Include="Views\NotifyNews\Details_Notify_School.cshtml" />
+    <Content Include="Views\Interaction\GetShareImagesPeopleName.cshtml" />
+    <Content Include="Views\Interaction\Details_Images.cshtml" />
+    <Content Include="Views\Interaction\GetArticle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
