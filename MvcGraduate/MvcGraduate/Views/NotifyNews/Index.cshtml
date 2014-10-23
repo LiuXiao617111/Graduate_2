@@ -13,6 +13,14 @@
             function (data) {
                 $('.navigation_centre_right').html(data);
             });
+        function GetAllNotify() {
+            $.post(
+            "@Url.Action("GetAllNotify", "NotifyNews")",
+                { "id": 1208203301 },
+                function (data) {
+                    $('.navigation_centre_right').html(data);
+                });
+        }
         function GetNotify_School() {
             $.post(
                 "@Url.Action("GetSchoolNotify", "NotifyNews")",
@@ -27,7 +35,7 @@
 
 <div class="navigation_centre">
     <div class="navigation_centre_left">
-        <div class="navigation_menu_bg">活动通知</div>
+        <div onclick="GetAllNotify()" class="navigation_menu_bg">活动通知</div>
         <div onclick="GetNotify_School()">学校新闻</div>
         <div>考试通知</div>
         <div>投票调查</div>
