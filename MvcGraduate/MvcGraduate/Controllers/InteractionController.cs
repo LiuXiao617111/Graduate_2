@@ -25,6 +25,32 @@ namespace MvcGraduate.Controllers
 
             return PartialView(res);
         }
+        public PartialViewResult Details_Article(int id = 14)
+        {
+            var res = DetailsClass.Details_Article(id);
+            var sharesName = "";
+            foreach (var item in res.ArticleComments)
+            {
+                sharesName += item.Students.Name + ",";
+            }
+            sharesName = sharesName.Substring(0, sharesName.Length - 1);
+            ViewBag.SharesName = sharesName;//分享的人
+            ViewBag.CommentsPeople = hClass.GetArticleComments(res.ID);//评论
+            return PartialView(res);
+        }
+        [ValidateInput(false)]
+        public ViewResult Edit_Article(int id = 14)
+        {
+            var res = DetailsClass.Details_Article(id);
+            string sharesName = "";
+            foreach (var item in res.Share_Article)
+            {
+                sharesName += item.Students.Name + ",";
+            }
+            sharesName = sharesName.Substring(0, sharesName.Length - 1);
+            ViewBag.SharesName = sharesName;
+            return View(res);
+        }
         #endregion
         [HttpPost]
         public PartialViewResult GetShareImagesPeopleName(int id = 1208203301)

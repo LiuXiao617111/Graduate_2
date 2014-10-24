@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\CSS\demo.css" />
+    <Content Include="Content\CSS\DetailsArticle.css" />
     <Content Include="Content\CSS\DetailsTableCss.css" />
     <Content Include="Content\CSS\GradeCss.css" />
     <Content Include="Content\CSS\HomeCss.css" />
@@ -343,6 +344,8 @@
     <Content Include="Views\Interaction\GetShareImagesPeopleName.cshtml" />
     <Content Include="Views\Interaction\Details_Images.cshtml" />
     <Content Include="Views\Interaction\GetArticle.cshtml" />
+    <Content Include="Views\Interaction\Details_Article.cshtml" />
+    <Content Include="Views\Interaction\Edit_Article.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -372,16 +375,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>5916</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:5916/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

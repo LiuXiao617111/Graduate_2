@@ -25,6 +25,10 @@ namespace MvcGraduate.Models
         {
             return db.Images.SingleOrDefault(n => n.ID == id);
         }
+        static public Article Details_Article(int id)
+        {
+            return db.Article.SingleOrDefault(n => n.ID == id);
+        }
         static public SubjectMaterial Details_SubjectMaterial(int id)
         {
             return db.SubjectMaterial.Single(n => n.ID == id);

@@ -118,6 +118,10 @@ namespace MvcGraduate.Models
         {
             return db.Share_Images.Where(n => n.ImageID == id).Select(n => n.Students.Name);
         }
+        public IEnumerable<ArticleComments> GetArticleComments(int id)
+        {
+            return db.ArticleComments.Where(n => n.AriticleID == id);
+        }
         #endregion
 
         #region 私有函数

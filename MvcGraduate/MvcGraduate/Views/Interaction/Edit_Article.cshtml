@@ -1,0 +1,72 @@
+﻿@model MvcGraduate.Models.Article
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/DetailsTableCss.css" />
+</head>
+<body>
+    <div id="#details_table_div">
+        <table border="0" width="80%" cellspacing="0">
+            <tr>
+                <td>
+                    <img src="~/Images/notify_new.gif" />
+                    <span class="big3">修改文章</span>
+                </td>
+            </tr>
+        </table>
+        <table width="80%" align="center" class="TableBlock">
+            <tr>
+                <td align="center">文章标题：</td>
+                <td>@Model.Title</td>
+            </tr>
+            <tr>
+                <td align="center">拽些人：</td>
+                <td>@Model.Students.Name</td>
+            </tr>
+            <tr>
+                <td align="center">通知对象：</td>
+                <td>@ViewBag.NotifyPeoples</td>
+            </tr>
+            <tr>
+                <td align="center">写作日期：</td>
+                <td>@Model.Time</td>
+            </tr>
+            <tr style="height:50px">
+                <td align="center">分享给：</td>
+                <td>@ViewBag.SharesName</td>
+            </tr>
+            <tr>
+                <td align="center">附件文档：</td>
+                <td>@Model.Appendix</td>
+            </tr>
+            <tr>
+                <td align="center">附件上传：</td>
+                <td>@Model.Appendix</td>
+            </tr>
+            <tr>
+                <td>
+                    <div>文章内容：</div>
+                    <div>
+                        <!-- 加载编辑器的容器 -->
+                        <script id="container" name="content" type="text/plain">
+
+                        </script>
+                        <!-- 配置文件 -->
+                        <script type="text/javascript" src="~/Content/UEditor/ueditor.config.js"></script>
+                        <!-- 编辑器源码文件 -->
+                        <script type="text/javascript" src="~/Content/UEditor/ueditor.all.js"></script>
+                        <!-- 实例化编辑器 -->
+                        <script type="text/javascript">
+                            var ue = UE.getEditor('container');
+                        </script>
+                    </div>
+                </td>
+            </tr>
+            <tr align="center">
+                <td nowrap="" colspan="2" class="TableControl">
+                    <input class="BigButton" type="button" value="保存" />
+                    <input style="margin-left:30px;" class="BigButton" type="button" value="关闭" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
