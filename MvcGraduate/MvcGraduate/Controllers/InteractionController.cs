@@ -33,7 +33,10 @@ namespace MvcGraduate.Controllers
             {
                 sharesName += item.Students.Name + ",";
             }
-            sharesName = sharesName.Substring(0, sharesName.Length - 1);
+            if (sharesName != "")
+            {
+                sharesName = sharesName.Substring(0, sharesName.Length - 1);
+            }
             ViewBag.SharesName = sharesName;//分享的人
             ViewBag.CommentsPeople = hClass.GetArticleComments(res.ID);//评论
             return PartialView(res);

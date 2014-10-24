@@ -17,6 +17,10 @@ namespace MvcGraduate.Models
         {
             return db.Vacation.SingleOrDefault(n => n.ID == id);
         }
+        static public Article Details_Article(int id)
+        {
+            return db.Article.SingleOrDefault(n => n.ID == id);
+        }
         static public Notify Detail_Notify(int id)
         {
             return db.Notify.Single(n => n.ID == id);
@@ -24,10 +28,6 @@ namespace MvcGraduate.Models
         static public Images Details_Images(int id)
         {
             return db.Images.SingleOrDefault(n => n.ID == id);
-        }
-        static public Article Details_Article(int id)
-        {
-            return db.Article.SingleOrDefault(n => n.ID == id);
         }
         static public SubjectMaterial Details_SubjectMaterial(int id)
         {
