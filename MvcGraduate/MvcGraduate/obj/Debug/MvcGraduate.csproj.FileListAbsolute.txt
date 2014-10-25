@@ -81,10 +81,3 @@ C:\Users\lx\Downloads\MvcGraduate\MvcGraduate\bin\System.Web.WebPages.Razor.xml
 C:\Users\lx\Downloads\MvcGraduate\MvcGraduate\obj\Debug\MvcGraduate.csprojResolveAssemblyReference.cache
 C:\Users\lx\Downloads\MvcGraduate\MvcGraduate\obj\Debug\MvcGraduate.dll
 C:\Users\lx\Downloads\MvcGraduate\MvcGraduate\obj\Debug\MvcGraduate.pdb
-F:\Graduate\MvcGraduate\MvcGraduate\bin\System.Net.Http.Formatting.dll
-F:\Graduate\MvcGraduate\MvcGraduate\bin\System.Web.Http.dll
-F:\Graduate\MvcGraduate\MvcGraduate\bin\System.Web.Http.WebHost.dll
-F:\Graduate\MvcGraduate\MvcGraduate\bin\System.Net.Http.Formatting.xml
-F:\Graduate\MvcGraduate\MvcGraduate\bin\System.Web.Http.xml
-F:\Graduate\MvcGraduate\MvcGraduate\bin\System.Web.Http.WebHost.xml
-F:\Graduate\MvcGraduate\MvcGraduate\obj\Debug\MvcGraduate.csprojResolveAssemblyReference.cache

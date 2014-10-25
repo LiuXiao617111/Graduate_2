@@ -11,9 +11,8 @@ ul,li{
 
 .navigation_centre{
 		margin:auto;
-		height:1130px;
 		margin-top:40px;
-		margin-bottom:30px;
+		margin-bottom:10px;
 	}
     
         .navigation_centre_left
@@ -37,7 +36,6 @@ ul,li{
         .navigation_centre_right
         {
             width: 878px;
-            height:1100px;
             margin-left:40px;
             float:left;
             background-color:#FFF;

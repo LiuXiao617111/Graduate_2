@@ -39,13 +39,15 @@ namespace MvcGraduate
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
             bundles.Add(new StyleBundle("~/Content/CSS/css").Include(
-                "~/Content/CSS/*.css"
+                "~/Content/CSS/*.css",
+                "~/Content/EasyUi/themes/default/easyui.css"
                 ));
             bundles.Add(new ScriptBundle("~/bundles/weiyafei").Include(
                 "~/Scripts/WeiYaFei/*.js"
                 ));
             bundles.Add(new ScriptBundle("~/bundles/myJs").Include(
-            "~/Scripts/myJs/*.js"
+                "~/Scripts/myJs/*.js",
+                "~/Content/EasyUi/jquery.easyui.min.js"
             ));
         }
     }

@@ -10,6 +10,7 @@ namespace MvcGraduate.Controllers
     public class InteractionController : Controller
     {
         ListClass hClass = new ListClass();
+        OperateClass oClass = new OperateClass();
         public ActionResult Index()
         {
             return View();
@@ -63,7 +64,10 @@ namespace MvcGraduate.Controllers
             {
                 sharesName += item.Students.Name.Trim() + ",";
             }
-            sharesName = sharesName.Substring(0, sharesName.Length - 1);
+            if (sharesName != "")
+            {
+                sharesName = sharesName.Substring(0, sharesName.Length - 1);
+            }
             ViewBag.SharesName = sharesName;
             return PartialView(res);
         }
@@ -75,13 +79,16 @@ namespace MvcGraduate.Controllers
             {
                 sharesName += item.Students.Name.Trim() + ",";
             }
-            sharesName = sharesName.Substring(0, sharesName.Length - 1);
+            if (sharesName != "")
+            {
+                sharesName = sharesName.Substring(0, sharesName.Length - 1);
+            }
             ViewBag.SharesName = sharesName;
             return PartialView(res);
         }
         #endregion
 
-        #region HttpPost
+        #region HttpPost Get
         [HttpPost]
         public PartialViewResult GetImagesInfo(int id = 1208203301)
         {
@@ -124,6 +131,19 @@ namespace MvcGraduate.Controllers
         {
             var res = hClass.GetImagesComments(id);//获取对应照片的评论
             return PartialView(res);
+        }
+        #endregion
+
+        #region HttpPost Del
+        [HttpPost]
+        public void DelImage(string ids)
+        {
+            oClass.DelImage(ids);
+        }
+        [HttpPost]
+        public void DelArticle(string ids)
+        {
+            oClass.DelArticle(ids);
         }
         #endregion
     }

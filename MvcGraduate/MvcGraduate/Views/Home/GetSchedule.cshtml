@@ -1,4 +1,4 @@
-﻿<table class="Scheduletable" frame="border" border="1px gray">
+﻿<table class="Scheduletable" id="TTTT" frame="border" border="1px gray">
     <tr style="background-color: #4993B3; color: white;">
         <th></th>
         <th>星期一</th>
@@ -37,3 +37,12 @@
         }
     }
 </table>
+<script>
+    //首页--课程表特效
+    $('.Scheduletable td').bind("mouseover", function () {
+        $(this).addClass("onmouseoverScheduletableTd");
+    });
+    $('.Scheduletable td').bind("mouseleave", function () {
+        $(this).removeClass("onmouseoverScheduletableTd");
+    });
+</script>
