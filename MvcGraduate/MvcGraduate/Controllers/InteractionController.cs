@@ -31,7 +31,7 @@ namespace MvcGraduate.Controllers
             var sharesName = "";
             foreach (var item in res.ArticleComments)
             {
-                sharesName += item.Students.Name + ",";
+                sharesName += item.Students.Name.Trim() + ",";
             }
             if (sharesName != "")
             {
@@ -42,17 +42,17 @@ namespace MvcGraduate.Controllers
             return PartialView(res);
         }
         [ValidateInput(false)]
-        public ViewResult Edit_Article(int id = 14)
+        public PartialViewResult Edit_Article(int id = 14)
         {
             var res = DetailsClass.Details_Article(id);
             string sharesName = "";
             foreach (var item in res.Share_Article)
             {
-                sharesName += item.Students.Name + ",";
+                sharesName += item.Students.Name.Trim() + ",";
             }
             sharesName = sharesName.Substring(0, sharesName.Length - 1);
             ViewBag.SharesName = sharesName;
-            return View(res);
+            return PartialView(res);
         }
         #endregion
         [HttpPost]
