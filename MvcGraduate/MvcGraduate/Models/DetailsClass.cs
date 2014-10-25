@@ -21,6 +21,11 @@ namespace MvcGraduate.Models
         {
             return db.Article.SingleOrDefault(n => n.ID == id);
         }
+        static public Questions Details_Question(int id)
+        {
+            return db.Questions.SingleOrDefault(n => n.ID == id);
+        }
+        
         static public Notify Detail_Notify(int id)
         {
             return db.Notify.Single(n => n.ID == id);

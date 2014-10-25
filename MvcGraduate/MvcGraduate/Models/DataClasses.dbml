@@ -127,9 +127,9 @@
       <Association Name="Students_Share_Images" Member="Share_Images" ThisKey="ID" OtherKey="StudentID" Type="Share_Images" />
       <Association Name="Students_SubjectMaterial" Member="SubjectMaterial" ThisKey="ID" OtherKey="UploadID" Type="SubjectMaterial" />
       <Association Name="Students_Vacation" Member="Vacation" ThisKey="ID" OtherKey="PeopleID" Type="Vacation" />
-      <Association Name="Students_Images" Member="Images" ThisKey="ID" OtherKey="OwnerID" Type="Images" />
       <Association Name="Students_ArticleComments" Member="ArticleComments" ThisKey="ID" OtherKey="PeopleID" Type="ArticleComments" />
       <Association Name="Students_Article" Member="Article" ThisKey="ID" OtherKey="WritingID" Type="Article" />
+      <Association Name="Students_Images" Member="Images" ThisKey="ID" OtherKey="OwnerID" Type="Images" />
       <Association Name="Grade_Students" Member="Grade" ThisKey="GradeID" OtherKey="ID" Type="Grade" IsForeignKey="true" />
     </Type>
   </Table>
@@ -205,17 +205,6 @@
       <Association Name="Notify_Notify_Grade" Member="Notify" ThisKey="NotifyID" OtherKey="ID" Type="Notify" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Images" Member="Images">
-    <Type Name="Images">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ImagePath" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="OwnerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PubLishTime" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="Images_Share_Images" Member="Share_Images" ThisKey="ID" OtherKey="ImageID" Type="Share_Images" />
-      <Association Name="Students_Images" Member="Students" ThisKey="OwnerID" OtherKey="ID" Type="Students" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.ArticleComments" Member="ArticleComments">
     <Type Name="ArticleComments">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -239,6 +228,18 @@
       <Association Name="Article_Share_Article" Member="Share_Article" ThisKey="ID" OtherKey="ArticleID" Type="Share_Article" />
       <Association Name="Article_ArticleComments" Member="ArticleComments" ThisKey="ID" OtherKey="AriticleID" Type="ArticleComments" />
       <Association Name="Students_Article" Member="Students" ThisKey="WritingID" OtherKey="ID" Type="Students" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Images" Member="Images">
+    <Type Name="Images">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ImagePath" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OwnerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PubLishTime" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Appendix" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Images_Share_Images" Member="Share_Images" ThisKey="ID" OtherKey="ImageID" Type="Share_Images" />
+      <Association Name="Students_Images" Member="Students" ThisKey="OwnerID" OtherKey="ID" Type="Students" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

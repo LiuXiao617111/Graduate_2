@@ -81,15 +81,15 @@ namespace MvcGraduate.Models
     partial void InsertNotify_Grade(Notify_Grade instance);
     partial void UpdateNotify_Grade(Notify_Grade instance);
     partial void DeleteNotify_Grade(Notify_Grade instance);
-    partial void InsertImages(Images instance);
-    partial void UpdateImages(Images instance);
-    partial void DeleteImages(Images instance);
     partial void InsertArticleComments(ArticleComments instance);
     partial void UpdateArticleComments(ArticleComments instance);
     partial void DeleteArticleComments(ArticleComments instance);
     partial void InsertArticle(Article instance);
     partial void UpdateArticle(Article instance);
     partial void DeleteArticle(Article instance);
+    partial void InsertImages(Images instance);
+    partial void UpdateImages(Images instance);
+    partial void DeleteImages(Images instance);
     #endregion
 		
 		public DataClassesDataContext() : 
@@ -258,14 +258,6 @@ namespace MvcGraduate.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<Images> Images
-		{
-			get
-			{
-				return this.GetTable<Images>();
-			}
-		}
-		
 		public System.Data.Linq.Table<ArticleComments> ArticleComments
 		{
 			get
@@ -279,6 +271,14 @@ namespace MvcGraduate.Models
 			get
 			{
 				return this.GetTable<Article>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Images> Images
+		{
+			get
+			{
+				return this.GetTable<Images>();
 			}
 		}
 	}
@@ -2588,11 +2588,11 @@ namespace MvcGraduate.Models
 		
 		private EntitySet<Vacation> _Vacation;
 		
-		private EntitySet<Images> _Images;
-		
 		private EntitySet<ArticleComments> _ArticleComments;
 		
 		private EntitySet<Article> _Article;
+		
+		private EntitySet<Images> _Images;
 		
 		private EntityRef<Grade> _Grade;
 		
@@ -2629,9 +2629,9 @@ namespace MvcGraduate.Models
 			this._Share_Images = new EntitySet<Share_Images>(new Action<Share_Images>(this.attach_Share_Images), new Action<Share_Images>(this.detach_Share_Images));
 			this._SubjectMaterial = new EntitySet<SubjectMaterial>(new Action<SubjectMaterial>(this.attach_SubjectMaterial), new Action<SubjectMaterial>(this.detach_SubjectMaterial));
 			this._Vacation = new EntitySet<Vacation>(new Action<Vacation>(this.attach_Vacation), new Action<Vacation>(this.detach_Vacation));
-			this._Images = new EntitySet<Images>(new Action<Images>(this.attach_Images), new Action<Images>(this.detach_Images));
 			this._ArticleComments = new EntitySet<ArticleComments>(new Action<ArticleComments>(this.attach_ArticleComments), new Action<ArticleComments>(this.detach_ArticleComments));
 			this._Article = new EntitySet<Article>(new Action<Article>(this.attach_Article), new Action<Article>(this.detach_Article));
+			this._Images = new EntitySet<Images>(new Action<Images>(this.attach_Images), new Action<Images>(this.detach_Images));
 			this._Grade = default(EntityRef<Grade>);
 			OnCreated();
 		}
@@ -2917,19 +2917,6 @@ namespace MvcGraduate.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_Images", Storage="_Images", ThisKey="ID", OtherKey="OwnerID")]
-		public EntitySet<Images> Images
-		{
-			get
-			{
-				return this._Images;
-			}
-			set
-			{
-				this._Images.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_ArticleComments", Storage="_ArticleComments", ThisKey="ID", OtherKey="PeopleID")]
 		public EntitySet<ArticleComments> ArticleComments
 		{
@@ -2953,6 +2940,19 @@ namespace MvcGraduate.Models
 			set
 			{
 				this._Article.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_Images", Storage="_Images", ThisKey="ID", OtherKey="OwnerID")]
+		public EntitySet<Images> Images
+		{
+			get
+			{
+				return this._Images;
+			}
+			set
+			{
+				this._Images.Assign(value);
 			}
 		}
 		
@@ -3118,18 +3118,6 @@ namespace MvcGraduate.Models
 			entity.Students = null;
 		}
 		
-		private void attach_Images(Images entity)
-		{
-			this.SendPropertyChanging();
-			entity.Students = this;
-		}
-		
-		private void detach_Images(Images entity)
-		{
-			this.SendPropertyChanging();
-			entity.Students = null;
-		}
-		
 		private void attach_ArticleComments(ArticleComments entity)
 		{
 			this.SendPropertyChanging();
@@ -3149,6 +3137,18 @@ namespace MvcGraduate.Models
 		}
 		
 		private void detach_Article(Article entity)
+		{
+			this.SendPropertyChanging();
+			entity.Students = null;
+		}
+		
+		private void attach_Images(Images entity)
+		{
+			this.SendPropertyChanging();
+			entity.Students = this;
+		}
+		
+		private void detach_Images(Images entity)
 		{
 			this.SendPropertyChanging();
 			entity.Students = null;
@@ -4662,233 +4662,6 @@ namespace MvcGraduate.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Images")]
-	public partial class Images : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private string _ImagePath;
-		
-		private int _OwnerID;
-		
-		private System.Nullable<System.DateTime> _PubLishTime;
-		
-		private string _Description;
-		
-		private EntitySet<Share_Images> _Share_Images;
-		
-		private EntityRef<Students> _Students;
-		
-    #region 可扩展性方法定义
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnImagePathChanging(string value);
-    partial void OnImagePathChanged();
-    partial void OnOwnerIDChanging(int value);
-    partial void OnOwnerIDChanged();
-    partial void OnPubLishTimeChanging(System.Nullable<System.DateTime> value);
-    partial void OnPubLishTimeChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    #endregion
-		
-		public Images()
-		{
-			this._Share_Images = new EntitySet<Share_Images>(new Action<Share_Images>(this.attach_Share_Images), new Action<Share_Images>(this.detach_Share_Images));
-			this._Students = default(EntityRef<Students>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImagePath", DbType="NVarChar(50)")]
-		public string ImagePath
-		{
-			get
-			{
-				return this._ImagePath;
-			}
-			set
-			{
-				if ((this._ImagePath != value))
-				{
-					this.OnImagePathChanging(value);
-					this.SendPropertyChanging();
-					this._ImagePath = value;
-					this.SendPropertyChanged("ImagePath");
-					this.OnImagePathChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OwnerID", DbType="Int NOT NULL")]
-		public int OwnerID
-		{
-			get
-			{
-				return this._OwnerID;
-			}
-			set
-			{
-				if ((this._OwnerID != value))
-				{
-					if (this._Students.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnOwnerIDChanging(value);
-					this.SendPropertyChanging();
-					this._OwnerID = value;
-					this.SendPropertyChanged("OwnerID");
-					this.OnOwnerIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PubLishTime", DbType="Date")]
-		public System.Nullable<System.DateTime> PubLishTime
-		{
-			get
-			{
-				return this._PubLishTime;
-			}
-			set
-			{
-				if ((this._PubLishTime != value))
-				{
-					this.OnPubLishTimeChanging(value);
-					this.SendPropertyChanging();
-					this._PubLishTime = value;
-					this.SendPropertyChanged("PubLishTime");
-					this.OnPubLishTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(50)")]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this.OnDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Images_Share_Images", Storage="_Share_Images", ThisKey="ID", OtherKey="ImageID")]
-		public EntitySet<Share_Images> Share_Images
-		{
-			get
-			{
-				return this._Share_Images;
-			}
-			set
-			{
-				this._Share_Images.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_Images", Storage="_Students", ThisKey="OwnerID", OtherKey="ID", IsForeignKey=true)]
-		public Students Students
-		{
-			get
-			{
-				return this._Students.Entity;
-			}
-			set
-			{
-				Students previousValue = this._Students.Entity;
-				if (((previousValue != value) 
-							|| (this._Students.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Students.Entity = null;
-						previousValue.Images.Remove(this);
-					}
-					this._Students.Entity = value;
-					if ((value != null))
-					{
-						value.Images.Add(this);
-						this._OwnerID = value.ID;
-					}
-					else
-					{
-						this._OwnerID = default(int);
-					}
-					this.SendPropertyChanged("Students");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Share_Images(Share_Images entity)
-		{
-			this.SendPropertyChanging();
-			entity.Images = this;
-		}
-		
-		private void detach_Share_Images(Share_Images entity)
-		{
-			this.SendPropertyChanging();
-			entity.Images = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ArticleComments")]
 	public partial class ArticleComments : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -5429,6 +5202,257 @@ namespace MvcGraduate.Models
 		{
 			this.SendPropertyChanging();
 			entity.Article = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Images")]
+	public partial class Images : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _ImagePath;
+		
+		private int _OwnerID;
+		
+		private System.Nullable<System.DateTime> _PubLishTime;
+		
+		private string _Description;
+		
+		private string _Appendix;
+		
+		private EntitySet<Share_Images> _Share_Images;
+		
+		private EntityRef<Students> _Students;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnImagePathChanging(string value);
+    partial void OnImagePathChanged();
+    partial void OnOwnerIDChanging(int value);
+    partial void OnOwnerIDChanged();
+    partial void OnPubLishTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnPubLishTimeChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnAppendixChanging(string value);
+    partial void OnAppendixChanged();
+    #endregion
+		
+		public Images()
+		{
+			this._Share_Images = new EntitySet<Share_Images>(new Action<Share_Images>(this.attach_Share_Images), new Action<Share_Images>(this.detach_Share_Images));
+			this._Students = default(EntityRef<Students>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImagePath", DbType="NVarChar(50)")]
+		public string ImagePath
+		{
+			get
+			{
+				return this._ImagePath;
+			}
+			set
+			{
+				if ((this._ImagePath != value))
+				{
+					this.OnImagePathChanging(value);
+					this.SendPropertyChanging();
+					this._ImagePath = value;
+					this.SendPropertyChanged("ImagePath");
+					this.OnImagePathChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OwnerID", DbType="Int NOT NULL")]
+		public int OwnerID
+		{
+			get
+			{
+				return this._OwnerID;
+			}
+			set
+			{
+				if ((this._OwnerID != value))
+				{
+					if (this._Students.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOwnerIDChanging(value);
+					this.SendPropertyChanging();
+					this._OwnerID = value;
+					this.SendPropertyChanged("OwnerID");
+					this.OnOwnerIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PubLishTime", DbType="Date")]
+		public System.Nullable<System.DateTime> PubLishTime
+		{
+			get
+			{
+				return this._PubLishTime;
+			}
+			set
+			{
+				if ((this._PubLishTime != value))
+				{
+					this.OnPubLishTimeChanging(value);
+					this.SendPropertyChanging();
+					this._PubLishTime = value;
+					this.SendPropertyChanged("PubLishTime");
+					this.OnPubLishTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(50)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Appendix", DbType="NVarChar(50)")]
+		public string Appendix
+		{
+			get
+			{
+				return this._Appendix;
+			}
+			set
+			{
+				if ((this._Appendix != value))
+				{
+					this.OnAppendixChanging(value);
+					this.SendPropertyChanging();
+					this._Appendix = value;
+					this.SendPropertyChanged("Appendix");
+					this.OnAppendixChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Images_Share_Images", Storage="_Share_Images", ThisKey="ID", OtherKey="ImageID")]
+		public EntitySet<Share_Images> Share_Images
+		{
+			get
+			{
+				return this._Share_Images;
+			}
+			set
+			{
+				this._Share_Images.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_Images", Storage="_Students", ThisKey="OwnerID", OtherKey="ID", IsForeignKey=true)]
+		public Students Students
+		{
+			get
+			{
+				return this._Students.Entity;
+			}
+			set
+			{
+				Students previousValue = this._Students.Entity;
+				if (((previousValue != value) 
+							|| (this._Students.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Students.Entity = null;
+						previousValue.Images.Remove(this);
+					}
+					this._Students.Entity = value;
+					if ((value != null))
+					{
+						value.Images.Add(this);
+						this._OwnerID = value.ID;
+					}
+					else
+					{
+						this._OwnerID = default(int);
+					}
+					this.SendPropertyChanged("Students");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Share_Images(Share_Images entity)
+		{
+			this.SendPropertyChanging();
+			entity.Images = this;
+		}
+		
+		private void detach_Share_Images(Share_Images entity)
+		{
+			this.SendPropertyChanging();
+			entity.Images = null;
 		}
 	}
 }

@@ -15,7 +15,7 @@ namespace MvcGraduate.Controllers
             return View();
         }
 
-        #region 详情页
+        #region Details
         public PartialViewResult Detail_Notify(int id = 4)
         {
             var res = DetailsClass.Detail_Notify(id);
@@ -28,7 +28,7 @@ namespace MvcGraduate.Controllers
         }
         #endregion
 
-        #region ajax请求
+        #region HttpPost
         [HttpPost]
         public PartialViewResult GetAllNotify(int id=1208203301)
         {

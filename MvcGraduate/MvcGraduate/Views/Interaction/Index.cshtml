@@ -24,10 +24,18 @@
         {
             $.post(
                 "@Url.Action("GetArticle", "Interaction")",
-        { "id": 1208203301 },
-        function (data) {
-            $('.navigation_centre_right').html(data);
-        });
+                { "id": 1208203301 },
+                function (data) {
+                    $('.navigation_centre_right').html(data);
+            });
+        }
+        function GetQuestions() {
+            $.post(
+                "@Url.Action("GetQuestions", "Interaction")",
+                { "id": 1208203301 },
+                function (data) {
+                    $('.navigation_centre_right').html(data);
+            });
         }
     </script>
 }
@@ -37,7 +45,7 @@
         <div>分享照片</div>
         <div onclick="GetArticle()">文章管理</div>
         <div>分享文章</div>
-        <div>我的提问</div>
+        <div onclick="GetQuestions()">我的提问</div>
     </div>
     <div class="navigation_centre_right">
 

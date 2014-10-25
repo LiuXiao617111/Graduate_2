@@ -15,7 +15,7 @@ namespace MvcGraduate.Controllers
             return View();
         }
 
-        #region 详情页面
+        #region Details
         public PartialViewResult Details_HomeWork(int id = 1)
         {
             var res = DetailsClass.Details_HomeWork(id);
@@ -27,7 +27,8 @@ namespace MvcGraduate.Controllers
             return PartialView(res);
         }
         #endregion
-        #region HttpPost请求
+
+        #region HttpPost
         [HttpPost]
         public PartialViewResult GetHomeWork(int id = 1208203301)
         {

@@ -552,6 +552,9 @@
     <Content Include="Views\Interaction\GetArticle.cshtml" />
     <Content Include="Views\Interaction\Details_Article.cshtml" />
     <Content Include="Views\Interaction\Edit_Article.cshtml" />
+    <Content Include="Views\Interaction\Edit_Images.cshtml" />
+    <Content Include="Views\Interaction\GetQuestions.cshtml" />
+    <Content Include="Views\Interaction\Details_Question.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

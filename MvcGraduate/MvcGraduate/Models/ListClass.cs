@@ -89,6 +89,10 @@ namespace MvcGraduate.Models
         {
             return db.Vacation.Where(n => n.PeopleID == id);
         }
+        public IEnumerable<Questions> GetQuestions(int id)
+        {
+            return db.Questions.Where(n => n.StudentID == id);
+        }
         //未实现
         public IEnumerable<Vacation> GetScore(int id)
         {

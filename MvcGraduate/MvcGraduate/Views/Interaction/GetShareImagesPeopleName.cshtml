@@ -33,7 +33,7 @@
                                         <a href="#">管理评论</a>
                                     </p>
                                     <p>
-                                        <a href="#">修改</a>
+                                        <a href="@Url.Action("Edit_Images", "Interaction", new { id = item.ID })">修改</a>
                                         <a href="javascript:;" onclick="window.open('@Url.Action("Details_HomeWork", "Study",new {id= item.ID})', '', 'height=500,width=820,status=1,toolbar=no,menubar=no,location=no,scrollbars=yes,left=200,top=100,resizable=yes');">分享</a>
                                         <a href="#">删除</a>
                                     </p>
