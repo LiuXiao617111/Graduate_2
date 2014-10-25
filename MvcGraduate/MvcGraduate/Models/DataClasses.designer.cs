@@ -90,6 +90,9 @@ namespace MvcGraduate.Models
     partial void InsertImages(Images instance);
     partial void UpdateImages(Images instance);
     partial void DeleteImages(Images instance);
+    partial void InsertImageComments(ImageComments instance);
+    partial void UpdateImageComments(ImageComments instance);
+    partial void DeleteImageComments(ImageComments instance);
     #endregion
 		
 		public DataClassesDataContext() : 
@@ -279,6 +282,14 @@ namespace MvcGraduate.Models
 			get
 			{
 				return this.GetTable<Images>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ImageComments> ImageComments
+		{
+			get
+			{
+				return this.GetTable<ImageComments>();
 			}
 		}
 	}
@@ -2594,6 +2605,8 @@ namespace MvcGraduate.Models
 		
 		private EntitySet<Images> _Images;
 		
+		private EntitySet<ImageComments> _ImageComments;
+		
 		private EntityRef<Grade> _Grade;
 		
     #region 可扩展性方法定义
@@ -2632,6 +2645,7 @@ namespace MvcGraduate.Models
 			this._ArticleComments = new EntitySet<ArticleComments>(new Action<ArticleComments>(this.attach_ArticleComments), new Action<ArticleComments>(this.detach_ArticleComments));
 			this._Article = new EntitySet<Article>(new Action<Article>(this.attach_Article), new Action<Article>(this.detach_Article));
 			this._Images = new EntitySet<Images>(new Action<Images>(this.attach_Images), new Action<Images>(this.detach_Images));
+			this._ImageComments = new EntitySet<ImageComments>(new Action<ImageComments>(this.attach_ImageComments), new Action<ImageComments>(this.detach_ImageComments));
 			this._Grade = default(EntityRef<Grade>);
 			OnCreated();
 		}
@@ -2956,6 +2970,19 @@ namespace MvcGraduate.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_ImageComments", Storage="_ImageComments", ThisKey="ID", OtherKey="PeopleID")]
+		public EntitySet<ImageComments> ImageComments
+		{
+			get
+			{
+				return this._ImageComments;
+			}
+			set
+			{
+				this._ImageComments.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grade_Students", Storage="_Grade", ThisKey="GradeID", OtherKey="ID", IsForeignKey=true)]
 		public Grade Grade
 		{
@@ -3149,6 +3176,18 @@ namespace MvcGraduate.Models
 		}
 		
 		private void detach_Images(Images entity)
+		{
+			this.SendPropertyChanging();
+			entity.Students = null;
+		}
+		
+		private void attach_ImageComments(ImageComments entity)
+		{
+			this.SendPropertyChanging();
+			entity.Students = this;
+		}
+		
+		private void detach_ImageComments(ImageComments entity)
 		{
 			this.SendPropertyChanging();
 			entity.Students = null;
@@ -5225,6 +5264,8 @@ namespace MvcGraduate.Models
 		
 		private EntitySet<Share_Images> _Share_Images;
 		
+		private EntitySet<ImageComments> _ImageComments;
+		
 		private EntityRef<Students> _Students;
 		
     #region 可扩展性方法定义
@@ -5248,6 +5289,7 @@ namespace MvcGraduate.Models
 		public Images()
 		{
 			this._Share_Images = new EntitySet<Share_Images>(new Action<Share_Images>(this.attach_Share_Images), new Action<Share_Images>(this.detach_Share_Images));
+			this._ImageComments = new EntitySet<ImageComments>(new Action<ImageComments>(this.attach_ImageComments), new Action<ImageComments>(this.detach_ImageComments));
 			this._Students = default(EntityRef<Students>);
 			OnCreated();
 		}
@@ -5389,6 +5431,19 @@ namespace MvcGraduate.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Images_ImageComments", Storage="_ImageComments", ThisKey="ID", OtherKey="ImageID")]
+		public EntitySet<ImageComments> ImageComments
+		{
+			get
+			{
+				return this._ImageComments;
+			}
+			set
+			{
+				this._ImageComments.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_Images", Storage="_Students", ThisKey="OwnerID", OtherKey="ID", IsForeignKey=true)]
 		public Students Students
 		{
@@ -5453,6 +5508,258 @@ namespace MvcGraduate.Models
 		{
 			this.SendPropertyChanging();
 			entity.Images = null;
+		}
+		
+		private void attach_ImageComments(ImageComments entity)
+		{
+			this.SendPropertyChanging();
+			entity.Images = this;
+		}
+		
+		private void detach_ImageComments(ImageComments entity)
+		{
+			this.SendPropertyChanging();
+			entity.Images = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ImageComments")]
+	public partial class ImageComments : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private int _ImageID;
+		
+		private int _PeopleID;
+		
+		private string _Contents;
+		
+		private System.Nullable<System.DateTime> _Time;
+		
+		private EntityRef<Images> _Images;
+		
+		private EntityRef<Students> _Students;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnImageIDChanging(int value);
+    partial void OnImageIDChanged();
+    partial void OnPeopleIDChanging(int value);
+    partial void OnPeopleIDChanged();
+    partial void OnContentsChanging(string value);
+    partial void OnContentsChanged();
+    partial void OnTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnTimeChanged();
+    #endregion
+		
+		public ImageComments()
+		{
+			this._Images = default(EntityRef<Images>);
+			this._Students = default(EntityRef<Students>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageID", DbType="Int NOT NULL")]
+		public int ImageID
+		{
+			get
+			{
+				return this._ImageID;
+			}
+			set
+			{
+				if ((this._ImageID != value))
+				{
+					if (this._Images.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnImageIDChanging(value);
+					this.SendPropertyChanging();
+					this._ImageID = value;
+					this.SendPropertyChanged("ImageID");
+					this.OnImageIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PeopleID", DbType="Int NOT NULL")]
+		public int PeopleID
+		{
+			get
+			{
+				return this._PeopleID;
+			}
+			set
+			{
+				if ((this._PeopleID != value))
+				{
+					if (this._Students.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPeopleIDChanging(value);
+					this.SendPropertyChanging();
+					this._PeopleID = value;
+					this.SendPropertyChanged("PeopleID");
+					this.OnPeopleIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contents", DbType="NVarChar(150)")]
+		public string Contents
+		{
+			get
+			{
+				return this._Contents;
+			}
+			set
+			{
+				if ((this._Contents != value))
+				{
+					this.OnContentsChanging(value);
+					this.SendPropertyChanging();
+					this._Contents = value;
+					this.SendPropertyChanged("Contents");
+					this.OnContentsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Time", DbType="Date")]
+		public System.Nullable<System.DateTime> Time
+		{
+			get
+			{
+				return this._Time;
+			}
+			set
+			{
+				if ((this._Time != value))
+				{
+					this.OnTimeChanging(value);
+					this.SendPropertyChanging();
+					this._Time = value;
+					this.SendPropertyChanged("Time");
+					this.OnTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Images_ImageComments", Storage="_Images", ThisKey="ImageID", OtherKey="ID", IsForeignKey=true)]
+		public Images Images
+		{
+			get
+			{
+				return this._Images.Entity;
+			}
+			set
+			{
+				Images previousValue = this._Images.Entity;
+				if (((previousValue != value) 
+							|| (this._Images.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Images.Entity = null;
+						previousValue.ImageComments.Remove(this);
+					}
+					this._Images.Entity = value;
+					if ((value != null))
+					{
+						value.ImageComments.Add(this);
+						this._ImageID = value.ID;
+					}
+					else
+					{
+						this._ImageID = default(int);
+					}
+					this.SendPropertyChanged("Images");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_ImageComments", Storage="_Students", ThisKey="PeopleID", OtherKey="ID", IsForeignKey=true)]
+		public Students Students
+		{
+			get
+			{
+				return this._Students.Entity;
+			}
+			set
+			{
+				Students previousValue = this._Students.Entity;
+				if (((previousValue != value) 
+							|| (this._Students.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Students.Entity = null;
+						previousValue.ImageComments.Remove(this);
+					}
+					this._Students.Entity = value;
+					if ((value != null))
+					{
+						value.ImageComments.Add(this);
+						this._PeopleID = value.ID;
+					}
+					else
+					{
+						this._PeopleID = default(int);
+					}
+					this.SendPropertyChanged("Students");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

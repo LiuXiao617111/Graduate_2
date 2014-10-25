@@ -557,6 +557,8 @@
     <Content Include="Views\Interaction\GetShareArticle.cshtml" />
     <Content Include="Views\Interaction\GetImagesInfo.cshtml" />
     <Content Include="Views\Interaction\GetShareImagesInfo.cshtml" />
+    <Content Include="Views\Interaction\GetImagesComments.cshtml" />
+    <Content Include="Views\Interaction\GetShareImagesComments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -113,6 +113,18 @@ namespace MvcGraduate.Controllers
             ViewBag.MyTitle = "我的提问";
             return PartialView(res);
         }
+        [HttpPost]
+        public PartialViewResult GetImagesComments(int id = 1)
+        {
+            var res = hClass.GetImagesComments(id);//获取对应照片的评论
+            return PartialView(res);
+        }
+        [HttpPost]
+        public PartialViewResult GetShareImagesComments(int id = 1)
+        {
+            var res = hClass.GetImagesComments(id);//获取对应照片的评论
+            return PartialView(res);
+        }
         #endregion
     }
 }

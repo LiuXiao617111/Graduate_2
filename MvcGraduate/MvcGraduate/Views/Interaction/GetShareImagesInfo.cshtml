@@ -24,7 +24,7 @@
                                 <td>
                                     <p>
                                         <a href="javascript:;" onclick="window.open('@Url.Action("Details_Images", "Interaction", new { id = item.ID })', '', 'height=500,width=820,status=1,toolbar=no,menubar=no,location=no,scrollbars=yes,left=200,top=100,resizable=yes');">详情</a>
-                                        <a style="margin-left:10px" href="#">查看评论</a>
+                                        <a href="#" style="margin-left:10px" onclick="GetShareImages_Comments(@item.ID)">查看评论</a>
                                     </p>
                                 </td>
                             </tr>

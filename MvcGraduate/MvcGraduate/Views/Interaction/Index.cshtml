@@ -53,6 +53,24 @@
                     $('.navigation_centre_right').html(data);
             });
         }
+        function GetImages_Comments(id)
+        {
+            $.post(
+                "@Url.Action("GetImagesComments", "Interaction")",
+                { "id": id },
+                function (data) {
+                    $('.navigation_centre_right').html(data);
+            });
+        }
+        function GetShareImages_Comments(id)
+        {
+            $.post(
+                "@Url.Action("GetShareImagesComments", "Interaction")",
+                { "id": id },
+                function (data) {
+                    $('.navigation_centre_right').html(data);
+            });
+        }
         
     </script>
 }

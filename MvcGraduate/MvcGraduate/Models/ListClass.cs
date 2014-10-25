@@ -126,6 +126,10 @@ namespace MvcGraduate.Models
         {
             return db.ArticleComments.Where(n => n.AriticleID == id);
         }
+        public IEnumerable<ImageComments> GetImagesComments(int id)
+        {
+            return db.ImageComments.Where(n => n.ImageID == id);
+        }
         #endregion
 
         #region 私有函数
