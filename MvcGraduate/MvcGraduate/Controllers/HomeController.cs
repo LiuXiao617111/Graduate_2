@@ -39,7 +39,7 @@ namespace MvcGraduate.Controllers
         [HttpPost]
         public PartialViewResult GetShareArt(int id = 1208203301)
         {
-            var res = hClass.GetShareicle(id);
+            var res = hClass.GetShareArticle(id);
             return PartialView(res);
         }
         [HttpPost]

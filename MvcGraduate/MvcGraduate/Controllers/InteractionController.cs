@@ -21,7 +21,11 @@ namespace MvcGraduate.Controllers
             var res = DetailsClass.Details_Images(id);
             //获取分享的名称
             var sharesName = "";
-            res.Share_Images.ToList().ForEach(n => sharesName += n.Students.Name);
+            res.Share_Images.ToList().ForEach(n => sharesName = sharesName+n.Students.Name.Trim()+",");
+            if (sharesName != "")
+            {
+                sharesName = sharesName.Substring(0, sharesName.Length - 1);
+            }
             ViewBag.SharesName = sharesName;
 
             return PartialView(res);
@@ -79,15 +83,27 @@ namespace MvcGraduate.Controllers
 
         #region HttpPost
         [HttpPost]
-        public PartialViewResult GetShareImagesPeopleName(int id = 1208203301)
+        public PartialViewResult GetImagesInfo(int id = 1208203301)
         {
             var res = hClass.GetImagesInfo(id);//获取所有的图片
+            return PartialView(res);
+        }
+        [HttpPost]
+        public PartialViewResult GetShareImagesInfo(int id = 1208203301)
+        {
+            var res = hClass.GetShareImagesInfo(id);//获取所有的图片
             return PartialView(res);
         }
         [HttpPost]
         public PartialViewResult GetArticle(int id = 1208203301)
         {
             var res = hClass.GetArticle(id);//获取所有的图片
+            return PartialView(res);
+        }
+        [HttpPost]
+        public PartialViewResult GetShareArticle(int id = 1208203301)
+        {
+            var res = hClass.GetShareArticle(id);//获取分享文章
             return PartialView(res);
         }
         [HttpPost]

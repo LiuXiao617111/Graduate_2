@@ -20,12 +20,12 @@
                             var sharesName = "";
                             foreach (var str in item.Share_Images)
                             {
-                                sharesName += str.Students.Name+",";
+                                sharesName += str.Students.Name + ",";
                             }
                             sharesName = sharesName.Substring(0, sharesName.Length - 1);
                             <tr>
                                 <td><input type="checkbox" value="checkbox" /></td>
-                                <td><img src="@item.ImagePath"/> </td>
+                                <td><img src="@item.ImagePath" /> </td>
                                 <td>@sharesName</td>
                                 <td>
                                     <p>

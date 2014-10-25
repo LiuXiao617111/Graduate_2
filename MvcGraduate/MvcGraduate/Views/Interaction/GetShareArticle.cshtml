@@ -1,0 +1,39 @@
+﻿<div class="frame_main">
+    <ul>
+        <li class="frame_title_line">
+            <div class="frame_title">分享文章</div>
+        </li>
+
+        <li class="detaile_line">
+            <table>
+                <tbody>
+                    <tr class="td_head" height="45">
+                        <td style="width:30%;">文章标题</td>
+                        <td style="width:15%;">撰写人</td>
+                        <td style="width:20%;">写作日期</td>
+                        <td style="width:10%;">点击数</td>
+                        <td style="width:25%;">操作</td>
+                    </tr>
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Title</td>
+                                <td>@item.Students.Name</td>
+                                <td>@item.Time.ToShortDateString()</td>
+                                <td>@item.ClickRate</td>
+                                <td>
+                                    <p>
+                                        <a href="javascript:;" onclick="window.open('@Url.Action("Details_Article", "Interaction", new { id = item.ID })', '', 'height=500,width=820,status=1,toolbar=no,menubar=no,location=no,scrollbars=yes,left=200,top=100,resizable=yes');">详情</a>
+                                        <a href="#">查看评论</a>
+                                    </p>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </li>
+    </ul>
+</div>

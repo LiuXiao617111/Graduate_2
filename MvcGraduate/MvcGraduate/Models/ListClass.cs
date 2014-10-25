@@ -25,7 +25,7 @@ namespace MvcGraduate.Models
         {
             return db.Article.Where(n => n.WritingID == id);
         }
-        public IEnumerable<Article> GetShareicle(int id)
+        public IEnumerable<Article> GetShareArticle(int id)
         {
             return db.Share_Article.Where(n => n.SharedID == id).Select((n)=>n.Article );
         }
@@ -118,9 +118,9 @@ namespace MvcGraduate.Models
         {
             return db.Images.Where(n => n.OwnerID == id);
         }
-        public IEnumerable<string> GetShareImagesPeopleName(int id)
+        public IEnumerable<Images> GetShareImagesInfo(int id)
         {
-            return db.Share_Images.Where(n => n.ImageID == id).Select(n => n.Students.Name);
+            return db.Share_Images.Where(n => n.StudentID == id).Select(n => n.Images);
         }
         public IEnumerable<ArticleComments> GetArticleComments(int id)
         {
