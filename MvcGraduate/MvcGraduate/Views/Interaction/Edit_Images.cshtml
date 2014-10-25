@@ -50,17 +50,17 @@
                     <td colspan="2">
                         <div style="margin-left:4px;font-size:12px">照片描述：</div>
                         <div id="editor" style="width:1120px;height:500px;"></div>
-                </td>
-            </tr>
-            <tr align="center">
-                <td nowrap="" colspan="2" class="TableControl">
-                    <input class="BigButton" type="submit" value="保存" />
-                    <input style="margin-left:30px;" class="BigButton" type="button" value="关闭" />
-                </td>
-            </tr>
-        </table>
-    </form>
-</div>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td nowrap="" colspan="2" class="TableControl">
+                        <input class="BigButton" type="submit" value="保存" />
+                        <input style="margin-left:30px;" class="BigButton" type="button" value="关闭" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
 </body>
 <script type="text/javascript">
     //实例化编辑器
@@ -68,7 +68,6 @@
     var ue = UE.getEditor('editor');
     ue.ready(function () {
         //设置编辑器的内容
-        alert("@ViewBag.TT ");
-        ue.execCommand('insertHtml', "@Html.DisplayFor(model => model.Description)<p>我的任务</p>");
+        ue.execCommand('insertHtml', "@Html.Raw(Model.Description)<p>我的任务</p>");
     });
 </script>
