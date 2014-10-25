@@ -633,7 +633,6 @@
     <Content Include="Views\Interaction\GetArticle.cshtml" />
     <Content Include="Views\Interaction\Details_Article.cshtml" />
     <Content Include="Views\Interaction\Edit_Article.cshtml" />
-    <Content Include="Views\Interaction\Edit_Images.cshtml" />
     <Content Include="Views\Interaction\GetQuestions.cshtml" />
     <Content Include="Views\Interaction\Details_Question.cshtml" />
     <Content Include="Views\Interaction\GetShareArticle.cshtml" />
@@ -641,6 +640,7 @@
     <Content Include="Views\Interaction\GetShareImagesInfo.cshtml" />
     <Content Include="Views\Interaction\GetImagesComments.cshtml" />
     <Content Include="Views\Interaction\GetShareImagesComments.cshtml" />
+    <Content Include="Views\Interaction\Edit_Images.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

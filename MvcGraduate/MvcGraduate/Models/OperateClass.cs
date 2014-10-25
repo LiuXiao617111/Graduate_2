@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace MvcGraduate.Models
 {
@@ -39,6 +40,25 @@ namespace MvcGraduate.Models
                 db.Article.DeleteOnSubmit(db.Article.Single(n => n.ID == Convert.ToInt32(strs[i])));
             }
             db.SubmitChanges();
+        }
+        public void DelQuestion(int id)
+        {
+            db.Questions.DeleteOnSubmit(db.Questions.Single(n => n.ID == id));
+            db.SubmitChanges();
+        }
+        public bool SaveImageChange(FormCollection form)
+        {
+            var image = db.Images.Single(n => n.ID == Convert.ToInt32(form["ID"]));
+            image.Description = form["editorValue"];
+            image.Appendix = form["Appendix"];
+            try
+            {
+                db.SubmitChanges();
+                return true;
+            }
+            catch {
+                return false;
+            }
         }
         
     }

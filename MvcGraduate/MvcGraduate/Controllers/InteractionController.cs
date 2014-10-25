@@ -55,7 +55,6 @@ namespace MvcGraduate.Controllers
         #endregion
 
         #region Edit
-        [ValidateInput(false)]
         public PartialViewResult Edit_Article(int id = 14)
         {
             var res = DetailsClass.Details_Article(id);
@@ -73,6 +72,7 @@ namespace MvcGraduate.Controllers
         }
         public PartialViewResult Edit_Images(int id = 1)
         {
+            ViewBag.TT = "<p>后台的viewBag</p>";
             var res = DetailsClass.Details_Images(id);
             string sharesName = "";
             foreach (var item in res.Share_Images)
@@ -144,6 +144,20 @@ namespace MvcGraduate.Controllers
         public void DelArticle(string ids)
         {
             oClass.DelArticle(ids);
+        }
+        [HttpPost]
+        public void DelQuestion(int id)
+        {
+            oClass.DelQuestion(id);
+        }
+        #endregion
+
+        #region HttpPost SaveChange
+        [ValidateInput(false)]
+        [HttpPost]
+        public void SaveImageChange(FormCollection form)
+        {
+            oClass.SaveImageChange(form);
         }
         #endregion
     }

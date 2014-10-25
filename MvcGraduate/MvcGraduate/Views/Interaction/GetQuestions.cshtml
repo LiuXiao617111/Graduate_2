@@ -14,7 +14,7 @@
                         {
                             <li>
                                 <span class="info" onclick="window.open('@Url.Action("Details_Question", "Interaction", new { id = item.ID })', '', 'height=500,width=820,status=1,toolbar=no,menubar=no,location=no,scrollbars=yes,left=200,top=100,resizable=yes');">@item.Title</span>
-                                <span class="time"><a href="#">删除</a>@item.Time.ToShortDateString()</span>
+                                <span class="time"><a href="javascript:;" onclick="Delete_This(@item.ID)">删除</a>@item.Time.ToShortDateString()</span>
                             </li>
                         }
                     }
@@ -23,3 +23,24 @@
         </li>
     </ul>
 </div>
+<script type="text/javascript" src="~/Content/EasyUi/jquery.easyui.min.js"></script>
+<script>
+    function Check_all(org) {
+        if ($(org).attr("checked") == "checked")
+            $("table :checkbox").attr("checked", true);
+        else
+            $("table :checkbox").attr("checked", false);
+    }
+    function Delete_This(id) {
+        $.messager.confirm('警告', '你确定要删除吗?', function (r) {
+            if (r) {
+                $.post(
+                    "@Url.Action("DelQuestion", "Interaction")",
+                    { "ids": id },
+                    function () {
+                        location.reload();
+                    });
+            }
+        });
+    }
+</script>
