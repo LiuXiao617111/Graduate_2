@@ -639,9 +639,10 @@
     <Content Include="Views\Interaction\GetImagesInfo.cshtml" />
     <Content Include="Views\Interaction\GetShareImagesInfo.cshtml" />
     <Content Include="Views\Interaction\GetImagesComments.cshtml" />
-    <Content Include="Views\Interaction\GetShareImagesComments.cshtml" />
     <Content Include="Views\Interaction\Edit_Images.cshtml" />
-    <Content Include="Views\Interaction\SaveImageChange.cshtml" />
+    <Content Include="Views\Interaction\SaveChange.cshtml" />
+    <Content Include="Views\Interaction\GetArticleComments.cshtml" />
+    <Content Include="Views\Interaction\ShareComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

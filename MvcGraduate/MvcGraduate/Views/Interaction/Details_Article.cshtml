@@ -15,7 +15,7 @@
         <div class="article_titel">@Model.Title</div>
         <div class="article_info">发布时间：@Model.Time&nbsp;&nbsp;&nbsp;&nbsp;作者：@Model.Students.Name&nbsp;&nbsp;&nbsp;&nbsp; 人气：@Model.ClickRate</div>
         <div class="article_content">
-            @Model.Contents
+            @Html.Raw(Model.Contents)
             <br />
         </div>
         <div class="article_attachment">
@@ -53,8 +53,8 @@
             <form action="" method="post">
                 <textarea style="width:99%;height:100px" name="COMMENT_CONTENT"></textarea>
                 <div class="article_btn_line">
-                    <input type="hidden" value="43" name="ARTICLE_ID">
-                    <input type="hidden" value="" name="MANAGE">
+                    <input type="hidden" value="43" >
+                    <input type="hidden" value="" >
                     <input type="button" id="save_article_comment" value="发表">
                 </div>
             </form>

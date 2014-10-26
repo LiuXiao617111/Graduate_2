@@ -20,7 +20,7 @@
             </tr>
             <tr>
                 <td align="center">内容</td>
-                <td>@Model.Contents</td>
+                <td>@Html.Raw(Model.Contents)</td>
             </tr>
             <tr>
                 <td align="center">发布时间</td>
@@ -40,7 +40,7 @@
             </tr>
             <tr align="center">
                 <td nowrap="" colspan="2" class="TableControl">
-                    <input class="BigButton" type="button" value="关闭" />
+                    <input class="BigButton" type="button" value="关闭" onclick="window.close()" />
                 </td>
             </tr>
         </table>

@@ -25,8 +25,8 @@
                                 <td>@item.Contents</td>
                                 <td>
                                     <p>
-                                        <a href="javascript:;" onclick="window.open('@Url.Action("Details_Images", "Interaction", new { id = item.ID })', '', 'height=500,width=820,status=1,toolbar=no,menubar=no,location=no,scrollbars=yes,left=200,top=100,resizable=yes');">详情信息</a>
-                                        <a href="#">删除</a>
+                                        <a href="javascript:;" onclick="window.open('@Url.Action("Details_Images", "Interaction", new { id = item.ImageID })', '', 'height=500,width=820,status=1,toolbar=no,menubar=no,location=no,scrollbars=yes,left=200,top=100,resizable=yes');">详情信息</a>
+                                        <a href="javascript:;" onclick="Delete_This(@item.ID)">删除</a>
                                     </p>
                                 </td>
                             </tr>
@@ -37,3 +37,18 @@
         </li>
     </ul>
 </div>
+<script type="text/javascript" src="~/Content/EasyUi/jquery.easyui.min.js"></script>
+<script>
+    function Delete_This(id) {
+        $.messager.confirm('警告', '你确定要删除吗?', function (r) {
+            if (r) {
+                $.post(
+                    "@Url.Action("DelImageComment", "Interaction")",
+                    { "id": id },
+                    function () {
+                        location.reload();
+                    });
+            }
+        });
+    }
+</script>

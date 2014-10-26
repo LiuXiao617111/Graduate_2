@@ -25,7 +25,7 @@
             </tr>
             <tr>
                 <td align="center">照片描述</td>
-                <td>@Model.Description</td>
+                <td>@Html.Raw(Model.Description)</td>
             </tr>
             <tr>
                 <td align="center">分享给：</td>
@@ -37,7 +37,7 @@
             </tr>
             <tr align="center">
                 <td nowrap="" colspan="2" class="TableControl">
-                    <input class="BigButton" type="button" value="关闭" />
+                    <input class="BigButton" type="button" value="关闭" onclick="window.close()" />
                 </td>
             </tr>
         </table>

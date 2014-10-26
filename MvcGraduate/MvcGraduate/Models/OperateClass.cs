@@ -46,6 +46,16 @@ namespace MvcGraduate.Models
             db.Questions.DeleteOnSubmit(db.Questions.Single(n => n.ID == id));
             db.SubmitChanges();
         }
+        public void DelImageComments(int id)
+        {
+            db.ImageComments.DeleteOnSubmit(db.ImageComments.Single(n => n.ID == id));
+            db.SubmitChanges();
+        }
+        public void DelArticleComments(int id)
+        {
+            db.ArticleComments.DeleteOnSubmit(db.ArticleComments.Single(n => n.ID == id));
+            db.SubmitChanges();
+        }
         public bool SaveImageChange(FormCollection form)
         {
             var image = db.Images.Single(n => n.ID == Convert.ToInt32(form["ID"]));
@@ -57,6 +67,21 @@ namespace MvcGraduate.Models
                 return true;
             }
             catch {
+                return false;
+            }
+        }
+        public bool SaveArticleChange(FormCollection form)
+        {
+            var article = db.Article.Single(n => n.ID == Convert.ToInt32(form["ID"]));
+            article.Contents = form["editorValue"];
+            article.Appendix = form["Appendix"];
+            try
+            {
+                db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
                 return false;
             }
         }

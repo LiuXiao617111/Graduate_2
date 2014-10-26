@@ -124,7 +124,7 @@ namespace MvcGraduate.Models
         }
         public IEnumerable<ArticleComments> GetArticleComments(int id)
         {
-            return db.ArticleComments.Where(n => n.AriticleID == id);
+            return db.ArticleComments.Where(n => n.ArticleID == id);
         }
         public IEnumerable<ImageComments> GetImagesComments(int id)
         {

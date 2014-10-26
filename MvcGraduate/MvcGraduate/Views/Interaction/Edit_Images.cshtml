@@ -22,8 +22,10 @@
                 </td>
             </tr>
         </table>
-        <form method="post" action="@Url.Action("SaveImageChange", "Interaction")">
+        @using (Html.BeginForm("SaveChange", "Interaction", FormMethod.Post))
+        {
             @Html.HiddenFor(model => model.ID)
+            @Html.Hidden("Sign","Picture")
             <table width="80%" align="center" class="TableBlock">
                 <tr style="height:50px">
                     <td style="width:146px;" align="center">分享给：</td>
@@ -57,11 +59,11 @@
                 <tr align="center">
                     <td nowrap="" colspan="2" class="TableControl">
                         <input class="BigButton" type="submit" value="保存" />
-                        <input style="margin-left:30px;" class="BigButton" type="button" value="关闭" />
+                        <input style="margin-left:30px;" class="BigButton" type="button" value="关闭" onclick="window.close()" />
                     </td>
                 </tr>
             </table>
-        </form>
+        }
     </div>
 </body>
 <script type="text/javascript">

@@ -53,6 +53,24 @@
                     $('.navigation_centre_right').html(data);
             });
         }
+        function GetArticle_Comments(id)
+        {
+            $.post(
+                "@Url.Action("GetArticleComments", "Interaction")",
+                { "id": id },
+                function (data) {
+                    $('.navigation_centre_right').html(data);
+            });
+        }
+        function GetShareArticle_Comments(id)
+        {
+            $.post(
+                "@Url.Action("GetShareArticleComments", "Interaction")",
+                { "id": id },
+                function (data) {
+                    $('.navigation_centre_right').html(data);
+            });
+        }
         function GetImages_Comments(id)
         {
             $.post(
@@ -71,7 +89,6 @@
                     $('.navigation_centre_right').html(data);
             });
         }
-        
     </script>
 }
 
