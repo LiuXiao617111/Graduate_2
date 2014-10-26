@@ -9,6 +9,7 @@ namespace MvcGraduate.Controllers
 {
     public class GradeController : Controller
     {
+        private DetailsClass dClass = new DetailsClass();
         private ListClass hClass = new ListClass();
         public ActionResult Index()
         {
@@ -18,7 +19,7 @@ namespace MvcGraduate.Controllers
         #region 详情页
         public PartialViewResult Details_SubjectMaterial(int id=4)
         {
-            var res = DetailsClass.Details_SubjectMaterial(id);
+            var res = dClass.Details_SubjectMaterial(id);
             return PartialView(res);
         }
         #endregion

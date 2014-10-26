@@ -641,6 +641,7 @@
     <Content Include="Views\Interaction\GetImagesComments.cshtml" />
     <Content Include="Views\Interaction\GetShareImagesComments.cshtml" />
     <Content Include="Views\Interaction\Edit_Images.cshtml" />
+    <Content Include="Views\Interaction\SaveImageChange.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -9,6 +9,7 @@ namespace MvcGraduate.Controllers
 {
     public class NotifyNewsController : Controller
     {
+        private DetailsClass dClass = new DetailsClass();
         ListClass hClass = new ListClass();
         public ActionResult Index()
         {
@@ -18,12 +19,12 @@ namespace MvcGraduate.Controllers
         #region Details
         public PartialViewResult Detail_Notify(int id = 4)
         {
-            var res = DetailsClass.Detail_Notify(id);
+            var res = dClass.Detail_Notify(id);
             return PartialView(res);
         }
         public PartialViewResult Details_Notify_School(int id = 3)
         {
-            var res = DetailsClass.Details_Notify_School(id);
+            var res = dClass.Details_Notify_School(id);
             return PartialView(res);
         }
         #endregion
@@ -39,7 +40,7 @@ namespace MvcGraduate.Controllers
         [HttpPost]
         public PartialViewResult GetSchoolNotify()
         {
-            var res = DetailsClass.GetNotify_School();
+            var res = dClass.GetNotify_School();
             ViewBag.MyTitle = "学校新闻";
             return PartialView(res);
         }

@@ -9,11 +9,12 @@ namespace MvcGraduate.Controllers
 {
     public class HomeController : Controller
     {
+        private DetailsClass dClass = new DetailsClass();
         private ListClass hClass = new ListClass();
 
         public ActionResult Index(int id=1208203301)
         {
-            var res = DetailsClass.Details_Student(id);
+            var res = dClass.Details_Student(id);
             ViewBag.AricleCount = res.Article.Count;
             ViewBag.ImageCount = res.Images.Count;
             ViewBag.NotifyCount = hClass.GetNotifyCount(id);

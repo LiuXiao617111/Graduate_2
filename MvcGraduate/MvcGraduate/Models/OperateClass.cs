@@ -60,6 +60,5 @@ namespace MvcGraduate.Models
                 return false;
             }
         }
-        
     }
 }

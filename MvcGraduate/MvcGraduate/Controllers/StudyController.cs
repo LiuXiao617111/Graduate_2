@@ -9,6 +9,7 @@ namespace MvcGraduate.Controllers
 {
     public class StudyController : Controller
     {
+        private DetailsClass dClass = new DetailsClass();
         private ListClass hClass = new ListClass();
         public ActionResult Index()
         {
@@ -18,12 +19,12 @@ namespace MvcGraduate.Controllers
         #region Details
         public PartialViewResult Details_HomeWork(int id = 1)
         {
-            var res = DetailsClass.Details_HomeWork(id);
+            var res = dClass.Details_HomeWork(id);
             return PartialView(res);
         }
         public PartialViewResult Details_Vacation(int id = 1)
         {
-            var res = DetailsClass.Details_Vacation(id);
+            var res = dClass.Details_Vacation(id);
             return PartialView(res);
         }
         #endregion

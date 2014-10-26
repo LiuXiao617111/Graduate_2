@@ -11,6 +11,7 @@ namespace MvcGraduate.Controllers
     {
         ListClass hClass = new ListClass();
         OperateClass oClass = new OperateClass();
+        DetailsClass dClass = new DetailsClass();
         public ActionResult Index()
         {
             return View();
@@ -19,7 +20,7 @@ namespace MvcGraduate.Controllers
         #region Details
         public PartialViewResult Details_Images(int id = 1)
         {
-            var res = DetailsClass.Details_Images(id);
+            var res = dClass.Details_Images(id);
             //获取分享的名称
             var sharesName = "";
             res.Share_Images.ToList().ForEach(n => sharesName = sharesName+n.Students.Name.Trim()+",");
@@ -33,7 +34,7 @@ namespace MvcGraduate.Controllers
         }
         public PartialViewResult Details_Article(int id = 14)
         {
-            var res = DetailsClass.Details_Article(id);
+            var res = dClass.Details_Article(id);
             var sharesName = "";
             foreach (var item in res.ArticleComments)
             {
@@ -49,7 +50,7 @@ namespace MvcGraduate.Controllers
         }
         public PartialViewResult Details_Question(int id = 5)
         {
-            var res = DetailsClass.Details_Question(id);
+            var res = dClass.Details_Question(id);
             return PartialView(res);
         }
         #endregion
@@ -57,7 +58,7 @@ namespace MvcGraduate.Controllers
         #region Edit
         public PartialViewResult Edit_Article(int id = 14)
         {
-            var res = DetailsClass.Details_Article(id);
+            var res = dClass.Details_Article(id);
             string sharesName = "";
             foreach (var item in res.Share_Article)
             {
@@ -72,8 +73,9 @@ namespace MvcGraduate.Controllers
         }
         public PartialViewResult Edit_Images(int id = 1)
         {
-            ViewBag.TT = "<p>后台的viewBag</p>";
-            var res = DetailsClass.Details_Images(id);
+            //原来是用的static来调用方法的，但是一直获取的是原始的。。用非静态的就有用了
+            var res = dClass.Details_Images(id);
+            var tt = res.Description;
             string sharesName = "";
             foreach (var item in res.Share_Images)
             {
@@ -84,6 +86,16 @@ namespace MvcGraduate.Controllers
                 sharesName = sharesName.Substring(0, sharesName.Length - 1);
             }
             ViewBag.SharesName = sharesName;
+            //ASP.NET MVC3中POST之后，页面内容无法更改。
+            //MVC3中，使用ModelState的对象数据，在Cotroller中，我们一旦初始化了ModelState之后，
+            //无论我们对对象怎么操作，在放入视图都不会有任何效果。
+            //视图默认使用的是ModelState的初始化数据，如果要改变种情况，就要让ModelState感觉到我们修改了。
+            //1. 直接清除ModelState；2.修改ModelState中数据。
+            //1： ModelState.Clear();
+            //2：ModelState["PropertyName"] =ModelState["PropertyName2"];
+            //这边不是这个问题。
+            //这边原来是用Static方法获取详情的，一直获取的是老数据
+            //用非static后就是新数据
             return PartialView(res);
         }
         #endregion
@@ -155,9 +167,10 @@ namespace MvcGraduate.Controllers
         #region HttpPost SaveChange
         [ValidateInput(false)]
         [HttpPost]
-        public void SaveImageChange(FormCollection form)
+        public PartialViewResult SaveImageChange(FormCollection form)
         {
             oClass.SaveImageChange(form);
+            return PartialView();
         }
         #endregion
     }
