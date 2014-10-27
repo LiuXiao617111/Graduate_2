@@ -137,8 +137,10 @@ A:active {
 		    list-style-type: none;
 		    height: 40px;
 		    line-height: 20px;
+            margin-left:0px !important;
 		}
 		.NotifyUl li a{
+            margin-left:0px;
 		    padding-left: 55px;
 		    background: url(../../Images/li_point.png) no-repeat;
 		    background-position: 30px 4px;
@@ -220,3 +222,35 @@ A:active {
 				font-size: 14px;	
 				line-height: 18px;
 			}
+            /*大事件*/			
+            .ul_style2 {
+				position: relative;
+				top: 10px;
+				left: 30px;
+				margin: 0 0 0 0;
+                padding:0px;
+                font-size: 14px;
+			}
+			.ul_style2 li {
+				list-style-type: none;
+				height: 40px;
+				font-size: 16px;
+				background: url(../../Images/li_point2.png) no-repeat;
+				background-position: 0px;
+				padding-left: 18px;
+				line-height: 40px;
+			}
+            .ul_style2 span {
+            color: #4993b3;
+            }
+                .ul_style2 li a {
+                    margin-left:10px;
+                    position: absolute;
+                    left: 85px;
+                    display: inline;
+                    color: #1E1E1E;
+                    text-decoration: none;
+                }
+                    .ul_style2 li a:hover {
+                        color:#0088cc;
+                    }

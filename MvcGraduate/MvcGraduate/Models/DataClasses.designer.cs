@@ -93,6 +93,9 @@ namespace MvcGraduate.Models
     partial void InsertArticleComments(ArticleComments instance);
     partial void UpdateArticleComments(ArticleComments instance);
     partial void DeleteArticleComments(ArticleComments instance);
+    partial void InsertHonour(Honour instance);
+    partial void UpdateHonour(Honour instance);
+    partial void DeleteHonour(Honour instance);
     #endregion
 		
 		public DataClassesDataContext() : 
@@ -290,6 +293,14 @@ namespace MvcGraduate.Models
 			get
 			{
 				return this.GetTable<ArticleComments>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Honour> Honour
+		{
+			get
+			{
+				return this.GetTable<Honour>();
 			}
 		}
 	}
@@ -2607,6 +2618,8 @@ namespace MvcGraduate.Models
 		
 		private EntitySet<ArticleComments> _ArticleComments;
 		
+		private EntitySet<Honour> _Honour;
+		
 		private EntityRef<Grade> _Grade;
 		
     #region 可扩展性方法定义
@@ -2646,6 +2659,7 @@ namespace MvcGraduate.Models
 			this._Images = new EntitySet<Images>(new Action<Images>(this.attach_Images), new Action<Images>(this.detach_Images));
 			this._ImageComments = new EntitySet<ImageComments>(new Action<ImageComments>(this.attach_ImageComments), new Action<ImageComments>(this.detach_ImageComments));
 			this._ArticleComments = new EntitySet<ArticleComments>(new Action<ArticleComments>(this.attach_ArticleComments), new Action<ArticleComments>(this.detach_ArticleComments));
+			this._Honour = new EntitySet<Honour>(new Action<Honour>(this.attach_Honour), new Action<Honour>(this.detach_Honour));
 			this._Grade = default(EntityRef<Grade>);
 			OnCreated();
 		}
@@ -2983,6 +2997,19 @@ namespace MvcGraduate.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_Honour", Storage="_Honour", ThisKey="ID", OtherKey="StudentID")]
+		public EntitySet<Honour> Honour
+		{
+			get
+			{
+				return this._Honour;
+			}
+			set
+			{
+				this._Honour.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grade_Students", Storage="_Grade", ThisKey="GradeID", OtherKey="ID", IsForeignKey=true)]
 		public Grade Grade
 		{
@@ -3188,6 +3215,18 @@ namespace MvcGraduate.Models
 		}
 		
 		private void detach_ArticleComments(ArticleComments entity)
+		{
+			this.SendPropertyChanging();
+			entity.Students = null;
+		}
+		
+		private void attach_Honour(Honour entity)
+		{
+			this.SendPropertyChanging();
+			entity.Students = this;
+		}
+		
+		private void detach_Honour(Honour entity)
 		{
 			this.SendPropertyChanging();
 			entity.Students = null;
@@ -3528,6 +3567,8 @@ namespace MvcGraduate.Models
 		
 		private EntitySet<Grades_Teachers> _Grades_Teachers;
 		
+		private EntitySet<Honour> _Honour;
+		
     #region 可扩展性方法定义
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3551,6 +3592,7 @@ namespace MvcGraduate.Models
 		public Teachers()
 		{
 			this._Grades_Teachers = new EntitySet<Grades_Teachers>(new Action<Grades_Teachers>(this.attach_Grades_Teachers), new Action<Grades_Teachers>(this.detach_Grades_Teachers));
+			this._Honour = new EntitySet<Honour>(new Action<Honour>(this.attach_Honour), new Action<Honour>(this.detach_Honour));
 			OnCreated();
 		}
 		
@@ -3707,6 +3749,19 @@ namespace MvcGraduate.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Teachers_Honour", Storage="_Honour", ThisKey="ID", OtherKey="RecordID")]
+		public EntitySet<Honour> Honour
+		{
+			get
+			{
+				return this._Honour;
+			}
+			set
+			{
+				this._Honour.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -3734,6 +3789,18 @@ namespace MvcGraduate.Models
 		}
 		
 		private void detach_Grades_Teachers(Grades_Teachers entity)
+		{
+			this.SendPropertyChanging();
+			entity.Teachers = null;
+		}
+		
+		private void attach_Honour(Honour entity)
+		{
+			this.SendPropertyChanging();
+			entity.Teachers = this;
+		}
+		
+		private void detach_Honour(Honour entity)
 		{
 			this.SendPropertyChanging();
 			entity.Teachers = null;
@@ -5738,6 +5805,246 @@ namespace MvcGraduate.Models
 						this._ArticleID = default(int);
 					}
 					this.SendPropertyChanged("Article");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Honour")]
+	public partial class Honour : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private int _StudentID;
+		
+		private int _RecordID;
+		
+		private string _Details;
+		
+		private System.Nullable<System.DateTime> _Times;
+		
+		private EntityRef<Students> _Students;
+		
+		private EntityRef<Teachers> _Teachers;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnStudentIDChanging(int value);
+    partial void OnStudentIDChanged();
+    partial void OnRecordIDChanging(int value);
+    partial void OnRecordIDChanged();
+    partial void OnDetailsChanging(string value);
+    partial void OnDetailsChanged();
+    partial void OnTimesChanging(System.Nullable<System.DateTime> value);
+    partial void OnTimesChanged();
+    #endregion
+		
+		public Honour()
+		{
+			this._Students = default(EntityRef<Students>);
+			this._Teachers = default(EntityRef<Teachers>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="Int NOT NULL")]
+		public int StudentID
+		{
+			get
+			{
+				return this._StudentID;
+			}
+			set
+			{
+				if ((this._StudentID != value))
+				{
+					if (this._Students.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnStudentIDChanging(value);
+					this.SendPropertyChanging();
+					this._StudentID = value;
+					this.SendPropertyChanged("StudentID");
+					this.OnStudentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RecordID", DbType="Int NOT NULL")]
+		public int RecordID
+		{
+			get
+			{
+				return this._RecordID;
+			}
+			set
+			{
+				if ((this._RecordID != value))
+				{
+					if (this._Teachers.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRecordIDChanging(value);
+					this.SendPropertyChanging();
+					this._RecordID = value;
+					this.SendPropertyChanged("RecordID");
+					this.OnRecordIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Details", DbType="NVarChar(150)")]
+		public string Details
+		{
+			get
+			{
+				return this._Details;
+			}
+			set
+			{
+				if ((this._Details != value))
+				{
+					this.OnDetailsChanging(value);
+					this.SendPropertyChanging();
+					this._Details = value;
+					this.SendPropertyChanged("Details");
+					this.OnDetailsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Times", DbType="Date")]
+		public System.Nullable<System.DateTime> Times
+		{
+			get
+			{
+				return this._Times;
+			}
+			set
+			{
+				if ((this._Times != value))
+				{
+					this.OnTimesChanging(value);
+					this.SendPropertyChanging();
+					this._Times = value;
+					this.SendPropertyChanged("Times");
+					this.OnTimesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_Honour", Storage="_Students", ThisKey="StudentID", OtherKey="ID", IsForeignKey=true)]
+		public Students Students
+		{
+			get
+			{
+				return this._Students.Entity;
+			}
+			set
+			{
+				Students previousValue = this._Students.Entity;
+				if (((previousValue != value) 
+							|| (this._Students.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Students.Entity = null;
+						previousValue.Honour.Remove(this);
+					}
+					this._Students.Entity = value;
+					if ((value != null))
+					{
+						value.Honour.Add(this);
+						this._StudentID = value.ID;
+					}
+					else
+					{
+						this._StudentID = default(int);
+					}
+					this.SendPropertyChanged("Students");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Teachers_Honour", Storage="_Teachers", ThisKey="RecordID", OtherKey="ID", IsForeignKey=true)]
+		public Teachers Teachers
+		{
+			get
+			{
+				return this._Teachers.Entity;
+			}
+			set
+			{
+				Teachers previousValue = this._Teachers.Entity;
+				if (((previousValue != value) 
+							|| (this._Teachers.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Teachers.Entity = null;
+						previousValue.Honour.Remove(this);
+					}
+					this._Teachers.Entity = value;
+					if ((value != null))
+					{
+						value.Honour.Add(this);
+						this._RecordID = value.ID;
+					}
+					else
+					{
+						this._RecordID = default(int);
+					}
+					this.SendPropertyChanged("Teachers");
 				}
 			}
 		}

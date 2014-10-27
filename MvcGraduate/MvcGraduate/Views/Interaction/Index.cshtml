@@ -5,12 +5,27 @@
 @section Scripts {
     <script>
         $('.title_navigate a:eq(4) div').addClass('logo_left_title_select');
-        $.post(
-            "@Url.Action("GetImagesInfo", "Interaction")",
-            { "id": 1208203301 },
-            function (data) {
-                $('.navigation_centre_right').html(data);
-            });
+        $(document).ready(function(){
+            if ("@ViewBag.Redirect" == "RedirectToArticle")
+            {
+                $('.navigation_centre_left div').removeClass('navigation_menu_bg');
+                $('.navigation_centre_left div:eq(2)').addClass('navigation_menu_bg');
+                GetArticle();
+            }
+            else if ("@ViewBag.Redirect" == "RedirectToQuestion") {
+                $('.navigation_centre_left div').removeClass('navigation_menu_bg');
+                $('.navigation_centre_left div:eq(4)').addClass('navigation_menu_bg');
+                GetQuestions();
+            }
+            else{
+                $.post(
+                    "@Url.Action("GetImagesInfo", "Interaction")",
+                    { "id": 1208203301 },
+                    function (data) {
+                        $('.navigation_centre_right').html(data);
+                    });
+            }
+        });
         function ManageImage()
         {
             $.post(
@@ -18,7 +33,7 @@
                 { "id": 1208203301 },
                 function (data) {
                     $('.navigation_centre_right').html(data);
-            });
+                });
         }
         function GetArticle()
         {
@@ -27,7 +42,7 @@
                 { "id": 1208203301 },
                 function (data) {
                     $('.navigation_centre_right').html(data);
-            });
+                });
         }
         function GetQuestions() {
             $.post(
@@ -35,7 +50,7 @@
                 { "id": 1208203301 },
                 function (data) {
                     $('.navigation_centre_right').html(data);
-            });
+                });
         }
         function GetShare_Article() {
             $.post(
@@ -51,7 +66,7 @@
                 { "id": 1208203301 },
                 function (data) {
                     $('.navigation_centre_right').html(data);
-            });
+                });
         }
         function GetArticle_Comments(id)
         {
@@ -60,7 +75,7 @@
                 { "id": id },
                 function (data) {
                     $('.navigation_centre_right').html(data);
-            });
+                });
         }
         function GetShareArticle_Comments(id)
         {
@@ -69,7 +84,7 @@
                 { "id": id },
                 function (data) {
                     $('.navigation_centre_right').html(data);
-            });
+                });
         }
         function GetImages_Comments(id)
         {
@@ -78,7 +93,7 @@
                 { "id": id },
                 function (data) {
                     $('.navigation_centre_right').html(data);
-            });
+                });
         }
         function GetShareImages_Comments(id)
         {
@@ -87,9 +102,9 @@
                 { "id": id },
                 function (data) {
                     $('.navigation_centre_right').html(data);
-            });
+                });
         }
-    </script>
+</script>
 }
 
 <div id="zhuye">

@@ -11,8 +11,9 @@ namespace MvcGraduate.Controllers
     {
         private DetailsClass dClass = new DetailsClass();
         private ListClass hClass = new ListClass();
-        public ActionResult Index()
+        public ActionResult Index(string RedirectStr="Index")
         {
+            ViewBag.Redirect = RedirectStr;
             return View();
         }
 

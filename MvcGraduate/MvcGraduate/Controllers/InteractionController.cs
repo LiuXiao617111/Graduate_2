@@ -12,8 +12,9 @@ namespace MvcGraduate.Controllers
         ListClass hClass = new ListClass();
         OperateClass oClass = new OperateClass();
         DetailsClass dClass = new DetailsClass();
-        public ActionResult Index()
+        public ActionResult Index(string RedirectStr = "RedirectToImage")
         {
+            ViewBag.Redirect = RedirectStr;
             return View();
         }
 

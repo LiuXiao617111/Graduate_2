@@ -643,6 +643,8 @@
     <Content Include="Views\Interaction\SaveChange.cshtml" />
     <Content Include="Views\Interaction\GetArticleComments.cshtml" />
     <Content Include="Views\Interaction\ShareComment.cshtml" />
+    <Content Include="Views\Home\GetQuestion.cshtml" />
+    <Content Include="Views\Home\GetHonour.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

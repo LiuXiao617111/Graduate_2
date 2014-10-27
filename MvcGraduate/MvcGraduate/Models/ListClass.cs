@@ -59,7 +59,11 @@ namespace MvcGraduate.Models
             if (!q.Any())
                 return null;
             return q;
-        }  
+        }
+        public IEnumerable<Honour> GetHonour(int id)
+        {
+            return db.Honour.Where(n => n.StudentID == id);
+        }
         public IEnumerable<Students> GetClassmate(int id)
         {
             //找到班级

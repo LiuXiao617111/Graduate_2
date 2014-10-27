@@ -11,6 +11,7 @@ namespace MvcGraduate.Controllers
     {
         private DetailsClass dClass = new DetailsClass();
         private ListClass hClass = new ListClass();
+        private OperateClass oClass = new OperateClass();
 
         public ActionResult Index(int id=1208203301)
         {
@@ -50,6 +51,13 @@ namespace MvcGraduate.Controllers
             return PartialView(res);
         }
         [HttpPost]
+        public PartialViewResult GetQuestion(int id = 1208203301)
+        {
+            var res = hClass.GetQuestions(id);
+            var tt = res.ToList();
+            return PartialView(res);
+        }
+        [HttpPost]
         public PartialViewResult GetMyImages(int id=120803301)
         {
             var res = hClass.GetmMyImagesPath(id);
@@ -72,6 +80,20 @@ namespace MvcGraduate.Controllers
         {
             var res = hClass.GetBanWei(id);
             return PartialView("GetPeople",res.ToList());
+        }
+        [HttpPost]
+        public PartialViewResult GetHonour(int id = 120803301)
+        {
+            var res = hClass.GetHonour(id);
+            return PartialView(res);
+        }
+        #endregion
+
+        #region Save
+        [HttpPost]
+        public bool SubmitQuestion(string info,int id)
+        {
+            return oClass.AddQuestion(info, id);
         }
         #endregion
     }

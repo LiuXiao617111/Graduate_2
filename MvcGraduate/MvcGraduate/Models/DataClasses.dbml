@@ -131,6 +131,7 @@
       <Association Name="Students_Images" Member="Images" ThisKey="ID" OtherKey="OwnerID" Type="Images" />
       <Association Name="Students_ImageComments" Member="ImageComments" ThisKey="ID" OtherKey="PeopleID" Type="ImageComments" />
       <Association Name="Students_ArticleComments" Member="ArticleComments" ThisKey="ID" OtherKey="PeopleID" Type="ArticleComments" />
+      <Association Name="Students_Honour" Member="Honour" ThisKey="ID" OtherKey="StudentID" Type="Honour" />
       <Association Name="Grade_Students" Member="Grade" ThisKey="GradeID" OtherKey="ID" Type="Grade" IsForeignKey="true" />
     </Type>
   </Table>
@@ -158,6 +159,7 @@
       <Column Name="Picture" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Duty" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
       <Association Name="Teachers_Grades_Teachers" Member="Grades_Teachers" ThisKey="ID" OtherKey="TeacherID" Type="Grades_Teachers" />
+      <Association Name="Teachers_Honour" Member="Honour" ThisKey="ID" OtherKey="RecordID" Type="Honour" />
     </Type>
   </Table>
   <Table Name="dbo.TimeTable" Member="TimeTable">
@@ -253,6 +255,17 @@
       <Column Name="Time" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Association Name="Students_ArticleComments" Member="Students" ThisKey="PeopleID" OtherKey="ID" Type="Students" IsForeignKey="true" />
       <Association Name="Article_ArticleComments" Member="Article" ThisKey="ArticleID" OtherKey="ID" Type="Article" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Honour" Member="Honour">
+    <Type Name="Honour">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StudentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RecordID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Details" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Times" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Students_Honour" Member="Students" ThisKey="StudentID" OtherKey="ID" Type="Students" IsForeignKey="true" />
+      <Association Name="Teachers_Honour" Member="Teachers" ThisKey="RecordID" OtherKey="ID" Type="Teachers" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

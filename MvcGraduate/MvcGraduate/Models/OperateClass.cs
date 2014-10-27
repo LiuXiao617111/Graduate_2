@@ -85,5 +85,20 @@ namespace MvcGraduate.Models
                 return false;
             }
         }
+        public bool AddQuestion(string info, int id)
+        { 
+            Questions item=new Questions();
+            item.Title=info;
+            item.Contents=info;
+            item.Time=DateTime.Now;
+            item.StudentID=id;
+            try
+            {
+                db.Questions.InsertOnSubmit(item);
+                db.SubmitChanges();
+                return true;
+            }
+            catch { return false; }
+        }
     }
 }
