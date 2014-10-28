@@ -7,7 +7,6 @@
         $('.title_navigate a:eq(1) div').addClass('logo_left_title_select');
         $.post(
             "@Url.Action("GetHomeWork", "Study")",
-            { "id": 1208203301 },
             function (data) {
                 $('#Js_Study_RightBigDiv').html(data);
             });
@@ -15,7 +14,6 @@
         function GetHomeWork() {
             $.post(
                 "@Url.Action("GetHomeWork", "Study")",
-            { "id": 1208203301 },
             function (data) {
                 $('#Js_Study_RightBigDiv').html(data);
             });
@@ -23,7 +21,6 @@
         function GetTimeTable() {
             $.post(
                 "@Url.Action("GetTimeTable", "Study")",
-                    { "id": 1208203301 },
                     function (data) {
                         $('#Js_Study_RightBigDiv').html(data);
                     });
@@ -31,7 +28,6 @@
         function GetMyVacation() {
             $.post(
                 "@Url.Action("GetMyVacation", "Study")",
-                { "id": 1208203301 },
                 function (data) {
                     $('#Js_Study_RightBigDiv').html(data);
                 });

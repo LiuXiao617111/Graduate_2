@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@section Scripts { 
+@section Scripts {
     <script>
         function RedirectToInteraction() {
             location.href = "@Url.Action("Index", "Interaction", new { RedirectStr = "RedirectToArticle" })";
@@ -28,78 +28,67 @@
         function SubmitQuestion() {
             $.post(
                 "@Url.Action("SubmitQuestion", "Home")",
-                { "id": 1208203301, "info": $('#zhuye_TiWenKuang').val() },
+                { "info": $('#zhuye_TiWenKuang').val() },
                 function (data) {
                     if (data == "True")
                         alert("保存成功");
                     else
                         alert("保存失败");
-            });
+                });
         }
         $('.title_navigate a:eq(0) div').addClass('logo_left_title_select');
-
-            //填充分享的文章
-            $.post(
-                "@Url.Action("GetMyArt", "Home")",
-                { "id": 1208203301 },
-                function (data) {
-                    $('#JS_myArtDiv').html(data);
-                });
-            //课程表
-            $.post(
-                "@Url.Action("GetSchedule", "Home")",
-                { "id": 1208203301 },
-                function (data) {
-                    $('#JS_Home_TimeTable_Div').html(data);
-                });
-            $.post(
-                "@Url.Action("GetShareArt", "Home")",
-                { "id": 1208203301 },
-                function (data) {
-                    $('#JS_ShareArtDiv').html(data);
-                });
-            $.post(
-                "@Url.Action("GetNotify", "Home")",
-                { "id": 1208203301 },
-                function (data) {
-                    $('#JS_NotifyDiv').html(data);
-                });
-            $.post(
-                "@Url.Action("GetQuestion", "Home")",
-                { "id": 1208203301 },
-                function (data) {
-                    $('#JS_QuestionDiv').html(data);
-                });
-            $.post(
-                "@Url.Action("GetMyImages", "Home")",
-                { "id": 1208203301 },
-                function (data) {
-                    $('#JS_MyImageDiv').html(data);
-                });
-            $.post(
-                "@Url.Action("GetShareImages", "Home")",
-                { "id": 1208203301 },
-                function(data) {
-                    $('#JS_ShareImageDiv').html(data);
-                });
-            $.post(
-                "@Url.Action("GetHonour", "Home")",
-                { "id": 1208203301 },
-                function (data) {
-                    $('#JS_DashiDiv').html(data);
-                });
-            $.post(
-                "@Url.Action("GetTeacherImages", "Home")",
-                { "id": 1208203301 },
-                function (data) {
-                    $('#JS_TeacherHomeDiv').html(data);
-                });
-            $.post(
-                "@Url.Action("GetBanWei", "Home")",
-                { "id": 1208203301 },
-                function (data) {
-                    $('#JS_BanWeiHomeDiv').html(data);
-                });
+        //填充分享的文章
+        $.post(
+            "@Url.Action("GetMyArt", "Home")",
+            function (data) {
+                $('#JS_myArtDiv').html(data);
+            });
+        //课程表
+        $.post(
+            "@Url.Action("GetSchedule", "Home")",
+            function (data) {
+                $('#JS_Home_TimeTable_Div').html(data);
+            });
+        $.post(
+            "@Url.Action("GetShareArt", "Home")",
+            function (data) {
+                $('#JS_ShareArtDiv').html(data);
+            });
+        $.post(
+            "@Url.Action("GetNotify", "Home")",
+            function (data) {
+                $('#JS_NotifyDiv').html(data);
+            });
+        $.post(
+            "@Url.Action("GetQuestion", "Home")",
+            function (data) {
+                $('#JS_QuestionDiv').html(data);
+            });
+        $.post(
+            "@Url.Action("GetMyImages", "Home")",
+            function (data) {
+                $('#JS_MyImageDiv').html(data);
+            });
+        $.post(
+            "@Url.Action("GetShareImages", "Home")",
+            function (data) {
+                $('#JS_ShareImageDiv').html(data);
+            });
+        $.post(
+            "@Url.Action("GetHonour", "Home")",
+            function (data) {
+                $('#JS_DashiDiv').html(data);
+            });
+        $.post(
+            "@Url.Action("GetTeacherImages", "Home")",
+            function (data) {
+                $('#JS_TeacherHomeDiv').html(data);
+            });
+        $.post(
+            "@Url.Action("GetBanWei", "Home")",
+            function (data) {
+                $('#JS_BanWeiHomeDiv').html(data);
+            });
     </script>
 }
 
@@ -236,11 +225,10 @@
                     <a href="#"><div class="zhuye_centre_right_4_tiwen_2" onclick="SubmitQuestion()">提问</div></a>
                     <div id="JS_QuestionDiv"></div>
                 </div>
-
             </div>
         </div>
     </div>
 </div>
-    
-    
+
+
 

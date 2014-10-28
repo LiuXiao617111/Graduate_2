@@ -127,6 +127,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\GradeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InteractionController.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Account.cs" />
     <Compile Include="Models\DataClasses.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -232,6 +234,10 @@
     <Content Include="Content\EasyUi\themes\icons\sum.png" />
     <Content Include="Content\EasyUi\themes\icons\tip.png" />
     <Content Include="Content\EasyUi\themes\icons\undo.png" />
+    <Content Include="Content\Login\css\style.css" />
+    <Content Include="Content\Login\Js\demo.js" />
+    <Content Include="Content\Login\Js\jquery-1.11.1.min.js" />
+    <Content Include="Content\Login\Js\jquery.particleground.min.js" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -504,6 +510,7 @@
     <Content Include="Images\delete.gif" />
     <Content Include="Images\gonggao.png" />
     <Content Include="Images\head_bg2.png" />
+    <Content Include="Images\head_photoBG60px.png" />
     <Content Include="Images\head_photoBG85px.png" />
     <Content Include="Images\heroAccent.png" />
     <Content Include="Images\homework.png" />
@@ -514,6 +521,9 @@
     <Content Include="Images\li_point.png" />
     <Content Include="Images\li_point2.png" />
     <Content Include="Images\login.png" />
+    <Content Include="Images\login_email.png" />
+    <Content Include="Images\login_name.png" />
+    <Content Include="Images\login_pwd.png" />
     <Content Include="Images\menu_bg.png" />
     <Content Include="Images\message.png" />
     <Content Include="Images\my_photo.png" />
@@ -645,6 +655,7 @@
     <Content Include="Views\Interaction\ShareComment.cshtml" />
     <Content Include="Views\Home\GetQuestion.cshtml" />
     <Content Include="Views\Home\GetHonour.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -674,16 +685,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>5916</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:5916/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

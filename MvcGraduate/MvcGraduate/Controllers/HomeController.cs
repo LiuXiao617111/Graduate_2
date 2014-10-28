@@ -13,87 +13,89 @@ namespace MvcGraduate.Controllers
         private ListClass hClass = new ListClass();
         private OperateClass oClass = new OperateClass();
 
-        public ActionResult Index(int id=1208203301)
+        public ActionResult Index()
         {
-            var res = dClass.Details_Student(id);
+            if (Session["User"] == null)
+                return View(Url.Action("Index", "Account"));
+            var res = (Students)Session["User"];
             ViewBag.AricleCount = res.Article.Count;
             ViewBag.ImageCount = res.Images.Count;
-            ViewBag.NotifyCount = hClass.GetNotifyCount(id);
+            ViewBag.NotifyCount = hClass.GetNotifyCount(res.ID);
             ViewBag.QuestionCount = res.Questions.Count;
             ViewBag.HomeWorkCount = res.HomeWork.Count;
-            ViewBag.MaterialCount = hClass.GetMaterialCount(id);
+            ViewBag.MaterialCount = hClass.GetMaterialCount(res.ID);
             return View(res);
         }
 
         #region HttpPost
         [HttpPost]
-        public PartialViewResult GetSchedule(int id = 1208203301)
+        public PartialViewResult GetSchedule()
         {
-            var res = hClass.GetTimeTable(id);
+            var res = hClass.GetTimeTable(((Students)Session["User"]).ID);
             return PartialView(res);
         }
         [HttpPost]
-        public PartialViewResult GetMyArt(int id = 1208203301)
+        public PartialViewResult GetMyArt()
         {
-            var res=hClass.GetArticle(id);
+            var res = hClass.GetArticle(((Students)Session["User"]).ID);
             return PartialView(res);
         }
         [HttpPost]
-        public PartialViewResult GetShareArt(int id = 1208203301)
+        public PartialViewResult GetShareArt()
         {
-            var res = hClass.GetShareArticle(id);
+            var res = hClass.GetShareArticle(((Students)Session["User"]).ID);
             return PartialView(res);
         }
         [HttpPost]
-        public PartialViewResult GetNotify(int id = 1208203301)
+        public PartialViewResult GetNotify()
         {
-            var res = hClass.GetNotifyPeople(id);
+            var res = hClass.GetNotifyPeople(((Students)Session["User"]).ID);
             return PartialView(res);
         }
         [HttpPost]
-        public PartialViewResult GetQuestion(int id = 1208203301)
+        public PartialViewResult GetQuestion()
         {
-            var res = hClass.GetQuestions(id);
+            var res = hClass.GetQuestions(((Students)Session["User"]).ID);
             var tt = res.ToList();
             return PartialView(res);
         }
         [HttpPost]
-        public PartialViewResult GetMyImages(int id=120803301)
+        public PartialViewResult GetMyImages()
         {
-            var res = hClass.GetmMyImagesPath(id);
+            var res = hClass.GetmMyImagesPath(((Students)Session["User"]).ID);
             return PartialView(res);
         }
         [HttpPost]
-        public PartialViewResult GetShareImages(int id = 120803301)
+        public PartialViewResult GetShareImages()
         {
-            var res = hClass.GetShareImagesPath(id);
+            var res = hClass.GetShareImagesPath(((Students)Session["User"]).ID);
             return PartialView(res);
         }
         [HttpPost]
-        public PartialViewResult GetTeacherImages(int id = 120803301)
+        public PartialViewResult GetTeacherImages()
         {
-            var res = hClass.GetTeacher(id);
+            var res = hClass.GetTeacher(((Students)Session["User"]).ID);
             return PartialView("GetPeople",res.ToList());
         }
         [HttpPost]
-        public PartialViewResult GetBanWei(int id = 120803301)
+        public PartialViewResult GetBanWei()
         {
-            var res = hClass.GetBanWei(id);
+            var res = hClass.GetBanWei(((Students)Session["User"]).ID);
             return PartialView("GetPeople",res.ToList());
         }
         [HttpPost]
-        public PartialViewResult GetHonour(int id = 120803301)
+        public PartialViewResult GetHonour()
         {
-            var res = hClass.GetHonour(id);
+            var res = hClass.GetHonour(((Students)Session["User"]).ID);
             return PartialView(res);
         }
         #endregion
 
         #region Save
         [HttpPost]
-        public bool SubmitQuestion(string info,int id)
+        public bool SubmitQuestion(string info)
         {
-            return oClass.AddQuestion(info, id);
+            return oClass.AddQuestion(info, ((Students)Session["User"]).ID);
         }
         #endregion
     }

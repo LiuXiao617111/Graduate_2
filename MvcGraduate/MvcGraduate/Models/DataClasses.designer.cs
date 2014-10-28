@@ -20,6 +20,7 @@ namespace MvcGraduate.Models
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
+    using System.ComponentModel.DataAnnotations;
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="GraduationProject")]
@@ -96,6 +97,9 @@ namespace MvcGraduate.Models
     partial void InsertHonour(Honour instance);
     partial void UpdateHonour(Honour instance);
     partial void DeleteHonour(Honour instance);
+    partial void InsertAccount(Account instance);
+    partial void UpdateAccount(Account instance);
+    partial void DeleteAccount(Account instance);
     #endregion
 		
 		public DataClassesDataContext() : 
@@ -301,6 +305,14 @@ namespace MvcGraduate.Models
 			get
 			{
 				return this.GetTable<Honour>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Account> Account
+		{
+			get
+			{
+				return this.GetTable<Account>();
 			}
 		}
 	}
@@ -6045,6 +6057,164 @@ namespace MvcGraduate.Models
 						this._RecordID = default(int);
 					}
 					this.SendPropertyChanged("Teachers");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Account")]
+	public partial class Account : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _LoginID;
+		
+		private string _Pwd;
+		
+		private int _Role;
+		
+		private string _Email;
+		
+		private System.Nullable<int> _verificationCode;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnLoginIDChanging(string value);
+    partial void OnLoginIDChanged();
+    partial void OnPwdChanging(string value);
+    partial void OnPwdChanged();
+    partial void OnRoleChanging(int value);
+    partial void OnRoleChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnverificationCodeChanging(System.Nullable<int> value);
+    partial void OnverificationCodeChanged();
+    #endregion
+		
+		public Account()
+		{
+			OnCreated();
+		}
+		[Required(ErrorMessage="账户不能为空")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoginID", DbType="NChar(15) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string LoginID
+		{
+			get
+			{
+				return this._LoginID;
+			}
+			set
+			{
+				if ((this._LoginID != value))
+				{
+					this.OnLoginIDChanging(value);
+					this.SendPropertyChanging();
+					this._LoginID = value;
+					this.SendPropertyChanged("LoginID");
+					this.OnLoginIDChanged();
+				}
+			}
+		}
+        [Required(ErrorMessage = "密码不能为空")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pwd", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Pwd
+		{
+			get
+			{
+				return this._Pwd;
+			}
+			set
+			{
+				if ((this._Pwd != value))
+				{
+					this.OnPwdChanging(value);
+					this.SendPropertyChanging();
+					this._Pwd = value;
+					this.SendPropertyChanged("Pwd");
+					this.OnPwdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Role", DbType="Int NOT NULL")]
+		public int Role
+		{
+			get
+			{
+				return this._Role;
+			}
+			set
+			{
+				if ((this._Role != value))
+				{
+					this.OnRoleChanging(value);
+					this.SendPropertyChanging();
+					this._Role = value;
+					this.SendPropertyChanged("Role");
+					this.OnRoleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NChar(30)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_verificationCode", DbType="Int")]
+		public System.Nullable<int> verificationCode
+		{
+			get
+			{
+				return this._verificationCode;
+			}
+			set
+			{
+				if ((this._verificationCode != value))
+				{
+					this.OnverificationCodeChanging(value);
+					this.SendPropertyChanging();
+					this._verificationCode = value;
+					this.SendPropertyChanged("verificationCode");
+					this.OnverificationCodeChanged();
 				}
 			}
 		}

@@ -49,6 +49,7 @@ namespace MvcGraduate
                 "~/Scripts/myJs/*.js",
                 "~/Content/EasyUi/jquery.easyui.min.js"
             ));
+
         }
     }
 }

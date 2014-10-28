@@ -19,7 +19,7 @@ namespace MvcGraduate.Controllers
         }
 
         #region Details
-        public PartialViewResult Details_Images(int id = 1)
+        public PartialViewResult Details_Images(int id)
         {
             var res = dClass.Details_Images(id);
             //获取分享的名称
@@ -33,7 +33,7 @@ namespace MvcGraduate.Controllers
 
             return PartialView(res);
         }
-        public PartialViewResult Details_Article(int id = 14)
+        public PartialViewResult Details_Article(int id)
         {
             var res = dClass.Details_Article(id);
             var sharesName = "";
@@ -49,7 +49,7 @@ namespace MvcGraduate.Controllers
             ViewBag.CommentsPeople = hClass.GetArticleComments(res.ID);//评论
             return PartialView(res);
         }
-        public PartialViewResult Details_Question(int id = 5)
+        public PartialViewResult Details_Question(int id)
         {
             var res = dClass.Details_Question(id);
             return PartialView(res);
@@ -57,7 +57,7 @@ namespace MvcGraduate.Controllers
         #endregion
 
         #region Edit
-        public PartialViewResult Edit_Article(int id = 14)
+        public PartialViewResult Edit_Article(int id)
         {
             var res = dClass.Details_Article(id);
             string sharesName = "";
@@ -72,7 +72,7 @@ namespace MvcGraduate.Controllers
             ViewBag.SharesName = sharesName;
             return PartialView(res);
         }
-        public PartialViewResult Edit_Images(int id = 1)
+        public PartialViewResult Edit_Images(int id)
         {
             //原来是用的static来调用方法的，但是一直获取的是原始的。。用非静态的就有用了
             var res = dClass.Details_Images(id);
@@ -104,25 +104,25 @@ namespace MvcGraduate.Controllers
 
             #region Article
             [HttpPost]
-            public PartialViewResult GetArticle(int id = 1208203301)
+            public PartialViewResult GetArticle()
             {
-                var res = hClass.GetArticle(id);//获取所有的图片
+                var res = hClass.GetArticle(((Students)Session["User"]).ID);//获取所有的图片
                 return PartialView(res);
             }
             [HttpPost]
-            public PartialViewResult GetShareArticle(int id = 1208203301)
+            public PartialViewResult GetShareArticle()
             {
-                var res = hClass.GetShareArticle(id);//获取分享文章
+                var res = hClass.GetShareArticle(((Students)Session["User"]).ID);//获取分享文章
                 return PartialView(res);
             }
             [HttpPost]
-            public PartialViewResult GetArticleComments(int id = 1)
+            public PartialViewResult GetArticleComments(int id)
             {
                 var res = hClass.GetArticleComments(id);//获取对应文章的评论
                 return PartialView(res);
             }
             [HttpPost]
-            public PartialViewResult GetShareArticleComments(int id = 1)
+            public PartialViewResult GetShareArticleComments(int id)
             {
                 var res = hClass.GetArticleComments(id);//获取对应文章的评论
                 ViewBag.Title = "文章";
@@ -132,15 +132,15 @@ namespace MvcGraduate.Controllers
 
             #region Image
             [HttpPost]
-            public PartialViewResult GetImagesInfo(int id = 1208203301)
+            public PartialViewResult GetImagesInfo()
             {
-                var res = hClass.GetImagesInfo(id);//获取所有的图片
+                var res = hClass.GetImagesInfo(((Students)Session["User"]).ID);//获取所有的图片
                 return PartialView(res);
             }
             [HttpPost]
-            public PartialViewResult GetShareImagesInfo(int id = 1208203301)
+            public PartialViewResult GetShareImagesInfo()
             {
-                var res = hClass.GetShareImagesInfo(id);//获取所有的图片
+                var res = hClass.GetShareImagesInfo(((Students)Session["User"]).ID);//获取所有的图片
                 return PartialView(res);
             }
             [HttpPost]
@@ -159,9 +159,9 @@ namespace MvcGraduate.Controllers
             #endregion
 
             [HttpPost]
-            public PartialViewResult GetQuestions(int id = 1208203301)
+            public PartialViewResult GetQuestions()
             {
-                var res = hClass.GetQuestions(id);//获取所有的提问
+                var res = hClass.GetQuestions(((Students)Session["User"]).ID);//获取所有的提问
                 ViewBag.MyTitle = "我的提问";
                 return PartialView(res);
             }

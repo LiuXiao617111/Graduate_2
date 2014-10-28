@@ -21,6 +21,8 @@ namespace MvcGraduate.Models
                 last = 1;
             for(int i=0;i<strs.Length-last;i++)
             {
+                if (strs[i] == "on")
+                    continue;
                 db.Images.DeleteOnSubmit(db.Images.Single(n => n.ID == Convert.ToInt32(strs[i])));
             }
             db.SubmitChanges();
@@ -37,6 +39,8 @@ namespace MvcGraduate.Models
                 last = 1;
             for(int i=0;i<strs.Length-last;i++)
             {
+                if (strs[i] == "on" || strs[i]=="")
+                    continue;
                 db.Article.DeleteOnSubmit(db.Article.Single(n => n.ID == Convert.ToInt32(strs[i])));
             }
             db.SubmitChanges();
@@ -99,6 +103,21 @@ namespace MvcGraduate.Models
                 return true;
             }
             catch { return false; }
+        }
+        public Students ValidateCount(FormCollection form)
+        {
+            string count = form["LoginID"];
+            string pwd = form["Pwd"];
+            if (db.Account.Any(n => n.LoginID == count && n.Pwd == pwd))
+            {
+                DetailsClass dClass = new DetailsClass();
+                try
+                {
+                    return dClass.Details_Student(Convert.ToInt32(count));
+                }
+                catch { }
+            }
+            return null;
         }
     }
 }

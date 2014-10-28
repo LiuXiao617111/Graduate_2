@@ -20,7 +20,6 @@
             else{
                 $.post(
                     "@Url.Action("GetImagesInfo", "Interaction")",
-                    { "id": 1208203301 },
                     function (data) {
                         $('.navigation_centre_right').html(data);
                     });
@@ -30,7 +29,6 @@
         {
             $.post(
                 "@Url.Action("GetImagesInfo", "Interaction")",
-                { "id": 1208203301 },
                 function (data) {
                     $('.navigation_centre_right').html(data);
                 });
@@ -39,7 +37,6 @@
         {
             $.post(
                 "@Url.Action("GetArticle", "Interaction")",
-                { "id": 1208203301 },
                 function (data) {
                     $('.navigation_centre_right').html(data);
                 });
@@ -47,7 +44,6 @@
         function GetQuestions() {
             $.post(
                 "@Url.Action("GetQuestions", "Interaction")",
-                { "id": 1208203301 },
                 function (data) {
                     $('.navigation_centre_right').html(data);
                 });
@@ -55,7 +51,7 @@
         function GetShare_Article() {
             $.post(
                 "@Url.Action("GetShareArticle", "Interaction")",
-                { "id": 1208203301 },
+                
                 function (data) {
                     $('.navigation_centre_right').html(data);
                 });
@@ -63,7 +59,6 @@
         function GetShare_ImagesInfo() {
             $.post(
                 "@Url.Action("GetShareImagesInfo", "Interaction")",
-                { "id": 1208203301 },
                 function (data) {
                     $('.navigation_centre_right').html(data);
                 });

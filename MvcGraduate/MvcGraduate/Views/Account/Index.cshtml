@@ -1,0 +1,83 @@
+﻿@model MvcGraduate.Models.Account
+
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <title>Particleground demo</title>
+    <link rel="stylesheet" href="~/Content/Login/css/style.css" />
+    <script type="text/javascript" src="~/Content/Login/Js/jquery-1.11.1.min.js"></script>
+    @*<script src="~/Scripts/jquery-1.8.2.min.js"></script>*@
+    <script type="text/javascript" src="~/Content/Login/Js/jquery.particleground.min.js"></script>
+    <script type="text/javascript" src="~/Content/Login/Js/demo.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <style>
+        table {
+            margin-left: 240px;
+        }
+
+            table tr td {
+                padding-bottom: 20px;
+                width: 300px;
+                height: 40px;
+                line-height: 38px;
+            }
+
+        .Input_pwd {
+            width: 100%;
+            height: 40px;
+            background: url(../../Images/login_pwd.png) no-repeat;
+            padding-left: 35px;
+            color: #000;
+            background-color: #FFF;
+        }
+
+        .input_LoginID {
+            width: 100%;
+            height: 40px;
+            background: url('../../Images/login_name.png') no-repeat;
+            padding-left: 35px;
+            color: #000;
+            background-color: #FFF;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="particles">
+        <div class="intro">
+            <div style="Opacity:0.65;height: 280px;width: 100%;background-color:#000;line-height:300px;">
+                <form action="@Url.Action("ValidateCount", "Account")" method="post">
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    <table>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td align="right" style="color:#fff;">用户名：</td>
+                            <td>@Html.TextBoxFor(model => model.LoginID, new { @placeholder = "请输入账户...", required = "required", @class = "input_LoginID" })</td>
+                            <td align="left" style="color:red;padding-left:4px">@Html.ValidationMessageFor(item => item.LoginID)</td>
+                        </tr>
+                        <tr>
+                            <td align="right" style="color:#fff;">密 码：</td>
+                            <td>@Html.TextBoxFor(model => model.Pwd, new { @placeholder = "请输入密码...", required = "required", @class = "Input_pwd" })</td>
+                            <td align="left" style="color:red;padding-left:4px"> @Html.ValidationMessageFor(item => item.Pwd)</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="right">
+                                <input type="submit" value="登 录" class="btn" />&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="submit" value="立即注册" class="btn" />
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

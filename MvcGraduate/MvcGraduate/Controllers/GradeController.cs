@@ -17,39 +17,40 @@ namespace MvcGraduate.Controllers
             return View();
         }
 
-        #region 详情页
-        public PartialViewResult Details_SubjectMaterial(int id=4)
+        #region Details
+        public PartialViewResult Details_SubjectMaterial(int id)
         {
             var res = dClass.Details_SubjectMaterial(id);
             return PartialView(res);
         }
         #endregion
-        #region ajax请求
+
+        #region HttpPost
         [HttpPost]
-        public PartialViewResult GetBanWei(int id)
+        public PartialViewResult GetBanWei()
         {
-            var res=hClass.GetBanWei(id);
+            var res = hClass.GetBanWei(((Students)Session["User"]).ID);
             ViewBag.MyTitle = "班委成员";
             return PartialView("GetPeopleInfo",res);
         }
         [HttpPost]
-        public PartialViewResult GetTeacher(int id)
+        public PartialViewResult GetTeacher()
         {
-            var res = hClass.GetTeacher(id);
+            var res = hClass.GetTeacher(((Students)Session["User"]).ID);
             ViewBag.MyTitle = "任课老师";
             return PartialView("GetPeopleInfo",res);
         }
         [HttpPost]
-        public PartialViewResult GetClassmate(int id)
+        public PartialViewResult GetClassmate()
         {
-            var res = hClass.GetClassmate(id);
+            var res = hClass.GetClassmate(((Students)Session["User"]).ID);
             ViewBag.MyTitle = "我的同学";
             return PartialView("GetPeopleInfo",res);
         }
         [HttpPost]
-        public PartialViewResult GetSubjectMaterial(int id)
+        public PartialViewResult GetSubjectMaterial()
         {
-            var res = hClass.GetSubjectMaterial(id);
+            var res = hClass.GetSubjectMaterial(((Students)Session["User"]).ID);
             var ttt = res.ToList();
             ViewBag.MyTitle = "课程资料";
             return PartialView(res);

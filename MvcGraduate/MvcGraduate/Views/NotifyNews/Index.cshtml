@@ -9,14 +9,12 @@
         $('.title_navigate a:eq(3) div').addClass('logo_left_title_select');
         $.post(
             "@Url.Action("GetAllNotify", "NotifyNews")",
-            { "id": 1208203301 },
             function (data) {
                 $('.navigation_centre_right').html(data);
             });
         function GetAllNotify() {
             $.post(
             "@Url.Action("GetAllNotify", "NotifyNews")",
-                { "id": 1208203301 },
                 function (data) {
                     $('.navigation_centre_right').html(data);
                 });
@@ -24,7 +22,6 @@
         function GetNotify_School() {
             $.post(
                 "@Url.Action("GetSchoolNotify", "NotifyNews")",
-                { "id": 1208203301 },
                 function (data) {
                     $('.navigation_centre_right').html(data);
                 });

@@ -4,7 +4,6 @@
         $('.navigation_centre_left div').removeClass('navigation_menu_bg');
         $(this).addClass('navigation_menu_bg');
     });
-
     //我的班级  图片上显示信息
     $('.des').live('mouseover', function () {
         $(this).children('.des2').animate({

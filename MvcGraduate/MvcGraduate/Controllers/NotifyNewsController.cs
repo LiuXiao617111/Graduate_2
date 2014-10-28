@@ -17,12 +17,12 @@ namespace MvcGraduate.Controllers
         }
 
         #region Details
-        public PartialViewResult Detail_Notify(int id = 4)
+        public PartialViewResult Detail_Notify(int id )
         {
             var res = dClass.Detail_Notify(id);
             return PartialView(res);
         }
-        public PartialViewResult Details_Notify_School(int id = 3)
+        public PartialViewResult Details_Notify_School(int id )
         {
             var res = dClass.Details_Notify_School(id);
             return PartialView(res);
@@ -31,9 +31,9 @@ namespace MvcGraduate.Controllers
 
         #region HttpPost
         [HttpPost]
-        public PartialViewResult GetAllNotify(int id=1208203301)
+        public PartialViewResult GetAllNotify()
         {
-            var res = hClass.GetAllNotify(id);
+            var res = hClass.GetAllNotify(((Students)Session["User"]).ID);
             ViewBag.MyTitle = "活动通知";
             return PartialView(res);
         }

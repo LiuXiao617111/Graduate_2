@@ -12,20 +12,14 @@
             $('.navigation_centre_left div').removeClass('navigation_menu_bg');
             $('.navigation_centre_left div:eq(2)').addClass('navigation_menu_bg');
             GetSubjectMaterial();
-        }else{
-            $.post(
-                "@Url.Action("GetBanWei", "Grade")",
-                { "id": 1208203301 },
-                function (data) {
-                    $('#Js_Study_RightBigDiv').html(data);
-                });
+        } else {
+            GetBanwei();
         }
     })
 
     function GetBanwei() {
         $.post(
             "@Url.Action("GetBanWei", "Grade")",
-            { "id": 1208203301 },
             function (data) {
                 $('#Js_Study_RightBigDiv').html(data);
             });
@@ -33,7 +27,6 @@
     function GetTeacher() {
         $.post(
             "@Url.Action("GetTeacher", "Grade")",
-            { "id": 1208203301 },
             function (data) {
                 $('#Js_Study_RightBigDiv').html(data);
             });
@@ -41,7 +34,6 @@
     function GetClassmate(){
         $.post(
             "@Url.Action("GetClassmate", "Grade")",
-            { "id": 1208203301 },
             function (data) {
                 $('#Js_Study_RightBigDiv').html(data);
             });
@@ -49,7 +41,6 @@
     function GetSubjectMaterial() {
         $.post(
             "@Url.Action("GetSubjectMaterial", "Grade")",
-            { "id": 1208203301 },
             function (data) {
                 $('#Js_Study_RightBigDiv').html(data);
             });

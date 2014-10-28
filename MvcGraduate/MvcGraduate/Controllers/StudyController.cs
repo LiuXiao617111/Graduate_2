@@ -17,12 +17,12 @@ namespace MvcGraduate.Controllers
         }
 
         #region Details
-        public PartialViewResult Details_HomeWork(int id = 1)
+        public PartialViewResult Details_HomeWork(int id)
         {
             var res = dClass.Details_HomeWork(id);
             return PartialView(res);
         }
-        public PartialViewResult Details_Vacation(int id = 1)
+        public PartialViewResult Details_Vacation(int id)
         {
             var res = dClass.Details_Vacation(id);
             return PartialView(res);
@@ -31,28 +31,28 @@ namespace MvcGraduate.Controllers
 
         #region HttpPost
         [HttpPost]
-        public PartialViewResult GetHomeWork(int id = 1208203301)
+        public PartialViewResult GetHomeWork()
         {
-            var res=hClass.GetHomeWork(id);
+            var res=hClass.GetHomeWork(((Students)Session["User"]).ID);
             return PartialView(res);
         }
         [HttpPost]
-        public PartialViewResult GetTimeTable(int id = 1208203301)
+        public PartialViewResult GetTimeTable()
         {
-            var res = hClass.GetTimeTable(id);
+            var res = hClass.GetTimeTable(((Students)Session["User"]).ID);
             return PartialView(res);
         }
         [HttpPost]
-        public PartialViewResult GetMyVacation(int id = 1208203301)
+        public PartialViewResult GetMyVacation()
         {
-            var res = hClass.GetMyVacation(id);
+            var res = hClass.GetMyVacation(((Students)Session["User"]).ID);
             return PartialView(res);
         }
         //未实现
         [HttpPost]
-        public PartialViewResult GetScore(int id = 1208203301)
+        public PartialViewResult GetScore()
         {
-            var res = hClass.GetScore(id);
+            var res = hClass.GetScore(((Students)Session["User"]).ID);
             return PartialView(res);
         }
         #endregion
