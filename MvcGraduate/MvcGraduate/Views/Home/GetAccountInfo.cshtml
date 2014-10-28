@@ -1,0 +1,162 @@
+﻿@model MvcGraduate.Models.Students
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Particleground demo</title>
+    <script type='text/javascript' src='js/jquery-1.11.1.min.js'></script>
+    <script>
+        $('#page_head_userinfo')
+        function HideStudentInfo()
+        {
+            $('#page_head_userinfo').visible = false;
+        }
+    </script>
+    <style type="text/css">
+        * {
+            font-family: "微软雅黑";
+        }
+
+        .page_head_userinfo ul li {
+            list-style: none;
+            color: #FFFFFF;
+            font-size: 13px;
+            height: 22px;
+        }
+
+            .page_head_userinfo ul li div {
+                overflow: hidden;
+                position: relative;
+                float: left;
+                color: #bdbdbd;
+            }
+
+        .page_head_userinfo {
+            position: absolute;
+            width: 100%;
+            height: auto;
+            top: 148px;
+            z-index: 6;
+            display: none;
+            opacity: 0;
+            min-width: 1300px;
+            height: 205px;
+        }
+
+        .edit_userinfo {
+            position: absolute;
+            width: 70px;
+            height: 27px;
+            background: #334b56;
+            text-align: center;
+            line-height: 27px;
+            color: #82a2b1;
+            font-size: 14px;
+            right: -24px;
+            top: -15px;
+            cursor: pointer;
+        }
+
+        .line1 {
+            font-size: 16px !important;
+            margin-bottom: 23px;
+            height: 16px !important;
+        }
+
+        .edit_userinfo a {
+            color: #0088cc;
+            text-decoration: none;
+        }
+
+        .point {
+            position: absolute;
+            right: 315px;
+            width: 855px;
+            background:  url('../../Images/userinfo.png');
+            height: 204px;
+        }
+
+        .page_head_userinfo ul {
+            position: relative;
+            width: 730px;
+            margin: 35px auto 0 auto;
+            display: block;
+            list-style-type: disc;
+        }
+
+        .page_head_userinfo .edit_userinfo {
+            position: absolute;
+            width: 70px;
+            height: 27px;
+            background: #334b56;
+            text-align: center;
+            line-height: 27px;
+            color: #82a2b1;
+            font-size: 14px;
+            right: -24px;
+            top: -15px;
+            cursor: pointer;
+        }
+
+        .page_head_userinfo ul li {
+            list-style: none;
+            line-height: 20px;
+            color: #FFFFFF;
+            font-size: 13px;
+            height: 22px;
+        }
+
+        .page_head_userinfo ul .r1 {
+            width: 270px;
+        }
+
+        .page_head_userinfo ul .r2 {
+            width: 250px;
+        }
+
+        .page_head_userinfo ul .r3 {
+            width: 210px;
+        }
+
+        .page_head_userinfo ul .r4 {
+            width: 460px;
+        }
+
+        .page_head_userinfo ul .r5 {
+            width: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page_head_userinfo" id="_showUserInfo" style="display: block; opacity: 1; ">
+        <div class="point">
+            <ul>
+                <div class="edit_userinfo no_select">
+                    <a id="modal_bianji" href="#modal_container_bianji" role="button" onclick="showModal()" data-toggle="modal">编辑</a>
+                </div>
+                <li class="line1">@Model.Name &nbsp;&nbsp;&nbsp;&nbsp; @Model.Grade.Name &nbsp;&nbsp;</li>
+                <li>
+                    <div class="r1">生日：@Model.Birthday </div>
+                    <div class="r2">民族：@Model.Nation</div>
+                </li>
+                <li>
+                    <div class="r1">手机：@Model.PhoneNum </div>
+                    <div class="r2">联系电话：@Model.PhoneNum </div>
+                    <div class="r3">邮箱：@Model.Email </div>
+                </li>
+                <li>
+                    <div class="r1">座右铭：@Model.motto </div>
+                    <div class="r4">现住址：@Model.Address</div>
+                </li>
+                <li>
+                    <div class="r5">个人简介:@Model.Introduction </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
+

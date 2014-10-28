@@ -11,11 +11,19 @@
                 $('.navigation_centre_left div').removeClass('navigation_menu_bg');
                 $('.navigation_centre_left div:eq(2)').addClass('navigation_menu_bg');
                 GetArticle();
+            } else if ("@ViewBag.Redirect" == "RedirectToShareArticle") {
+                $('.navigation_centre_left div').removeClass('navigation_menu_bg');
+                $('.navigation_centre_left div:eq(3)').addClass('navigation_menu_bg');
+                GetShare_Article();
             }
             else if ("@ViewBag.Redirect" == "RedirectToQuestion") {
                 $('.navigation_centre_left div').removeClass('navigation_menu_bg');
                 $('.navigation_centre_left div:eq(4)').addClass('navigation_menu_bg');
                 GetQuestions();
+            } else if ("@ViewBag.Redirect" == "RedirectToShareImage"){
+                $('.navigation_centre_left div').removeClass('navigation_menu_bg');
+                $('.navigation_centre_left div:eq(1)').addClass('navigation_menu_bg');
+                GetShare_ImagesInfo();
             }
             else{
                 $.post(
@@ -113,6 +121,9 @@
             <li class="no_news"><a href="#">无信息</a></li>
             <li class="gengduo"><a href="#">更多>></a></li>
         </ul>
+    </div>
+    <div id="Js_StudentInfo" style="opacity:0">
+
     </div>
     <div class="navigation_centre">
         <div class="navigation_centre_left">

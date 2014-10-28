@@ -12,7 +12,11 @@
             $('.navigation_centre_left div').removeClass('navigation_menu_bg');
             $('.navigation_centre_left div:eq(2)').addClass('navigation_menu_bg');
             GetSubjectMaterial();
-        } else {
+        } else if ("@ViewBag.Redirect" == "RedirectToTeacher") {
+            $('.navigation_centre_left div').removeClass('navigation_menu_bg');
+            $('.navigation_centre_left div:eq(1)').addClass('navigation_menu_bg');
+            GetTeacher();
+        }else {
             GetBanwei();
         }
     })
@@ -44,7 +48,7 @@
             function (data) {
                 $('#Js_Study_RightBigDiv').html(data);
             });
-        }
+    }
 </script>
 }
 <div id="zhuye">
@@ -58,6 +62,9 @@
             <li class="no_news"><a href="#">无信息</a></li>
             <li class="gengduo"><a href="#">更多>></a></li>
         </ul>
+    </div>
+    <div id="Js_StudentInfo" style="opacity:0">
+
     </div>
     <div class="navigation_centre">
         <div class="navigation_centre_left">

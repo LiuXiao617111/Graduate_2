@@ -30,8 +30,8 @@
                 </div>
             </div>
             @*用户的图片和姓名*@
-            <div class="Top_user_head"><img src="@student.Picture" width="57" height="57" alt=""></div>
-            <div class="Top_user_name">@student.Name</div>
+            <div class="Top_user_head"><img src="@student.Picture" width="57" height="57" alt="" /></div>
+            <div class="Top_user_name" id="StudentInfo_Div" onclick="ShowStudentInfoDiv()">@student.Name</div>
         </div>
         <div id="main">
             @RenderBody()
@@ -45,6 +45,25 @@
         @Scripts.Render("~/bundles/myJs")
         @Scripts.Render("~/bundles/weiyafei")
         @RenderSection("Scripts", required: false)
+        <script>
+            function ShowStudentInfoDiv() {
+                var res = $('#Js_StudentInfo').css("opacity");
+                if (res == 0) {
+                    $.post(
+                    "@Url.Action("GetAccountInfo", "Home")",
+                    function (data) {
+                        $('#Js_StudentInfo').html(data);
+                        $("#Js_StudentInfo").animate({ opacity: "1" }, 100);
+                        isShowStudentInfo = true;
+                    });
+                }
+                else {
+                    $('#Js_StudentInfo').animate({
+                        opacity: 0
+                    }, 100);
+                }
+            }
+        </script>
     </body>
 </html>
 }

@@ -548,6 +548,7 @@
     <Content Include="Images\title_bg1.png" />
     <Content Include="Images\tiwen.png" />
     <Content Include="Images\upload_photo_btn.png" />
+    <Content Include="Images\userinfo.png" />
     <Content Include="Images\write_articles2.png" />
     <Content Include="Images\xiaoxi.png" />
     <Content Include="Images\教师队伍1.png" />
@@ -656,6 +657,7 @@
     <Content Include="Views\Home\GetQuestion.cshtml" />
     <Content Include="Views\Home\GetHonour.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Home\GetAccountInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

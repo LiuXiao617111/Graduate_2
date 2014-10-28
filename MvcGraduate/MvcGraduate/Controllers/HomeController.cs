@@ -89,6 +89,12 @@ namespace MvcGraduate.Controllers
             var res = hClass.GetHonour(((Students)Session["User"]).ID);
             return PartialView(res);
         }
+        [HttpPost]
+        public PartialViewResult GetAccountInfo()
+        {
+            var stu = dClass.Details_Student(((Students)Session["User"]).ID);
+            return PartialView(stu);
+        }
         #endregion
 
         #region Save
