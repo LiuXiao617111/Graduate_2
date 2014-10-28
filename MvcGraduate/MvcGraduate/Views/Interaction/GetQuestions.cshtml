@@ -3,6 +3,31 @@
         <li class="frame_title_line">
             <div class="frame_title no_select">@ViewBag.MyTitle</div>
         </li>
+        <li>
+            <link rel="stylesheet" type="text/css" href="~/Content/CSS/JumpPage.css" />
+            <script type="text/javascript" src="~/Scripts/myJs/JumpPage.js"></script>
+            <div id="page">
+                <div class="page">
+                    <div>
+                        <div>&nbsp;&nbsp;共 @ViewBag.AllCount 条记录&nbsp;每页显示10条&nbsp;&nbsp;</div>
+                        <div>第 @ViewBag.Index 页 共 @ViewBag.MaxPage 页</div>
+                        <div class="btns btn_first0" onclick="PageJump__First('@Url.Action("GetQuestions", "Interaction")')"></div>
+                        <div class="btns btn_forward0" onclick="PageJump_Forward('@Url.Action("GetQuestions", "Interaction")')"></div>
+                        <div class="btns btn_back" onclick="PageJump_Back('@Url.Action("GetQuestions", "Interaction")')"></div>
+                        <div class="btns btn_end" onclick="PageJump_End('@Url.Action("GetQuestions", "Interaction")')"></div>
+                        <div>转到第</div>
+                        <input name="edu_page_to" value="">
+                        <div>页</div>
+                    </div>
+                    <div class="go_btn" onclick="PageJump_TO_PAGE()"></div>
+                </div>
+            </div>
+            <script>
+                nowPage= @ViewBag.Index;
+                maxPage= @ViewBag.MaxPage;
+                ChangePageCss();
+            </script>
+        </li>
         <li class="detaile_line">
             <ul class="detaile_ul">
                 @if (Model != null)

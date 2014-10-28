@@ -153,6 +153,7 @@
     <Content Include="Content\CSS\DetailsTableCss.css" />
     <Content Include="Content\CSS\GradeCss.css" />
     <Content Include="Content\CSS\HomeCss.css" />
+    <Content Include="Content\CSS\JumpPage.css" />
     <Content Include="Content\CSS\StuClaNewHud.css" />
     <Content Include="Content\CSS\StudyCss.css" />
     <Content Include="Content\CSS\zhuye.css" />
@@ -599,6 +600,7 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\myJs\JumpPage.js" />
     <Content Include="Scripts\myJs\MainJS.js" />
     <Content Include="Scripts\WeiYaFei\Home.js" />
     <Content Include="Scripts\_references.js" />

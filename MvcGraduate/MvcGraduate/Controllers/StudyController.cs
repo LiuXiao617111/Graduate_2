@@ -31,9 +31,15 @@ namespace MvcGraduate.Controllers
 
         #region HttpPost
         [HttpPost]
-        public PartialViewResult GetHomeWork()
+        public PartialViewResult GetHomeWork(int index=0)
         {
             var res=hClass.GetHomeWork(((Students)Session["User"]).ID);
+
+            ViewBag.AllCount = res.ToList().Count;
+            ViewBag.MaxPage = res.ToList().Count / 10;
+            ViewBag.Index = index;
+
+            res=res.Skip(index * 10).Take(10);
             return PartialView(res);
         }
         [HttpPost]

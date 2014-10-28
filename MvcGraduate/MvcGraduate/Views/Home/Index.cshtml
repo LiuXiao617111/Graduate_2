@@ -12,9 +12,10 @@
                 "@Url.Action("SubmitQuestion", "Home")",
                     { "info": $('#zhuye_TiWenKuang').val() },
                     function (data) {
-                        if (data == "True")
+                        if (data == "True") {
+                            $('#zhuye_TiWenKuang').val("");
                             alert("保存成功");
-                        else
+                        }else
                             alert("保存失败");
                     });
         }
@@ -207,7 +208,7 @@
                 </div>
                 <div class="zhuye_centre_right_4_tiwen">
                     <textarea class="zhuye_centre_right_4_tiwen_kuang" id="zhuye_TiWenKuang"></textarea>
-                    <a href="#"><div class="zhuye_centre_right_4_tiwen_2" onclick="SubmitQuestion()">提问</div></a>
+                    <a href="javascript:;"><div class="zhuye_centre_right_4_tiwen_2" onclick="SubmitQuestion()">提问</div></a>
                     <div id="JS_QuestionDiv"></div>
                 </div>
             </div>

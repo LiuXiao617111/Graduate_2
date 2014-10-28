@@ -159,10 +159,16 @@ namespace MvcGraduate.Controllers
             #endregion
 
             [HttpPost]
-            public PartialViewResult GetQuestions()
+            public PartialViewResult GetQuestions(int index=0)
             {
                 var res = hClass.GetQuestions(((Students)Session["User"]).ID);//获取所有的提问
                 ViewBag.MyTitle = "我的提问";
+                ViewBag.AllCount = res.ToList().Count;
+                ViewBag.MaxPage = res.ToList().Count / 10;
+                ViewBag.Index = index;
+
+                res = res.Skip(index * 10).Take(10);
+                var ttt = res.ToList();
                 return PartialView(res);
             }
             #endregion
