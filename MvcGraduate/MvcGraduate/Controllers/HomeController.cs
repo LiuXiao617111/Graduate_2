@@ -27,6 +27,11 @@ namespace MvcGraduate.Controllers
             return View(res);
         }
 
+        public PartialViewResult GetAddArticle()
+        {
+            return PartialView();
+        }
+
         #region HttpPost
         [HttpPost]
         public PartialViewResult GetSchedule()
@@ -95,11 +100,6 @@ namespace MvcGraduate.Controllers
             var stu = dClass.Details_Student(((Students)Session["User"]).ID);
             return PartialView(stu);
         }
-
-        public PartialViewResult GetAddArticle()
-        {
-            return PartialView();
-        }
         #endregion
 
         #region Save
@@ -107,6 +107,12 @@ namespace MvcGraduate.Controllers
         public bool SubmitQuestion(string info)
         {
             return oClass.AddQuestion(info, ((Students)Session["User"]).ID);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public bool SaveArticle(FormCollection form)
+        {
+            return oClass.SaveArticle(Server,Request,form,((Students)Session["User"]).ID);
         }
         #endregion
     }

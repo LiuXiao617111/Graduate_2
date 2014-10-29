@@ -47,6 +47,11 @@ namespace MvcGraduate.Controllers
             }
             ViewBag.SharesName = sharesName;//分享的人
             ViewBag.CommentsPeople = hClass.GetArticleComments(res.ID);//评论
+            if (res.Appendix != "" && res.Appendix != null)
+            {
+                string[] strs=res.Appendix.Split('\\');
+                ViewBag.Appendix = strs.Last();
+            }
             return PartialView(res);
         }
         public PartialViewResult Details_Question(int id)
@@ -217,6 +222,21 @@ namespace MvcGraduate.Controllers
                 oClass.SaveArticleChange(form);
             }
             return PartialView();
+        }
+        #endregion
+
+        #region Http ResposeFile
+        public void ResposeFile(string filePath)
+        {
+            byte[] buffer= oClass.GetAppendixByte(filePath);
+            string[] strs = filePath.Split('\\');
+            
+            Response.ContentType = "application/octet-stream";
+            //通知浏览器下载文件而不是打开
+            Response.AddHeader("Content-Disposition", "attachment;  filename=" + HttpUtility.UrlEncode(strs.Last(), System.Text.Encoding.UTF8));
+            Response.BinaryWrite(buffer);
+            Response.Flush();
+            Response.End();
         }
         #endregion
     }

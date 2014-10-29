@@ -20,10 +20,10 @@
         </div>
         <div class="article_attachment">
             <span class="attach_link">
-                @if (Model.Appendix != null && Model.Appendix != "")
+                @if (ViewBag.Appendix != null && ViewBag.Appendix != "")
                 {
-                    <img src="/static/images/file_type/jpg.gif" align="absmiddle">
-                    <a class="attach_name" href="#">@Model.Appendix</a>
+                    <img src="/static/images/file_type/jpg.gif">
+                    <a class="attach_name" href="@Url.Action("ResposeFile", "Interaction", new { filePath = Model.Appendix })">@ViewBag.Appendix</a>
                 }
             </span>
         </div>

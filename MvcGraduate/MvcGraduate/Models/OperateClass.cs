@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -26,6 +27,19 @@ namespace MvcGraduate.Models
                 db.Images.DeleteOnSubmit(db.Images.Single(n => n.ID == Convert.ToInt32(strs[i])));
             }
             db.SubmitChanges();
+        }
+        public byte[] GetAppendixByte(string filePath)
+        {
+            byte[] buffer=null;
+            try
+            {
+                FileStream fs = new FileStream(filePath, FileMode.Open);
+                buffer = new byte[fs.Length];
+                fs.Read(buffer, 0, (int)fs.Length);
+            }
+            catch { return null; }
+            return buffer;
+            
         }
         public void DelArticle(string id)
         {
@@ -89,6 +103,39 @@ namespace MvcGraduate.Models
                 return false;
             }
         }
+        public bool SaveArticle(HttpServerUtilityBase Server,HttpRequestBase Request,FormCollection form,int id)
+        {
+            Article newArticle = new Article();
+            newArticle.Title = form["Title"];
+            newArticle.WritingID = id;
+            newArticle.Time = DateTime.Now;
+            newArticle.ClickRate = 0;
+            newArticle.Contents = form["editorValue"];
+
+            var file = Request.Files["fileUpload"];
+
+            if (file != null)
+            {
+                var fileName = file.FileName;
+                string path = Server.MapPath("~/") + "DownLoad\\" + fileName;
+                try
+                {
+                    file.SaveAs(path);
+                    newArticle.Appendix = path;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+            db.Article.InsertOnSubmit(newArticle);
+            try
+            {
+                db.SubmitChanges();
+            }
+            catch { return false; }
+            return true;
+        }
         public bool AddQuestion(string info, int id)
         { 
             Questions item=new Questions();
@@ -104,6 +151,7 @@ namespace MvcGraduate.Models
             }
             catch { return false; }
         }
+
         public Students ValidateCount(FormCollection form)
         {
             string count = form["LoginID"];
