@@ -133,6 +133,7 @@
     <Compile Include="Controllers\InteractionController.cs" />
     <Compile Include="Controllers\NotifyNewsController.cs" />
     <Compile Include="Controllers\StudyController.cs" />
+    <Compile Include="Controllers\TeacherHomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -157,6 +158,7 @@
     <Content Include="Content\CSS\JumpPage.css" />
     <Content Include="Content\CSS\StuClaNewHud.css" />
     <Content Include="Content\CSS\StudyCss.css" />
+    <Content Include="Content\CSS\TeacherIndex.css" />
     <Content Include="Content\CSS\zhuye.css" />
     <Content Include="Content\EasyUi\themes\default\accordion.css" />
     <Content Include="Content\EasyUi\themes\default\calendar.css" />
@@ -501,15 +503,20 @@
     <Content Include="Content\UEditor\ueditor.parse.min.js" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\1.png" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\add.png" />
+    <Content Include="Images\am_pmbg1.png" />
+    <Content Include="Images\am_pmbg2.png" />
     <Content Include="Images\article.png" />
     <Content Include="Images\ask.png" />
     <Content Include="Images\banwei.png" />
     <Content Include="Images\btn.png" />
     <Content Include="Images\bullet.png" />
     <Content Include="Images\dashiji.png" />
+    <Content Include="Images\data1.png" />
     <Content Include="Images\delete.gif" />
+    <Content Include="Images\desk2.png" />
     <Content Include="Images\gonggao.png" />
     <Content Include="Images\head_bg2.png" />
     <Content Include="Images\head_photoBG60px.png" />
@@ -519,6 +526,7 @@
     <Content Include="Images\icon64_info.png" />
     <Content Include="Images\kc_ziliao.png" />
     <Content Include="Images\kebiao.png" />
+    <Content Include="Images\leadlogo.png" />
     <Content Include="Images\link.png" />
     <Content Include="Images\li_point.png" />
     <Content Include="Images\li_point2.png" />
@@ -526,6 +534,7 @@
     <Content Include="Images\login_email.png" />
     <Content Include="Images\login_name.png" />
     <Content Include="Images\login_pwd.png" />
+    <Content Include="Images\logout.png" />
     <Content Include="Images\menu_bg.png" />
     <Content Include="Images\message.png" />
     <Content Include="Images\my_photo.png" />
@@ -663,6 +672,9 @@
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Home\GetAccountInfo.cshtml" />
     <Content Include="Views\Home\GetAddArticle.cshtml" />
+    <Content Include="Views\Shared\Teacher_Layout.cshtml" />
+    <Content Include="Views\TeacherHome\Index.cshtml" />
+    <Content Include="Views\TeacherHome\Manager.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
