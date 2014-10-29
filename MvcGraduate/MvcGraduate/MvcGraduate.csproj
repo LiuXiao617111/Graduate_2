@@ -675,6 +675,7 @@
     <Content Include="Views\Shared\Teacher_Layout.cshtml" />
     <Content Include="Views\TeacherHome\Index.cshtml" />
     <Content Include="Views\TeacherHome\Manager.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
