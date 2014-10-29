@@ -14,6 +14,10 @@ namespace MvcGraduate.Controllers
         {
             return PartialView();
         }
+        public PartialViewResult Register()
+        {
+            return PartialView();
+        }
         [HttpPost]
         public RedirectToRouteResult ValidateCount(FormCollection form)
         {

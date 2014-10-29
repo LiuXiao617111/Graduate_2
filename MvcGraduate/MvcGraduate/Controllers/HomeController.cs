@@ -95,6 +95,11 @@ namespace MvcGraduate.Controllers
             var stu = dClass.Details_Student(((Students)Session["User"]).ID);
             return PartialView(stu);
         }
+
+        public PartialViewResult GetAddArticle()
+        {
+            return PartialView();
+        }
         #endregion
 
         #region Save

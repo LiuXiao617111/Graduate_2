@@ -153,6 +153,7 @@
     <Content Include="Content\CSS\DetailsTableCss.css" />
     <Content Include="Content\CSS\GradeCss.css" />
     <Content Include="Content\CSS\HomeCss.css" />
+    <Content Include="Content\CSS\Home_AddArticle_Dialog.css" />
     <Content Include="Content\CSS\JumpPage.css" />
     <Content Include="Content\CSS\StuClaNewHud.css" />
     <Content Include="Content\CSS\StudyCss.css" />
@@ -550,6 +551,7 @@
     <Content Include="Images\tiwen.png" />
     <Content Include="Images\upload_photo_btn.png" />
     <Content Include="Images\userinfo.png" />
+    <Content Include="Images\write_articles1.png" />
     <Content Include="Images\write_articles2.png" />
     <Content Include="Images\xiaoxi.png" />
     <Content Include="Images\教师队伍1.png" />
@@ -660,6 +662,7 @@
     <Content Include="Views\Home\GetHonour.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Home\GetAccountInfo.cshtml" />
+    <Content Include="Views\Home\GetAddArticle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

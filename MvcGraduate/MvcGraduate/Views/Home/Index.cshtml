@@ -6,6 +6,7 @@
 }
 
 @section Scripts {
+    <script src="~/Scripts/jquery-ui-1.8.24.min.js"></script>
     <script>
         function SubmitQuestion() {
             $.post(
@@ -23,8 +24,8 @@
         //填充分享的文章
         $.post(
             "@Url.Action("GetMyArt", "Home")",
-        function (data) {
-            $('#JS_myArtDiv').html(data);
+            function (data) {
+                $('#JS_myArtDiv').html(data);
         });
         //课程表
         $.post(
@@ -74,7 +75,6 @@
             });
     </script>
 }
-
 <div id="zhuye" style=" height: 1225px;">
     <div class="common_top">
         <ul>
@@ -161,6 +161,9 @@
                     <li class="current"><a href="@Url.Action("Index", "Interaction", new { RedirectStr = "RedirectToArticle" })">我的文章</a></li>
                     <li><img src="~/Images/title_bg1.png" /></li>
                     <li class="current"><a href="@Url.Action("Index", "Interaction", new { RedirectStr = "RedirectToShareArticle" })">分享文章</a></li>
+                    <li>
+                        <div class="write_article_btn"><a href="@Url.Action("GetAddArticle", "Home")">写文章</a></div>
+                    </li>
                 </ul>
                 <div id="JS_myArtDiv"></div>
                 <div id="JS_ShareArtDiv" style="display:none"></div>

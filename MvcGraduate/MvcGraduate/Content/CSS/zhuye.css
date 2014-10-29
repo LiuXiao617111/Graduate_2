@@ -73,7 +73,27 @@ ul, li {
             font-weight: 500;
             font-family: 'Times New Roman';
         }
-
+.write_article_btn {
+    width: 85px;
+    height: 45px;
+    background: url('../../Images/write_articles1.png') no-repeat;
+    font-size: 14px;
+    line-height: 45px;
+    color: #4993b3;
+    text-align: right;
+    font-weight: 600;
+    margin-left:30px;
+    margin-top:-10px;
+    cursor: pointer;
+}
+.write_article_btn:hover{
+    background: url('../../Images/write_articles2.png') no-repeat;
+}
+.write_article_btn  a{
+    color:#4993b3 !important;
+    padding-left:10px;
+    margin-left:8px;
+}
 .zhaopian {
     width: 160px;
     height: 72px;
