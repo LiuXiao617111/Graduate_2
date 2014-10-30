@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
 
@@ -150,6 +151,51 @@ namespace MvcGraduate.Models
                 return true;
             }
             catch { return false; }
+        }
+        public bool AddAccount(FormCollection form)
+        {
+            Account account = new Account();
+            account.LoginID = form["name"];
+            account.Email = form["email"];
+            account.Pwd = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(form["pwd"], "MD5");
+            db.Account.InsertOnSubmit(account);
+            try
+            {
+                db.SubmitChanges();
+            }
+            catch { return false; }
+            return true; 
+        }
+        public bool AddStudent(Students stu)
+        {
+            db.Students.InsertOnSubmit(stu);
+            try
+            {
+                db.SubmitChanges();
+                return true;
+            }
+            catch { return false; }
+        }
+
+        public List<SelectListItem> GetGradeSelectList()
+        {
+            List<SelectListItem> items = new List<SelectListItem>();
+            var allGrade = db.Grade.Select(n=>n);
+            foreach (var item in allGrade)
+            {
+                items.Add(new SelectListItem { Text = item.Name,Value=item.ID.ToString() });
+            }
+            return items;
+        }
+        public List<SelectListItem> GetFacultySelectList()
+        {
+            List<SelectListItem> items = new List<SelectListItem>();
+            var allFaculty = db.Faculty.Select(n => n);
+            foreach (var item in allFaculty)
+            {
+                items.Add(new SelectListItem { Text = item.Name, Value = item.ID.ToString() });
+            }
+            return items;
         }
 
         public Students ValidateCount(FormCollection form)

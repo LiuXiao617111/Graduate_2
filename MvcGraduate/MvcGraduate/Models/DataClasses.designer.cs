@@ -93,12 +93,12 @@ namespace MvcGraduate.Models
     partial void InsertAccount(Account instance);
     partial void UpdateAccount(Account instance);
     partial void DeleteAccount(Account instance);
-    partial void InsertStudents(Students instance);
-    partial void UpdateStudents(Students instance);
-    partial void DeleteStudents(Students instance);
     partial void InsertArticle(Article instance);
     partial void UpdateArticle(Article instance);
     partial void DeleteArticle(Article instance);
+    partial void InsertStudents(Students instance);
+    partial void UpdateStudents(Students instance);
+    partial void DeleteStudents(Students instance);
     #endregion
 		
 		public DataClassesDataContext() : 
@@ -299,19 +299,19 @@ namespace MvcGraduate.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<Students> Students
-		{
-			get
-			{
-				return this.GetTable<Students>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Article> Article
 		{
 			get
 			{
 				return this.GetTable<Article>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Students> Students
+		{
+			get
+			{
+				return this.GetTable<Students>();
 			}
 		}
 	}
@@ -2209,9 +2209,9 @@ namespace MvcGraduate.Models
 		
 		private int _SharedID;
 		
-		private EntityRef<Students> _Students;
-		
 		private EntityRef<Article> _Article;
+		
+		private EntityRef<Students> _Students;
 		
     #region 可扩展性方法定义
     partial void OnLoaded();
@@ -2227,8 +2227,8 @@ namespace MvcGraduate.Models
 		
 		public Share_Article()
 		{
-			this._Students = default(EntityRef<Students>);
 			this._Article = default(EntityRef<Article>);
+			this._Students = default(EntityRef<Students>);
 			OnCreated();
 		}
 		
@@ -2300,40 +2300,6 @@ namespace MvcGraduate.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_Share_Article", Storage="_Students", ThisKey="SharedID", OtherKey="ID", IsForeignKey=true)]
-		public Students Students
-		{
-			get
-			{
-				return this._Students.Entity;
-			}
-			set
-			{
-				Students previousValue = this._Students.Entity;
-				if (((previousValue != value) 
-							|| (this._Students.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Students.Entity = null;
-						previousValue.Share_Article.Remove(this);
-					}
-					this._Students.Entity = value;
-					if ((value != null))
-					{
-						value.Share_Article.Add(this);
-						this._SharedID = value.ID;
-					}
-					else
-					{
-						this._SharedID = default(int);
-					}
-					this.SendPropertyChanged("Students");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Article_Share_Article", Storage="_Article", ThisKey="ArticleID", OtherKey="ID", IsForeignKey=true)]
 		public Article Article
 		{
@@ -2364,6 +2330,40 @@ namespace MvcGraduate.Models
 						this._ArticleID = default(int);
 					}
 					this.SendPropertyChanged("Article");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_Share_Article", Storage="_Students", ThisKey="SharedID", OtherKey="ID", IsForeignKey=true)]
+		public Students Students
+		{
+			get
+			{
+				return this._Students.Entity;
+			}
+			set
+			{
+				Students previousValue = this._Students.Entity;
+				if (((previousValue != value) 
+							|| (this._Students.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Students.Entity = null;
+						previousValue.Share_Article.Remove(this);
+					}
+					this._Students.Entity = value;
+					if ((value != null))
+					{
+						value.Share_Article.Add(this);
+						this._SharedID = value.ID;
+					}
+					else
+					{
+						this._SharedID = default(int);
+					}
+					this.SendPropertyChanged("Students");
 				}
 			}
 		}
@@ -4651,9 +4651,9 @@ namespace MvcGraduate.Models
 		
 		private System.Nullable<System.DateTime> _Time;
 		
-		private EntityRef<Students> _Students;
-		
 		private EntityRef<Article> _Article;
+		
+		private EntityRef<Students> _Students;
 		
     #region 可扩展性方法定义
     partial void OnLoaded();
@@ -4673,8 +4673,8 @@ namespace MvcGraduate.Models
 		
 		public ArticleComments()
 		{
-			this._Students = default(EntityRef<Students>);
 			this._Article = default(EntityRef<Article>);
+			this._Students = default(EntityRef<Students>);
 			OnCreated();
 		}
 		
@@ -4786,40 +4786,6 @@ namespace MvcGraduate.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_ArticleComments", Storage="_Students", ThisKey="PeopleID", OtherKey="ID", IsForeignKey=true)]
-		public Students Students
-		{
-			get
-			{
-				return this._Students.Entity;
-			}
-			set
-			{
-				Students previousValue = this._Students.Entity;
-				if (((previousValue != value) 
-							|| (this._Students.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Students.Entity = null;
-						previousValue.ArticleComments.Remove(this);
-					}
-					this._Students.Entity = value;
-					if ((value != null))
-					{
-						value.ArticleComments.Add(this);
-						this._PeopleID = value.ID;
-					}
-					else
-					{
-						this._PeopleID = default(int);
-					}
-					this.SendPropertyChanged("Students");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Article_ArticleComments", Storage="_Article", ThisKey="ArticleID", OtherKey="ID", IsForeignKey=true)]
 		public Article Article
 		{
@@ -4850,6 +4816,40 @@ namespace MvcGraduate.Models
 						this._ArticleID = default(int);
 					}
 					this.SendPropertyChanged("Article");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_ArticleComments", Storage="_Students", ThisKey="PeopleID", OtherKey="ID", IsForeignKey=true)]
+		public Students Students
+		{
+			get
+			{
+				return this._Students.Entity;
+			}
+			set
+			{
+				Students previousValue = this._Students.Entity;
+				if (((previousValue != value) 
+							|| (this._Students.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Students.Entity = null;
+						previousValue.ArticleComments.Remove(this);
+					}
+					this._Students.Entity = value;
+					if ((value != null))
+					{
+						value.ArticleComments.Add(this);
+						this._PeopleID = value.ID;
+					}
+					else
+					{
+						this._PeopleID = default(int);
+					}
+					this.SendPropertyChanged("Students");
 				}
 			}
 		}
@@ -5273,6 +5273,309 @@ namespace MvcGraduate.Models
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Article")]
+	public partial class Article : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _Title;
+		
+		private int _WritingID;
+		
+		private System.Nullable<System.DateTime> _Time;
+		
+		private int _ClickRate;
+		
+		private string _Contents;
+		
+		private string _Appendix;
+		
+		private EntitySet<Share_Article> _Share_Article;
+		
+		private EntitySet<ArticleComments> _ArticleComments;
+		
+		private EntityRef<Students> _Students;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
+    partial void OnWritingIDChanging(int value);
+    partial void OnWritingIDChanged();
+    partial void OnTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnTimeChanged();
+    partial void OnClickRateChanging(int value);
+    partial void OnClickRateChanged();
+    partial void OnContentsChanging(string value);
+    partial void OnContentsChanged();
+    partial void OnAppendixChanging(string value);
+    partial void OnAppendixChanged();
+    #endregion
+		
+		public Article()
+		{
+			this._Share_Article = new EntitySet<Share_Article>(new Action<Share_Article>(this.attach_Share_Article), new Action<Share_Article>(this.detach_Share_Article));
+			this._ArticleComments = new EntitySet<ArticleComments>(new Action<ArticleComments>(this.attach_ArticleComments), new Action<ArticleComments>(this.detach_ArticleComments));
+			this._Students = default(EntityRef<Students>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(50)")]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this.OnTitleChanging(value);
+					this.SendPropertyChanging();
+					this._Title = value;
+					this.SendPropertyChanged("Title");
+					this.OnTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WritingID", DbType="Int NOT NULL")]
+		public int WritingID
+		{
+			get
+			{
+				return this._WritingID;
+			}
+			set
+			{
+				if ((this._WritingID != value))
+				{
+					if (this._Students.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnWritingIDChanging(value);
+					this.SendPropertyChanging();
+					this._WritingID = value;
+					this.SendPropertyChanged("WritingID");
+					this.OnWritingIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Time", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> Time
+		{
+			get
+			{
+				return this._Time;
+			}
+			set
+			{
+				if ((this._Time != value))
+				{
+					this.OnTimeChanging(value);
+					this.SendPropertyChanging();
+					this._Time = value;
+					this.SendPropertyChanged("Time");
+					this.OnTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClickRate", DbType="Int NOT NULL")]
+		public int ClickRate
+		{
+			get
+			{
+				return this._ClickRate;
+			}
+			set
+			{
+				if ((this._ClickRate != value))
+				{
+					this.OnClickRateChanging(value);
+					this.SendPropertyChanging();
+					this._ClickRate = value;
+					this.SendPropertyChanged("ClickRate");
+					this.OnClickRateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contents", DbType="NVarChar(2000)")]
+		public string Contents
+		{
+			get
+			{
+				return this._Contents;
+			}
+			set
+			{
+				if ((this._Contents != value))
+				{
+					this.OnContentsChanging(value);
+					this.SendPropertyChanging();
+					this._Contents = value;
+					this.SendPropertyChanged("Contents");
+					this.OnContentsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Appendix", DbType="NVarChar(200)")]
+		public string Appendix
+		{
+			get
+			{
+				return this._Appendix;
+			}
+			set
+			{
+				if ((this._Appendix != value))
+				{
+					this.OnAppendixChanging(value);
+					this.SendPropertyChanging();
+					this._Appendix = value;
+					this.SendPropertyChanged("Appendix");
+					this.OnAppendixChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Article_Share_Article", Storage="_Share_Article", ThisKey="ID", OtherKey="ArticleID")]
+		public EntitySet<Share_Article> Share_Article
+		{
+			get
+			{
+				return this._Share_Article;
+			}
+			set
+			{
+				this._Share_Article.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Article_ArticleComments", Storage="_ArticleComments", ThisKey="ID", OtherKey="ArticleID")]
+		public EntitySet<ArticleComments> ArticleComments
+		{
+			get
+			{
+				return this._ArticleComments;
+			}
+			set
+			{
+				this._ArticleComments.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_Article", Storage="_Students", ThisKey="WritingID", OtherKey="ID", IsForeignKey=true)]
+		public Students Students
+		{
+			get
+			{
+				return this._Students.Entity;
+			}
+			set
+			{
+				Students previousValue = this._Students.Entity;
+				if (((previousValue != value) 
+							|| (this._Students.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Students.Entity = null;
+						previousValue.Article.Remove(this);
+					}
+					this._Students.Entity = value;
+					if ((value != null))
+					{
+						value.Article.Add(this);
+						this._WritingID = value.ID;
+					}
+					else
+					{
+						this._WritingID = default(int);
+					}
+					this.SendPropertyChanged("Students");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Share_Article(Share_Article entity)
+		{
+			this.SendPropertyChanging();
+			entity.Article = this;
+		}
+		
+		private void detach_Share_Article(Share_Article entity)
+		{
+			this.SendPropertyChanging();
+			entity.Article = null;
+		}
+		
+		private void attach_ArticleComments(ArticleComments entity)
+		{
+			this.SendPropertyChanging();
+			entity.Article = this;
+		}
+		
+		private void detach_ArticleComments(ArticleComments entity)
+		{
+			this.SendPropertyChanging();
+			entity.Article = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Students")]
 	public partial class Students : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -5304,6 +5607,8 @@ namespace MvcGraduate.Models
 		private string _Address;
 		
 		private string _Introduction;
+		
+		private string _Sex;
 		
 		private EntitySet<HomeWork> _HomeWork;
 		
@@ -5365,6 +5670,8 @@ namespace MvcGraduate.Models
     partial void OnAddressChanged();
     partial void OnIntroductionChanging(string value);
     partial void OnIntroductionChanged();
+    partial void OnSexChanging(string value);
+    partial void OnSexChanged();
     #endregion
 		
 		public Students()
@@ -5647,6 +5954,26 @@ namespace MvcGraduate.Models
 					this._Introduction = value;
 					this.SendPropertyChanged("Introduction");
 					this.OnIntroductionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sex", DbType="NChar(10)")]
+		public string Sex
+		{
+			get
+			{
+				return this._Sex;
+			}
+			set
+			{
+				if ((this._Sex != value))
+				{
+					this.OnSexChanging(value);
+					this.SendPropertyChanging();
+					this._Sex = value;
+					this.SendPropertyChanged("Sex");
+					this.OnSexChanged();
 				}
 			}
 		}
@@ -6053,309 +6380,6 @@ namespace MvcGraduate.Models
 		{
 			this.SendPropertyChanging();
 			entity.Students = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Article")]
-	public partial class Article : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private string _Title;
-		
-		private int _WritingID;
-		
-		private System.Nullable<System.DateTime> _Time;
-		
-		private int _ClickRate;
-		
-		private string _Contents;
-		
-		private string _Appendix;
-		
-		private EntitySet<Share_Article> _Share_Article;
-		
-		private EntitySet<ArticleComments> _ArticleComments;
-		
-		private EntityRef<Students> _Students;
-		
-    #region 可扩展性方法定义
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnTitleChanging(string value);
-    partial void OnTitleChanged();
-    partial void OnWritingIDChanging(int value);
-    partial void OnWritingIDChanged();
-    partial void OnTimeChanging(System.Nullable<System.DateTime> value);
-    partial void OnTimeChanged();
-    partial void OnClickRateChanging(int value);
-    partial void OnClickRateChanged();
-    partial void OnContentsChanging(string value);
-    partial void OnContentsChanged();
-    partial void OnAppendixChanging(string value);
-    partial void OnAppendixChanged();
-    #endregion
-		
-		public Article()
-		{
-			this._Share_Article = new EntitySet<Share_Article>(new Action<Share_Article>(this.attach_Share_Article), new Action<Share_Article>(this.detach_Share_Article));
-			this._ArticleComments = new EntitySet<ArticleComments>(new Action<ArticleComments>(this.attach_ArticleComments), new Action<ArticleComments>(this.detach_ArticleComments));
-			this._Students = default(EntityRef<Students>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(50)")]
-		public string Title
-		{
-			get
-			{
-				return this._Title;
-			}
-			set
-			{
-				if ((this._Title != value))
-				{
-					this.OnTitleChanging(value);
-					this.SendPropertyChanging();
-					this._Title = value;
-					this.SendPropertyChanged("Title");
-					this.OnTitleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WritingID", DbType="Int NOT NULL")]
-		public int WritingID
-		{
-			get
-			{
-				return this._WritingID;
-			}
-			set
-			{
-				if ((this._WritingID != value))
-				{
-					if (this._Students.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnWritingIDChanging(value);
-					this.SendPropertyChanging();
-					this._WritingID = value;
-					this.SendPropertyChanged("WritingID");
-					this.OnWritingIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Time", DbType="SmallDateTime")]
-		public System.Nullable<System.DateTime> Time
-		{
-			get
-			{
-				return this._Time;
-			}
-			set
-			{
-				if ((this._Time != value))
-				{
-					this.OnTimeChanging(value);
-					this.SendPropertyChanging();
-					this._Time = value;
-					this.SendPropertyChanged("Time");
-					this.OnTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClickRate", DbType="Int NOT NULL")]
-		public int ClickRate
-		{
-			get
-			{
-				return this._ClickRate;
-			}
-			set
-			{
-				if ((this._ClickRate != value))
-				{
-					this.OnClickRateChanging(value);
-					this.SendPropertyChanging();
-					this._ClickRate = value;
-					this.SendPropertyChanged("ClickRate");
-					this.OnClickRateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contents", DbType="NVarChar(2000)")]
-		public string Contents
-		{
-			get
-			{
-				return this._Contents;
-			}
-			set
-			{
-				if ((this._Contents != value))
-				{
-					this.OnContentsChanging(value);
-					this.SendPropertyChanging();
-					this._Contents = value;
-					this.SendPropertyChanged("Contents");
-					this.OnContentsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Appendix", DbType="NVarChar(200)")]
-		public string Appendix
-		{
-			get
-			{
-				return this._Appendix;
-			}
-			set
-			{
-				if ((this._Appendix != value))
-				{
-					this.OnAppendixChanging(value);
-					this.SendPropertyChanging();
-					this._Appendix = value;
-					this.SendPropertyChanged("Appendix");
-					this.OnAppendixChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Article_Share_Article", Storage="_Share_Article", ThisKey="ID", OtherKey="ArticleID")]
-		public EntitySet<Share_Article> Share_Article
-		{
-			get
-			{
-				return this._Share_Article;
-			}
-			set
-			{
-				this._Share_Article.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Article_ArticleComments", Storage="_ArticleComments", ThisKey="ID", OtherKey="ArticleID")]
-		public EntitySet<ArticleComments> ArticleComments
-		{
-			get
-			{
-				return this._ArticleComments;
-			}
-			set
-			{
-				this._ArticleComments.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_Article", Storage="_Students", ThisKey="WritingID", OtherKey="ID", IsForeignKey=true)]
-		public Students Students
-		{
-			get
-			{
-				return this._Students.Entity;
-			}
-			set
-			{
-				Students previousValue = this._Students.Entity;
-				if (((previousValue != value) 
-							|| (this._Students.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Students.Entity = null;
-						previousValue.Article.Remove(this);
-					}
-					this._Students.Entity = value;
-					if ((value != null))
-					{
-						value.Article.Add(this);
-						this._WritingID = value.ID;
-					}
-					else
-					{
-						this._WritingID = default(int);
-					}
-					this.SendPropertyChanged("Students");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Share_Article(Share_Article entity)
-		{
-			this.SendPropertyChanging();
-			entity.Article = this;
-		}
-		
-		private void detach_Share_Article(Share_Article entity)
-		{
-			this.SendPropertyChanging();
-			entity.Article = null;
-		}
-		
-		private void attach_ArticleComments(ArticleComments entity)
-		{
-			this.SendPropertyChanging();
-			entity.Article = this;
-		}
-		
-		private void detach_ArticleComments(ArticleComments entity)
-		{
-			this.SendPropertyChanging();
-			entity.Article = null;
 		}
 	}
 }

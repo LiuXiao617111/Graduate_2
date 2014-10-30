@@ -1,71 +1,40 @@
-﻿<!doctype html>
-<html lang="en" class="no-js">
-<head>
-    <meta charset="UTF-8" />
-    <title>登陆界面</title>
-    <link rel="stylesheet" href="~/Content/Login/css/style.css" />
-    <script type="text/javascript" src="~/Content/Login/Js/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="~/Content/Login/Js/jquery.particleground.min.js"></script>
-    <script type="text/javascript" src="~/Content/Login/Js/demo.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    <style>
-        table {
-            margin-left: 240px;
-        }
+﻿@model MvcGraduate.Models.Account
 
-            table tr td {
-                padding-bottom: 20px;
-                width: 300px;
-                height: 40px;
-                line-height: 38px;
-            }
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/Login_Layout.cshtml";
+}
 
-        .Input_Register {
-            width: 100%;height: 40px;padding-left: 35px;color:#000; background-color:#FFF;
-        }
-        .Input_Register{
 
-        }
-    </style>
-</head>
-
-<body>
-    <div align="center" id="particles">
-        <div class="intro" style="padding:0px;">
-            <div style="Opacity:0.65;height: 390px;width: 100%;background-color:#000;">
-                <form>
-                    <table>
-                        <tr>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td align="right" style="color:#fff;">邮箱注册：</td>
-                            <td><input class="Input_Register" style="background: url('Images/email.png') no-repeat;" placeholder="请输入邮箱..." /></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td align="right" style="color:#fff;">用户名：</td>
-                            <td><input class="Input_Register" style="background: url('Images/name.png') no-repeat" placeholder="请输入账户..." /></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td align="right" style="color:#fff;">密 码：</td>
-                            <td><input class="Input_Register" style="background: url('Images/pwd.png') no-repeat;" placeholder="请输入密码..." /></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td align="right" style="color:#fff;">确认密码：</td>
-                            <td><input class="Input_Register" style="background: url('Images/pwd.png') no-repeat;" placeholder="请再次输入密码..." /></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td colspan="3"><input type="submit" value="立即注册" class="btn" /></td>
-                        </tr>
-                    </table>
-                </form>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+<div style="height: 390px;width: 100%;background-image:url(../../Images/login-bg.png);">
+    <form action="@Url.Action("Register")" method="post">
+        <table>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td align="right" style="color:#000;">邮箱注册：</td>
+                <td><input name="email" class="Input_Register" style="background-image: url('../../Images/email.png');" placeholder="请输入邮箱..." /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td align="right" style="color:#000;">用户名：</td>
+                <td><input name="name" class="Input_Register" style="background-image: url('../../Images/name.png');" placeholder="请输入账户..." /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td align="right" style="color:#000;">密 码：</td>
+                <td><input name="pwd" class="Input_Register" style="background-image: url('../../Images/pwd.png');" placeholder="请输入密码..." /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td align="right" style="color:#000;">确认密码：</td>
+                <td><input class="Input_Register" style="background-image: url('../../Images/pwd.png');" placeholder="请再次输入密码..." /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="3"><input type="submit" value="立即注册" class="btn" /></td>
+            </tr>
+        </table>
+    </form>
+</div>

@@ -95,8 +95,8 @@
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ArticleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="SharedID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Students_Share_Article" Member="Students" ThisKey="SharedID" OtherKey="ID" Type="Students" IsForeignKey="true" />
       <Association Name="Article_Share_Article" Member="Article" ThisKey="ArticleID" OtherKey="ID" Type="Article" IsForeignKey="true" />
+      <Association Name="Students_Share_Article" Member="Students" ThisKey="SharedID" OtherKey="ID" Type="Students" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Share_Images" Member="Share_Images">
@@ -212,8 +212,8 @@
       <Column Name="PeopleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Contents" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
       <Column Name="Time" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Association Name="Students_ArticleComments" Member="Students" ThisKey="PeopleID" OtherKey="ID" Type="Students" IsForeignKey="true" />
       <Association Name="Article_ArticleComments" Member="Article" ThisKey="ArticleID" OtherKey="ID" Type="Article" IsForeignKey="true" />
+      <Association Name="Students_ArticleComments" Member="Students" ThisKey="PeopleID" OtherKey="ID" Type="Students" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Honour" Member="Honour">
@@ -236,6 +236,20 @@
       <Column Name="verificationCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Article" Member="Article">
+    <Type Name="Article">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="WritingID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Time" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ClickRate" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Contents" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="Appendix" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="Article_Share_Article" Member="Share_Article" ThisKey="ID" OtherKey="ArticleID" Type="Share_Article" />
+      <Association Name="Article_ArticleComments" Member="ArticleComments" ThisKey="ID" OtherKey="ArticleID" Type="ArticleComments" />
+      <Association Name="Students_Article" Member="Students" ThisKey="WritingID" OtherKey="ID" Type="Students" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Students" Member="Students">
     <Type Name="Students">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -251,6 +265,7 @@
       <Column Name="motto" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
       <Column Name="Address" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="Introduction" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Sex" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
       <Association Name="Students_HomeWork" Member="HomeWork" ThisKey="ID" OtherKey="StudentID" Type="HomeWork" />
       <Association Name="Students_Notify" Member="Notify" ThisKey="ID" OtherKey="PublisherID" Type="Notify" />
       <Association Name="Students_Notify_People" Member="Notify_People" ThisKey="ID" OtherKey="NotifyPeopleID" Type="Notify_People" />
@@ -266,20 +281,6 @@
       <Association Name="Students_Honour" Member="Honour" ThisKey="ID" OtherKey="StudentID" Type="Honour" />
       <Association Name="Students_Article" Member="Article" ThisKey="ID" OtherKey="WritingID" Type="Article" />
       <Association Name="Grade_Students" Member="Grade" ThisKey="GradeID" OtherKey="ID" Type="Grade" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Article" Member="Article">
-    <Type Name="Article">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Title" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="WritingID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Time" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
-      <Column Name="ClickRate" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Contents" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
-      <Column Name="Appendix" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Association Name="Article_Share_Article" Member="Share_Article" ThisKey="ID" OtherKey="ArticleID" Type="Share_Article" />
-      <Association Name="Article_ArticleComments" Member="ArticleComments" ThisKey="ID" OtherKey="ArticleID" Type="ArticleComments" />
-      <Association Name="Students_Article" Member="Students" ThisKey="WritingID" OtherKey="ID" Type="Students" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

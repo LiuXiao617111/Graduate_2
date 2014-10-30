@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MvcGraduate.Models;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,17 +10,16 @@ namespace MvcGraduate.Controllers
 {
     public class TeacherHomeController : Controller
     {
-        //
-        // GET: /TeacherHome/
-
+        UEditorClass uEditor = new UEditorClass();
         public ActionResult Index()
         {
+            ViewBag.Temp = uEditor.FacultyInfo();
+            ViewBag.Length = uEditor.FacultyInfo().Length;
             return View();
         }
         public ActionResult Manager()
         {
             return PartialView();
         }
-
     }
 }

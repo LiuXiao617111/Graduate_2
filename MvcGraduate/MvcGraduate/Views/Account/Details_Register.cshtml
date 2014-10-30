@@ -1,0 +1,136 @@
+﻿@model MvcGraduate.Models.Students
+
+@{
+    ViewBag.Title = "Details_Register";
+    Layout = "~/Views/Shared/Login_Layout.cshtml";
+}
+<style>
+    p.title {
+        position: relative;
+        top: 35%;
+        font: 700 40px "Microsoft Yahei";
+        color: #fff;
+        text-align: center;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .Scroll_Child input {
+        width: 100%;
+        height: 40px;
+        padding-left: 35px;
+        color: #000;
+        background-color: #fff;
+        font-size: 16px;
+        background-repeat: no-repeat;
+    }
+
+    .Scroll_Child .radioButton {
+        height: 20px;
+        width: 20px;
+    }
+</style>
+<div style="height: 390px;width: 100%;background-image:url(../../Images/login-bg.png);" id="Scroll_Div">
+    <form action="@Url.Action("AddStudents")" method="post">
+        <div class="Scroll_Child">
+            <table>
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#000;">姓 名：</td>
+                    <td>@Html.TextBoxFor(model => model.Name, new { @required = "required", @style = "background-image: url('../../Images/email.png');", @placeholder = "请输入姓名..." })</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#000;">性别：</td>
+                    <td align="left">男 @Html.RadioButtonFor(Model => Model.Sex, false, new { @class = "radioButton", @checked = "checked", @name = "Sex" }) 女 @Html.RadioButtonFor(Model => Model.Sex, true, new { @class = "radioButton", @name = "Sex" })</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#000;">邮 箱：</td>
+                    <td>@Html.TextBoxFor(model => model.Email, new { @class = "Input_Register", @type = "email", @style = "background-image: url('../../Images/email.png');", @placeholder = "请输入邮箱..." })</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#000;">手 机：</td>
+                    <td>@Html.TextBoxFor(model => model.PhoneNum, new { @style = "background-image: url('../../Images/email.png');", @placeholder = "请输入手机号码..." })</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#000;">Q Q：</td>
+                    <td>@Html.TextBoxFor(model => model.QQNum, new { @style = "background-image: url('../../Images/email.png');", @placeholder = "请输入QQ..." })</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#000;">生 日：</td>
+                    <td>@Html.TextBoxFor(model => model.Birthday, new { @style = "background-image: url('../../Images/email.png');", @placeholder = "请输入生日..." })</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div class="Scroll_Child">
+            <p class="title">补充信息</p>
+            <table>
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#000;">民 族：</td>
+                    <td>@Html.TextBoxFor(model => model.Nation, new { @style = "background-image: url('../../Images/email.png');", @placeholder = "民族..." })</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#000;">座右铭：</td>
+                    <td>@Html.TextBoxFor(model => model.motto, new { @style = "background-image: url('../../Images/email.png');", @placeholder = "座右铭..." })</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#000;">地 址：</td>
+                    <td>@Html.TextBoxFor(model => model.Address, new { @style = "background-image: url('../../Images/email.png');", @placeholder = "地址..." })</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#000;">个人简介：</td>
+                    <td>@Html.TextBoxFor(model => model.Introduction, new { @style = "background-image: url('../../Images/email.png');", @placeholder = "简介..." })</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div class="Scroll_Child">
+            <p class="title">班级信息</p>
+            <table>
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#000;">年 级：</td>
+                    <td>@Html.DropDownList("Faculty", (IEnumerable<SelectListItem>)ViewBag.FacultyList, new { required = "required" })</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#000;">班 级：</td>
+                    <td>@Html.DropDownListFor(model => model.Grade, (IEnumerable<SelectListItem>)ViewBag.GradeList, new { required = "required" })</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#000;">职 务：</td>
+                    <td>@Html.TextBoxFor(model => model.Duty)</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="3"><input type="submit" value="立即注册" class="btn" /></td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+<script>
+    $(function () {
+        $('#Scroll_Div').onepage_scroll({
+            sectionContainer: '.Scroll_Child',
+            direction: 'horizontal'
+        });
+    });
+</script>
+

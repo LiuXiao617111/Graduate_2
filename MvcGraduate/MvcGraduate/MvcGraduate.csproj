@@ -146,6 +146,7 @@
     <Compile Include="Models\DetailsClass.cs" />
     <Compile Include="Models\ListClass.cs" />
     <Compile Include="Models\OperateClass.cs" />
+    <Compile Include="Models\UEditorClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +157,7 @@
     <Content Include="Content\CSS\HomeCss.css" />
     <Content Include="Content\CSS\Home_AddArticle_Dialog.css" />
     <Content Include="Content\CSS\JumpPage.css" />
+    <Content Include="Content\CSS\onepage-scroll.css" />
     <Content Include="Content\CSS\StuClaNewHud.css" />
     <Content Include="Content\CSS\StudyCss.css" />
     <Content Include="Content\CSS\TeacherIndex.css" />
@@ -238,6 +240,7 @@
     <Content Include="Content\EasyUi\themes\icons\sum.png" />
     <Content Include="Content\EasyUi\themes\icons\tip.png" />
     <Content Include="Content\EasyUi\themes\icons\undo.png" />
+    <Content Include="Content\ECharts\echarts-plain.js" />
     <Content Include="Content\Login\css\style.css" />
     <Content Include="Content\Login\Js\demo.js" />
     <Content Include="Content\Login\Js\jquery-1.11.1.min.js" />
@@ -517,6 +520,7 @@
     <Content Include="Images\data1.png" />
     <Content Include="Images\delete.gif" />
     <Content Include="Images\desk2.png" />
+    <Content Include="Images\email.png" />
     <Content Include="Images\gonggao.png" />
     <Content Include="Images\head_bg2.png" />
     <Content Include="Images\head_photoBG60px.png" />
@@ -530,6 +534,7 @@
     <Content Include="Images\link.png" />
     <Content Include="Images\li_point.png" />
     <Content Include="Images\li_point2.png" />
+    <Content Include="Images\login-bg.png" />
     <Content Include="Images\login.png" />
     <Content Include="Images\login_email.png" />
     <Content Include="Images\login_name.png" />
@@ -538,6 +543,7 @@
     <Content Include="Images\menu_bg.png" />
     <Content Include="Images\message.png" />
     <Content Include="Images\my_photo.png" />
+    <Content Include="Images\name.png" />
     <Content Include="Images\notify_new.gif" />
     <Content Include="Images\orderedList0.png" />
     <Content Include="Images\orderedList1.png" />
@@ -552,6 +558,7 @@
     <Content Include="Images\page_bg.png" />
     <Content Include="Images\page_logo.png" />
     <Content Include="Images\photo_cover1.png" />
+    <Content Include="Images\pwd.png" />
     <Content Include="Images\stu_page_logo.png" />
     <Content Include="Images\sys_message_ico.png" />
     <Content Include="Images\teacher.png" />
@@ -602,6 +609,7 @@
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
     <Content Include="Content\EasyUi\jquery.easyui.min.js" />
+    <Content Include="Scripts\jquery.onepage-scroll.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -669,13 +677,15 @@
     <Content Include="Views\Interaction\ShareComment.cshtml" />
     <Content Include="Views\Home\GetQuestion.cshtml" />
     <Content Include="Views\Home\GetHonour.cshtml" />
-    <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Home\GetAccountInfo.cshtml" />
     <Content Include="Views\Home\GetAddArticle.cshtml" />
     <Content Include="Views\Shared\Teacher_Layout.cshtml" />
     <Content Include="Views\TeacherHome\Index.cshtml" />
     <Content Include="Views\TeacherHome\Manager.cshtml" />
+    <Content Include="Views\Shared\Login_Layout.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Details_Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

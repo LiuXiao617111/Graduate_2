@@ -18,6 +18,17 @@ namespace MvcGraduate.Controllers
         {
             return PartialView();
         }
+        public PartialViewResult Details_Register()
+        {
+            //年纪
+            ViewBag.FacultyList = oClass.GetFacultySelectList();
+            //班级
+            ViewBag.GradeList = oClass.GetGradeSelectList();
+            return PartialView();
+        }
+
+        #region HttpPost
+
         [HttpPost]
         public RedirectToRouteResult ValidateCount(FormCollection form)
         {
@@ -32,5 +43,16 @@ namespace MvcGraduate.Controllers
                 return RedirectToAction("Index");
             }
         }
+        [HttpPost]
+        public bool Register(FormCollection form)
+        {
+            return oClass.AddAccount(form);
+        }
+        [HttpPost]
+        public bool AddStudents(Students stu)
+        {
+            return oClass.AddStudent(stu);
+        }
+        #endregion
     }
 }
