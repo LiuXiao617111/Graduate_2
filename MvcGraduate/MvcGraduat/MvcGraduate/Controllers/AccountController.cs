@@ -59,10 +59,16 @@ namespace MvcGraduate.Controllers
         public RedirectToRouteResult ValidateCount(FormCollection form)
         {
             var res=oClass.ValidateCount(form);
+            var teacher = oClass.ValidateTeacher(form);
             if (res!=null)
             {
                 Session["User"] = res;
                 return RedirectToAction("Index", "Home");
+            }
+            if (teacher != null)
+            {
+                Session["Teacher"] = res;
+                return RedirectToAction("Index", "TeacherHome");
             }
             else
             {
@@ -72,9 +78,9 @@ namespace MvcGraduate.Controllers
         [HttpPost]
         public RedirectToRouteResult Register(FormCollection form)
         {
-            if (oClass.IsExistStudent(form["name"]))
+            if (!oClass.IsExistStudent(form["name"]))
             {
-                return RedirectToAction("Details_Register", "Home");
+                return RedirectToAction("Details_Register", "Account");
             }
             else
             {
@@ -98,6 +104,13 @@ namespace MvcGraduate.Controllers
                 return 1;//验证码错误
             if (!oClass.ISHaveCount(loginID))
                 return 2;//账户或邮箱不存在
+            return 0;
+        }
+        [HttpPost]
+        public int IsHaveCountWithoutCode(string loginID)
+        {
+            if (oClass.ISHaveCount(loginID))
+                return 2;//账户或邮箱已存在
             return 0;
         }
         [HttpPost]

@@ -301,6 +301,23 @@ namespace MvcGraduate.Models
             }
             return null;
         }
+        public Teachers ValidateTeacher(FormCollection form)
+        {
+            string count = form["LoginID"];
+            string pwd = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(form["Pwd"], "MD5");
+            if (db.Account.Any(n => n.LoginID == count && n.Pwd == pwd))
+            {
+                DetailsClass dClass = new DetailsClass();
+                try
+                {
+                    return db.Teachers.Single(n => n.ID == Convert.ToInt32(count));
+                }
+                catch (Exception e)
+                {
+                }
+            }
+            return null;
+        }
         #endregion
     }
 }

@@ -45,7 +45,7 @@
 
 </style>
 <div style="height: 390px;width: 100%;" id="Scroll_Div">
-    <form action="@Url.Action("AddStudents")" method="post">
+    <form action="@Url.Action("AddStudents","Account")" method="post">
         <div class="Scroll_Child">
             <table>
                 <tr>
@@ -55,12 +55,12 @@
                 </tr>
                 <tr>
                     <td align="right" style="color:#fff;">性 别：</td>
-                    <td align="left"> @Html.RadioButtonFor(Model => Model.Sex, false, new { @class = "radioButton", @checked = "checked", @name = "Sex" }) 男 @Html.RadioButtonFor(Model => Model.Sex, true, new { @class = "radioButton", @name = "Sex" }) 女</td>
+                    <td align="left"> @Html.RadioButtonFor(Model => Model.Sex, false, new { @class = "radioButton", @checked = "checked", @name = "Sex",@value="男" }) 男 @Html.RadioButtonFor(Model => Model.Sex, true, new { @class = "radioButton", @name = "Sex", @value = "女" }) 女</td>
                     <td></td>
                 </tr>
                 <tr>
                     <td align="right" style="color:#fff;">邮 箱：</td>
-                    <td>@Html.TextBoxFor(model => model.Email, new { @class = "Input_Register", @type = "email", @placeholder = "请输入邮箱..." })</td>
+                    <td>@Html.TextBoxFor(model => model.Email, new { @class = "Input_Register", @email = "true", @type = "email", @placeholder = "请输入邮箱...", @required = "required" })</td>
                     <td></td>
                 </tr>
                 <tr>

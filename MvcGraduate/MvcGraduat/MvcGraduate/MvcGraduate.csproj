@@ -607,6 +607,7 @@
     <Content Include="Picture\myImage3.jpg" />
     <Content Include="Picture\myImage4.jpg" />
     <Content Include="Properties\menu_bg.png" />
+    <Content Include="Scripts\echarts-plain-map.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
