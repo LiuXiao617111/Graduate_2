@@ -19,9 +19,9 @@
         </div>
         <div id="Teachermain">
             <div class="Teachermain_left">
-                <ul class="title">
-                    <li class="cour" style="background-image:url(../Images/data1.png);background-repeat:no-repeat;background-position:22% 50%;"><a href="#">数据统计</a></li>
-                    <li style="background-image:url(../Images/1.png);background-repeat:no-repeat;background-position:14% 50%;"><a href="#">教师管理</a></li>
+                <ul id="Teacher_Navigation" class="title">
+                    <li style="background-image:url(../Images/data1.png);background-repeat:no-repeat;background-position:22% 50%;" onclick="location.href = '@Url.Action("Index")'"><a href="@Url.Action("Index")">数据统计</a></li>
+                    <li style="background-image:url(../Images/1.png);background-repeat:no-repeat;background-position:14% 50%;" onclick="location.href = '@Url.Action("Manager")'"><a href="@Url.Action("Manager")">教师管理</a></li>
                 </ul>
             </div>
             @RenderBody()
@@ -32,7 +32,14 @@
             地址： 北京市海淀区紫竹院路81号北方地产大厦1608室&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电话： 010-51905641
         </div>
     </div>
+    <script>
+        $().ready(function () {
+            $('#Teacher_Navigation li').bind("click", function (e) {
+                $('#Teacher_Navigation li').removeClass();
+                $(this).addClass("cour");
+            })
+        })
+    </script>
 </body>
-
 </html>
 

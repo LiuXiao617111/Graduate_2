@@ -14,7 +14,7 @@
             </tr>
             <tr>
                 <td align="right" style="color:#fff;">用户名：</td>
-                <td>@Html.TextBoxFor(model => model.LoginID, new { @placeholder = "请输入账户...", number = "number", minlength="10", maxlength = "10", required = "required", @class = "input_LoginID" })</td>
+                <td>@Html.TextBoxFor(model => model.LoginID, new { @placeholder = "请输入账户...", number = "number",  maxlength = "10", required = "required", @class = "input_LoginID" })</td>
                 <td align="left" style="color:#333333;padding-left:4px">@Html.ValidationMessageFor(item => item.LoginID)</td>
             </tr>
             <tr>

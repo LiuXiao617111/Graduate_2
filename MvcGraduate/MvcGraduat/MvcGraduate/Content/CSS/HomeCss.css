@@ -257,3 +257,27 @@ A:active {
                     .ul_style2 li a:hover {
                         color:#0088cc;
                     }
+    /*老师的样式*/
+.TeacherUl {
+            position: static;
+            float: left;
+            top: 30px;
+            margin-top:30px;
+            padding: 0px;
+        }
+		.TeacherUl li{
+		    font-family: "微软雅黑";
+		    list-style-type: none;
+		    height: 40px;
+		    line-height: 20px;
+            margin-left:0px !important;
+		}
+		.TeacherUl li a{
+            margin-left:0px;
+		    padding-left: 55px;
+		    background: url(../../Images/li_point.png) no-repeat;
+		    background-position: 30px 4px;
+		    color: #1E1E1E !important;
+		    text-decoration: none;
+		    cursor: pointer;
+		}

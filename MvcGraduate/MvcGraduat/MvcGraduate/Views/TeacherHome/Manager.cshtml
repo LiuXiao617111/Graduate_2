@@ -2,46 +2,62 @@
     ViewBag.Title = "Manageer";
     Layout = "~/Views/Shared/Teacher_Layout.cshtml";
 }
-
-<div class="main_right">
-    <div class="main_right_left">
-        <div class="main_right_left_1">
-            <div class="courent">
-                <ul>
-                    <li>课程表</li>
-                </ul>
-                <ul class="courent_left">
-                    <li class="courent_left_morning"><a href="#">上午</a></li>
-                    <li class="courent_left_after" style="background-image:url(../Images/am_pmbg2.png);background-repeat:no-repeat;padding:7px 20px;"><a href="#">下午</a></li>
-                </ul>
-            </div>
-
-        </div>
-        <div class="main_right_left_2">
-            <div class="courent">
-                <ul>
-                    <li>最新问题</li>
-                </ul>
-            </div>
-
-        </div>
-    </div>
-    <div class="main_right_right">
-        <div class="main_right_right_1">
-            <div class="courent">
-                <ul>
-                    <li>最新家长分享</li>
-                </ul>
-            </div>
-
-        </div>
-        <div class="main_right_right_2">
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script>
+    $('#Teacher_Navigation li:eq(1)').addClass("cour");
+    $.post(
+        "@Url.Action("GetHomeWork", "TeacherHome")",
+        function (data) {
+            $('#Js_Teacher_Homework').html(data);
+        });
+    $.post(
+        "@Url.Action("GetValidate", "TeacherHome")",
+        function (data) {
+            $('#Js_Teacher_Vacation').html(data);
+        });
+    $.post(
+    "@Url.Action("GetQuestion", "TeacherHome")",
+    function (data) {
+        $('#Js_Teacher_Question').html(data);
+    });
+</script>
+<div class="Teachermain_right">
+    <div class="Teachermain_right_left">
+        <div class="Teachermain_right_left_1">
             <div class="courent">
                 <ul>
                     <li>最新作业</li>
                 </ul>
             </div>
-
+            <div style="float: left; height: 300px; margin-top: -40px; width: 100%;" id="Js_Teacher_Homework">
+            </div>
+        </div>
+        <div class="Teachermain_right_left_2">
+            <div class="courent">
+                <ul>
+                    <li>最新问题</li>
+                </ul>
+            </div>
+            <div style="float: left; height: 280px; margin-top: -20px; width: 100%;" id="Js_Teacher_Question">
+            </div>
+        </div>
+    </div>
+    <div class="Teachermain_right_right">
+        <div class="Teachermain_right_right_1">
+            <div class="courent">
+                <ul>
+                    <li>最新请假</li>
+                </ul>
+            </div>
+            <div style="float: left; height: 300px; margin-top: -40px; width: 100%;" id="Js_Teacher_Vacation">
+            </div>
+        </div>
+        <div class="Teachermain_right_right_2">
+            <div class="courent">
+                <ul>
+                    <li>在线时长</li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

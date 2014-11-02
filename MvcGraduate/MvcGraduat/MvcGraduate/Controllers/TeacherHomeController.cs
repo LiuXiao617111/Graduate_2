@@ -11,6 +11,7 @@ namespace MvcGraduate.Controllers
 {
     public class TeacherHomeController : Controller
     {
+        TeacherClass tClass=new TeacherClass();
         UEditorClass uEditor = new UEditorClass();
         public ActionResult Index()
         {
@@ -34,6 +35,30 @@ namespace MvcGraduate.Controllers
             res.Add("TeacherWoman", uEditor.TeacherDutiesCount("女"));
 
             return Json(res);
+        }
+        [HttpPost]
+        public PartialViewResult GetHomeWork()
+        {
+            var tt = Session["Teacher"];
+            int teacherID = ((Teachers)Session["Teacher"]).ID;
+            var res= tClass.GetHomeWork(teacherID);
+            return PartialView(res);
+        }
+        [HttpPost]
+        public PartialViewResult GetValidate()
+        {
+            var tt = Session["Teacher"];
+            int teacherID = ((Teachers)Session["Teacher"]).ID;
+            var res = tClass.GetVacation(teacherID);
+            return PartialView(res);
+        }
+        [HttpPost]
+        public PartialViewResult GetQuestion()
+        {
+            var tt = Session["Teacher"];
+            int teacherID = ((Teachers)Session["Teacher"]).ID;
+            var res = tClass.GetQuestion(teacherID);
+            return PartialView(res);
         }
     }
 }

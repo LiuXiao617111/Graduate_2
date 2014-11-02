@@ -67,7 +67,7 @@ namespace MvcGraduate.Controllers
             }
             if (teacher != null)
             {
-                Session["Teacher"] = res;
+                Session["Teacher"] = teacher;
                 return RedirectToAction("Index", "TeacherHome");
             }
             else
@@ -86,7 +86,7 @@ namespace MvcGraduate.Controllers
             {
                 if (oClass.AddAccount(form))
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Account");
                 }
                 return RedirectToAction("Error", "Shared");
             }

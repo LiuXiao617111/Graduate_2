@@ -1,0 +1,19 @@
+﻿@model IEnumerable<MvcGraduate.Models.Questions>
+@if (Model != null)
+{
+    <ul class="TeacherUl">
+        @{
+    var i = 0;
+        }
+        @foreach (var item in Model)
+        {
+            if (i++ > 5)
+            {
+                break;
+            }
+            <li>
+                <a src="#" onclick="window.open('@Url.Action("Details_Question", "Interaction", new { id = item.ID })', '', 'height=500,width=820,status=1,toolbar=no,menubar=no,location=no,scrollbars=yes,left=200,top=100,resizable=yes');">@Html.DisplayFor(modelItem => item.Title)</a>
+            </li>
+        }
+    </ul>
+}
