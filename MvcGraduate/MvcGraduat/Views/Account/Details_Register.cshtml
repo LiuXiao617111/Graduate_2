@@ -1,0 +1,147 @@
+﻿@model MvcGraduate.Models.Students
+
+@{
+    ViewBag.Title = "Details_Register";
+    Layout = "~/Views/Shared/Login_Layout.cshtml";
+}
+<style>
+    p.title {
+        position: relative;
+        top: 35%;
+        font: 700 40px "Microsoft Yahei";
+        color: #fff;
+        text-align: center;
+        padding: 0px;
+        margin: 0px;
+    }
+   
+    .Scroll_Child input {
+        width: 260px;
+        height: 33px;
+        padding-left:8px;
+        color: #000;
+        background-color: #fff;
+        font-size: 16px;
+        background-repeat: no-repeat;
+    }
+        .Scroll_Child .btn
+        {
+            height: 37px;
+            width: 100px;
+            padding:10px;
+        }
+    .Scroll_Child table tr td
+    {
+        width: 260px;
+        height: 35px;
+        padding-bottom: 15px;
+        line-height: 35px;
+    }
+
+    .Scroll_Child .radioButton {
+        height: 15px;
+        width: 20px;
+    }
+
+</style>
+<div style="height: 390px;width: 100%;" id="Scroll_Div">
+    <form action="@Url.Action("AddStudents")" method="post">
+        <div class="Scroll_Child">
+            <table>
+                <tr>
+                    <td align="right" style="color:#fff;">姓 名：</td>
+                    <td>@Html.TextBoxFor(model => model.Name, new { @required = "required", @placeholder = "请输入姓名..." })</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#fff;">性 别：</td>
+                    <td align="left"> @Html.RadioButtonFor(Model => Model.Sex, false, new { @class = "radioButton", @checked = "checked", @name = "Sex" }) 男 @Html.RadioButtonFor(Model => Model.Sex, true, new { @class = "radioButton", @name = "Sex" }) 女</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#fff;">邮 箱：</td>
+                    <td>@Html.TextBoxFor(model => model.Email, new { @class = "Input_Register", @type = "email", @placeholder = "请输入邮箱..." })</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#fff;">手 机：</td>
+                    <td>@Html.TextBoxFor(model => model.PhoneNum, new { @placeholder = "请输入手机号码..." })</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#fff;">Q  Q：</td>
+                    <td>@Html.TextBoxFor(model => model.QQNum, new {  @placeholder = "请输入QQ..." })</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#fff;">生 日：</td>
+                    <td>@Html.TextBoxFor(model => model.Birthday, new {  @placeholder = "请输入生日..." })</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div class="Scroll_Child">
+            <p class="title">补充信息</p>
+            <table>
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#fff;">民 族：</td>
+                    <td>@Html.TextBoxFor(model => model.Nation, new { @placeholder = "民族..." })</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#fff;">座右铭：</td>
+                    <td>@Html.TextBoxFor(model => model.motto, new {  @placeholder = "座右铭..." })</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#fff;">地 址：</td>
+                    <td>@Html.TextBoxFor(model => model.Address, new { @placeholder = "地址..." })</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#fff;">个人简介：</td>
+                    <td>@Html.TextBoxFor(model => model.Introduction, new {  @placeholder = "简介..." })</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div class="Scroll_Child">
+            <p class="title">班级信息</p>
+            <table>
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#fff;">年 级：</td>
+                    <td style="float:left;padding-top:10px;">@Html.DropDownList("Faculty", (IEnumerable<SelectListItem>)ViewBag.FacultyList, new { @style = "float:left;height:34px;width:260px;", required = "required" })</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#fff;">班 级：</td>
+                    <td style="float:left;padding-top:10px;">@Html.DropDownListFor(model => model.Grade, (IEnumerable<SelectListItem>)ViewBag.GradeList, new { @style = "float:left;height:34px;width:260px;", required = "required" })</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="color:#fff;">职 务：</td>
+                    <td>@Html.TextBoxFor(model => model.Duty, new { @placeholder = "职务..." })</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="3"><input type="submit" value="立即注册" class="btn" /></td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+<script>
+    $(function () {
+        $('#Scroll_Div').onepage_scroll({
+            sectionContainer: '.Scroll_Child',
+            direction: 'horizontal'
+        });
+    });
+</script>
+

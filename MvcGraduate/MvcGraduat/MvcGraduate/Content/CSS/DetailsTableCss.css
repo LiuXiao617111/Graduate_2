@@ -1,0 +1,76 @@
+﻿#details_table_div{
+	background:#F6F7F9;
+    padding-top:5px;
+    margin:0;
+}
+#details_table_div img
+{
+    border: 0px;
+    -ms-interpolation-mode:bicubic;
+}
+#details_table_div .big3
+{
+    font-weight: 600;
+}
+body{
+    background-color:#f6f7f9;
+}
+.TableBlock
+{
+    width:80%;
+    margin:auto;
+    border: 1px solid #CCCCCC;
+    line-height: 20px;
+    font-size: 9pt;
+    padding:0px;
+    margin:auto;
+    margin-top:20px;
+    border-collapse:collapse !important;
+}
+    .TableBlock  td, .TableBlock td.TableData
+    {
+        background: #FFFFFF;
+        border: 1px solid #CCCCCC;
+        border-bottom: 1px solid #CCCCCC;
+        border-right: 1px solid #ccc;
+        height: 30px;
+        padding:0px;
+        margin:0px;
+    }
+     .TableBlock .TableDataWidth td,.TableBlock td.TableDataWidth
+    {
+        background: #FFFFFF;
+        border-bottom: 1px solid #CCCCCC;
+        border-right: 1px solid #CCCCCC;
+        height: 245px;
+    }
+#details_table_div .TableControl
+{
+    background: #FFFFFF;
+}
+#details_table_div input.BigButton
+{
+    background: #FAFAFA;
+    height:24px;
+    line-height:14px;
+    font-size:14px;
+    color:#333;
+    text-align:center;
+    margin:1px;
+    cursor:pointer;
+}
+a.addfile {
+width: 60px;
+position: relative;
+overflow: hidden;
+text-decoration: none;
+padding-left: 18px;
+background: url("../../Images/add.png") no-repeat left center;
+cursor: pointer;
+}
+textarea.BigStatic {
+font-size: 10pt;
+padding: 1px 5px;
+border: 1px solid #C0BBB4;
+background: #E0E0E0;
+}

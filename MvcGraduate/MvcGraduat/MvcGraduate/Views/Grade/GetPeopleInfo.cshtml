@@ -1,0 +1,39 @@
+﻿<ul class="PeopleDetails">
+    <li class="frame_title_line">
+        <div class="frame_title no_select" style="margin-left:40px;">@ViewBag.MyTitle</div>
+    </li>
+
+    <li class="detaile_line">
+        <div class="frame_photo_div">
+            @if (Model != null)
+            {
+                var i = 0;
+                if (i++ < 3)
+                {
+                    foreach (var item in Model)
+                    {
+                        <!--一个人的信息-->
+                        <div class="frame_photo_block">
+                            <div class="edu_img">
+                                <img src="@item.Picture" alt="" style="width: 100%; height: 100%">
+                            </div>
+                            <div class="des">
+                                <div class="des2" style="top: -130px;">
+                                    <div class="info">
+                                        <p>
+                                            手机号：@item.PhoneNum
+                                            <br>电子邮箱：@item.Email
+                                            <br>QQ号：@item.QQNum
+                                            <br>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="course" style="top: 103px;">@item.Duty ：@item.Name</div>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        </div>
+    </li>
+</ul>

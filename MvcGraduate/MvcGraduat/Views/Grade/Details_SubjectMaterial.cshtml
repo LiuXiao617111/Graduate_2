@@ -1,0 +1,51 @@
+﻿<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/DetailsTableCss.css" />
+</head>
+<body>
+    <div id="#details_table_div">
+        <table border="0" width="80%" cellspacing="0">
+            <tr>
+                <td>
+                    <img src="~/Images/notify_new.gif" />
+                    <span class="big3">课程资料详情</span>
+                </td>
+            </tr>
+        </table>
+        <table width="80%" align="center" class="TableBlock">
+            <tr>
+                <td style="text-align:center">年级</td>
+                <td>@Model.Faculty.Name</td>
+            </tr>
+            <tr>
+                <td style="text-align:center">科目</td>
+                <td>@Model.Subject</td>
+            </tr>
+            <tr>
+                <td style="text-align:center">上传人</td>
+                <td>@Model.Students.Name</td>
+            </tr>
+            <tr>
+                <td style="text-align:center">上传日期</td>
+                <td>@Model.UploadTime</td>
+            </tr>
+            <tr>
+                <td style="text-align:center">资料名称</td>
+                <td>@Model.MaterialName</td>
+            </tr>
+            <tr>
+                <td style="text-align:center">资料描述</td>
+                <td>@Model.MaterialDescribe</td>
+            </tr>
+            <tr>
+                <td style="text-align:center">附件文档：</td>
+                <td>@Model.Appendix</td>
+            </tr>
+            <tr align="center">
+                <td nowrap="" colspan="2" class="TableControl">
+                    <input class="BigButton" type="button" value="关闭" onclick="window.close()" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>

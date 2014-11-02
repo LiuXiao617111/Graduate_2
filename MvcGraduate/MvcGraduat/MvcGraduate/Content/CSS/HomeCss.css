@@ -1,0 +1,259 @@
+﻿*{
+	font-family: "微软雅黑";
+	font-size: 12px;
+}
+html{
+    height:auto!important;
+}
+a{
+    font-size:14px;
+}
+A:link {
+ color: #4993b3;
+ TEXT-DECORATION: none
+}
+A:visited {
+ COLOR: #4993b3;
+ TEXT-DECORATION: none
+}
+A:hover {
+ COLOR: #ff7f24;
+ text-decoration: underline;
+}
+A:active {
+ COLOR: #ff7f24;  
+ text-decoration: underline;
+}
+    /*课程表*/
+    .Scheduletable{
+	    vertical-align: middle;
+	    border-spacing: 0px;
+        float:left
+    }
+    .Scheduletable tr,td{
+        border:  1px solid #DCDCDC;
+	    width: 50px;
+	    overflow: hidden;
+	    height: 12px;
+	    text-align: center;
+	    font-size: 12px;
+	    line-height: 12px;
+	    cursor: default;
+    }
+	.onmouseoverScheduletableTd{
+		background-color: #4cff00;
+	}
+    /*课程表结束*/
+    /*分享文章*/
+    		.share_art{
+				width: 420px;
+				height: 675px;
+				height: inherit;
+				background: #FFFFFF;
+			}
+    		.my_art_detailed {
+			    position: relative;
+			    height: 220px;
+			    width: 100%;
+			    margin-top: 7px;
+			}
+		 	.my_art_detailed .line1{
+				position: relative;
+				top: 10px;
+				height: 20px;
+				width: 360px;
+				margin-left: auto;
+				margin-right: auto;
+				color: #4993b3;
+				font-size: 14px;
+				font-weight: 600;
+				line-height: 20px;
+				overflow: hidden;
+			}
+			.my_art_detailed .line2{
+				position: relative;
+				width: 360px;
+				margin-left: auto;
+				margin-right: auto;
+				height: 110px;
+				top: 24px;
+				font-size: 16px;
+				line-height: 28px;
+				overflow: hidden;
+			}
+			.my_art_detailed .line3{
+				position: relative;
+				top: 40px;
+				width: 360px;
+				margin-left: auto;
+				margin-right: auto;
+				height: 20px;
+				font-size: 14px;
+				color: #376dd9;
+				border-bottom: #d8d7d7 dashed 1px;
+				padding-bottom: 10px;
+			}
+            .my_art_detailed .line3 span{
+				float: right;
+			}
+			.my_art_detailed .line3 a{
+				font-size: 14px;
+				color: inherit;
+				text-decoration: none;
+				padding-right: 5px;
+			}
+			.my_art_detailed .line3 a:hover{
+				text-decoration: underline;
+				color: #676767;
+			}
+    /*分享文章结束*/
+    /*导航的背景图片*/
+    .navigation_menu_bg {
+        background-image: url("../../Images/menu_bg.png");
+        background-repeat: no-repeat;
+        color: white !important;
+    }
+    /*导航的样式div*/
+    .navigation_centre_left div{
+        position: relative;
+        width: inherit;
+        height: 50px;
+        margin-top: 4px;
+        text-align: center;
+        border-bottom: #dddddd dashed 1px;
+        line-height: 50px;
+        color: #878787;
+        cursor: pointer;
+        font-size: 16px;
+        left: 0px;
+    }
+        /*通知ul*/
+        .NotifyUl {
+            position: static;
+            float: left;
+            top: 30px;
+            margin-top: 200px;
+            padding: 0px;
+        }
+		.NotifyUl li{
+		    font-family: "微软雅黑";
+		    list-style-type: none;
+		    height: 40px;
+		    line-height: 20px;
+            margin-left:0px !important;
+		}
+		.NotifyUl li a{
+            margin-left:0px;
+		    padding-left: 55px;
+		    background: url(../../Images/li_point.png) no-repeat;
+		    background-position: 30px 4px;
+		    color: #1E1E1E !important;
+		    text-decoration: none;
+		    cursor: pointer;
+		}
+        /*Home下分享图片的样式*/
+        .HomeImageDiv{
+		 	position: absolute;
+			height: 260px;
+			width: 420px;
+		}
+		 	.photo_Block{
+		 		position: relative;
+				width: 115px;
+				height: 115px;
+				float: left;
+				margin: 0 0 18px 18px;
+				color: #515151;
+				font-size: 12px;
+				text-align: center;
+		 	}
+		 	.img{
+		 		position: relative;
+				width: 115px;
+				height: 80px;
+				overflow: hidden;
+				top: 5px;
+		 	}
+		 	    .img img{
+				    max-height: 80px
+		 	    }
+		 	.photo_Block_text{
+		 		position: absolute;
+				bottom: 10px;
+				width: 100%;
+		 	}
+		 	    .photo_Block_text a{
+		 		    text-decoration: none;
+				    color: #636363;
+		 	    }
+        /*老师和班委的大头贴*/
+            #JS_TeacherHomeDiv {
+                width: 100%;
+            }
+			.head_photos{
+				height: 100px;
+				width: 100px;
+                float: left;
+                margin: 0 0 18px 38px;
+                color: #515151;
+                font-size: 12px;    
+                text-align: center;
+			}
+			.user_head{
+				width: 85px;
+				height: 85px;
+				z-index: 1;
+				margin: 0px;
+			}
+			.user_head img{
+				height: 85px;
+				width: 85px;
+				margin-left: 12px;
+				vertical-align: middle;
+				border: 0;
+			}
+			.userinfo{
+				width: 120px;
+				height: 70px;
+				border: #EBEBEB solid 1px;
+				margin-top: -30px;
+				text-align: center;
+				overflow: hidden;
+			}
+			.userinfo div{
+				margin-top: 32px;
+				font-size: 14px;	
+				line-height: 18px;
+			}
+            /*大事件*/			
+            .ul_style2 {
+				position: relative;
+				top: 10px;
+				left: 30px;
+				margin: 0 0 0 0;
+                padding:0px;
+                font-size: 14px;
+			}
+			.ul_style2 li {
+				list-style-type: none;
+				height: 40px;
+				font-size: 16px;
+				background: url(../../Images/li_point2.png) no-repeat;
+				background-position: 0px;
+				padding-left: 18px;
+				line-height: 40px;
+			}
+            .ul_style2 span {
+            color: #4993b3;
+            }
+                .ul_style2 li a {
+                    margin-left:10px;
+                    position: absolute;
+                    left: 85px;
+                    display: inline;
+                    color: #1E1E1E;
+                    text-decoration: none;
+                }
+                    .ul_style2 li a:hover {
+                        color:#0088cc;
+                    }

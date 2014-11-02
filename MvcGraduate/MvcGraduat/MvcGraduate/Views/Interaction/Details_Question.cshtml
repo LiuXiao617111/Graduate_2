@@ -1,0 +1,48 @@
+﻿@model MvcGraduate.Models.Questions
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/DetailsTableCss.css" />
+</head>
+<body>
+    <div id="#details_table_div">
+        <table border="0" width="80%" cellspacing="0">
+            <tr>
+                <td>
+                    <img align="left" src="~/Images/notify_new.gif" />
+                    <span class="big3">问题详情</span>
+                </td>
+            </tr>
+        </table>
+        <table width="80%" align="center" class="TableBlock">
+            <tr>
+                <td align="center">问题</td>
+                <td>@Model.Title</td>
+            </tr>
+            <tr>
+                <td align="center">内容</td>
+                <td>@Html.Raw(Model.Contents)</td>
+            </tr>
+            <tr>
+                <td align="center">发布时间</td>
+                <td>@Model.Time</td>
+            </tr>
+            <tr>
+                <td align="center">回复内容：</td>
+                <td>@Model.ReplyContent</td>
+            </tr>
+            <tr>
+                <td align="center">回复时间</td>
+                <td><img src="@Model.ReplyTime" /></td>
+            </tr>
+            <tr>
+                <td align="center">附件</td>
+                <td>@Model.Appendix</td>
+            </tr>
+            <tr align="center">
+                <td nowrap="" colspan="2" class="TableControl">
+                    <input class="BigButton" type="button" value="关闭" onclick="window.close()" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>

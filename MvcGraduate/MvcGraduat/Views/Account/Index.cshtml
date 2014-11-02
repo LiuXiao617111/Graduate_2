@@ -1,0 +1,35 @@
+﻿@model MvcGraduate.Models.Account
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Login_Layout.cshtml";
+}
+<div style="height: 280px;width: 100%;background-image:url(../../Images/login-bg.png);line-height:300px;">
+    <form action="@Url.Action("ValidateCount", "Account")" method="post">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <table>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td align="right" style="color:#fff;">用户名：</td>
+                <td>@Html.TextBoxFor(model => model.LoginID, new { @placeholder = "请输入账户...", required = "required", @class = "input_LoginID" })</td>
+                <td align="left" style="color:#98ff72;padding-left:4px">@Html.ValidationMessageFor(item => item.LoginID)</td>
+            </tr>
+            <tr>
+                <td align="right" style="color:#fff;">密 码：</td>
+                <td>@Html.TextBoxFor(model => model.Pwd, new { @placeholder = "请输入密码...", type = "Password", required = "required", @class = "Input_pwd" })</td>
+                <td align="left" style="color:#98ff72;padding-left:4px"> @Html.ValidationMessageFor(item => item.Pwd)</td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center">
+                    <input style="padding:auto;" type="submit" value="登 录" class="btn" />&nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>

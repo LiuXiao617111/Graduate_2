@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="gb2312" ?>
+<EmailConfig>
+ <From>516226907@163.com</From>
+ <Subject>密码找回</Subject>
+ <Body>
+ 您申请了密码找回，验证码为：{0}
+ 如有任何疑问，请联系京东客服，客服热线：152-9503-6651
+ </Body>
+  <Account>516226907@163.com</Account>
+  <Pwd>qq1362178</Pwd>
+</EmailConfig>

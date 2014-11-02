@@ -1,0 +1,64 @@
+﻿@model MvcGraduate.Models.Article
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/DetailsArticle.css" />
+</head>
+
+<body>
+    <div class="article_body">
+        <div class="article_titel">@Model.Title</div>
+        <div class="article_info">发布时间：@Model.Time&nbsp;&nbsp;&nbsp;&nbsp;作者：@Model.Students.Name&nbsp;&nbsp;&nbsp;&nbsp; 人气：@Model.ClickRate</div>
+        <div class="article_content">
+            @Html.Raw(Model.Contents)
+            <br />
+        </div>
+        <div class="article_attachment">
+            <span class="attach_link">
+                @if (ViewBag.Appendix != null && ViewBag.Appendix != "")
+                {
+                    <img src="/static/images/file_type/jpg.gif">
+                    <a class="attach_name" href="@Url.Action("ResposeFile", "Interaction", new { filePath = Model.Appendix })">@ViewBag.Appendix</a>
+                }
+            </span>
+        </div>
+        <div class="article_share">分享：@ViewBag.SharesName </div>
+        <div class="article_discuss">
+            <div class="">
+                <div class="article_discuss_title">评论：</div>
+            </div>
+            @foreach (var item in ViewBag.CommentsPeople)
+            {
+                <div class="article_discuss_block">
+                    <div class="article_discuss_head">
+                        <img src="@item.Students.Picture" width="50" height="50">
+                    </div>
+                    <div class="article_discuss_conten">
+                        <a href="javascript:;">@item.Students.Name</a>：@item.Contents
+                    </div>
+                    <div class="article_discuss_conten_time">
+                        @item.Time <a href="javascript:;" style="text-decoration:underline">删除</a>&nbsp;&nbsp;&nbsp;
+                    </div>
+                </div>
+            }
+        </div>
+        @*发表新评论*@
+        <div class="article_comment">
+            <div>发表评论:</div>
+            <form action="" method="post">
+                <textarea style="width:99%;height:100px" name="COMMENT_CONTENT"></textarea>
+                <div class="article_btn_line">
+                    <input type="hidden" value="43" >
+                    <input type="hidden" value="" >
+                    <input type="button" id="save_article_comment" value="发表">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

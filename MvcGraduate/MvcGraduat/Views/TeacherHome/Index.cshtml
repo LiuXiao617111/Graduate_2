@@ -1,0 +1,188 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Teacher_Layout.cshtml";
+}
+
+<div class="Teachermain_right">
+    <div class="Teachermain_right_left">
+        <div class="Teachermain_right_left_1">
+            <div class="courent">
+                <ul>
+                    <li>学生统计</li>
+                </ul>
+            </div>
+            <div style="float: left; height: 300px; margin-top: -40px; width: 100%;" id="CountStudent">
+            </div>
+        </div>
+        <div class="Teachermain_right_left_2">
+            <div class="courent">
+                <ul>
+                    <li>分数统计</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="Teachermain_right_right">
+        <div class="Teachermain_right_right_1">
+            <div class="courent">
+                <ul>
+                    <li>教师统计</li>
+                </ul>
+            </div>
+            <div style="float: left; height: 300px; margin-top: -40px; width: 100%;" id="CountTeacher">
+            </div>
+        </div>
+        <div class="Teachermain_right_right_2">
+            <div class="courent">
+                <ul>
+                    <li>在线时长</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Content/ECharts/echarts-plain.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+    // Step:3 echarts & zrender as a Global Interface by the echarts-plain.js.
+    // Step:3 echarts和zrender被echarts-plain.js写入为全局接口
+    var yAxis = new Array();
+    var boys = new Array();
+    var girls = new Array();
+    var teacherDuties = new Array();
+    var teacherMan = new Array();
+    var teacherWomen = new Array();
+    $.ajax({
+        type: "Post",
+        url: "@Url.Action("DataOfECharts","TeacherHome")",
+        dataType: "json",
+        async: false,
+        success: function (data) {
+            yAxis = data["data"];
+            boys = data["Boys"];
+            girls = data["Girls"];
+            facultyStudtens = data["FacultyStudtens"];
+
+            teacherDuties = data["TeacherDuties"];
+            teacherMan = data["TeacherMan"];
+            teacherWomen = data["TeacherWoman"];
+        }
+    });
+    var myChart = echarts.init(document.getElementById('CountStudent'));
+    var option = {
+        tooltip: {
+            trigger: 'axis'
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                dataView: { show: true, readOnly: false },
+                magicType: { show: true, type: ['line', 'bar'] },
+                restore: { show: true },
+                saveAsImage: { show: true }
+            }
+        },
+        legend: {
+            data: ['男生', '女生','总数']
+        },
+        calculable: true,
+        xAxis: [
+    {
+        type: 'value',
+        boundaryGap: [0, 0]
+    }
+        ],
+        yAxis: [
+    {
+        type: 'category',
+        data: yAxis
+    }
+        ],
+        series: [
+    {
+        name: '总数',
+        type: 'bar',
+        data: facultyStudtens
+    },
+    {
+        name: '男生',
+        type: 'bar',
+        data: boys
+    },
+    {
+        name: '女生',
+        type: 'bar',
+        data: girls
+    }
+        ]
+    };
+    myChart.setOption(option);
+
+    var teacherChart = echarts.init(document.getElementById('CountTeacher'));
+    option = {
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data: ['男老师', '女老师']
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                dataView: { show: true, readOnly: false },
+                magicType: { show: true, type: ['line', 'bar'] },
+                restore: { show: true },
+                saveAsImage: { show: true }
+            }
+        },
+        calculable: true,
+        xAxis: [
+            {
+                type: 'category',
+                boundaryGap: [0, 1],
+                data: teacherDuties
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value',
+                boundaryGap: [0, 1]
+            }
+        ],
+        series: [
+            {
+                name: '男老师',
+                type: 'bar',
+                data: teacherMan,
+                markPoint: {
+                    data: [
+                        { type: 'max', name: '最大值' },
+                        { type: 'min', name: '最小值' }
+                    ]
+                },
+                markLine: {
+                    data: [
+                        { type: 'average', name: '平均值' }
+                    ]
+                }
+            },
+             {
+                 name: '女老师',
+                 type: 'bar',
+                 data: teacherWomen,
+                 markPoint: {
+                     data: [
+                         { type: 'max', name: '最大值' },
+                         { type: 'min', name: '最小值' }
+                     ]
+                 },
+                 markLine: {
+                     data: [
+                         { type: 'average', name: '平均值' }
+                     ]
+                 }
+             },
+        ]
+    };
+    teacherChart.setOption(option);
+</script>

@@ -1,0 +1,45 @@
+﻿@model MvcGraduate.Models.Account
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/Login_Layout.cshtml";
+}
+
+
+<div style="height: 390px;width: 100%;background-image:url(../../Images/login-bg.png);">
+    <form action="@Url.Action("Register")" method="post">
+        <table style="margin-left:220px;">
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td align="right" style="color:#000;">邮箱注册：</td>
+                <td><input name="email" class="Input_Register" style="background-image: url('../../Images/email.png');" placeholder="请输入邮箱..." /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td align="right" style="color:#000;">用户名：</td>
+                <td><input name="name" class="Input_Register" style="background-image: url('../../Images/name.png');" placeholder="请输入账户..." /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td align="right" style="color:#000;">密 码：</td>
+                <td><input name="pwd" class="Input_Register" style="background-image: url('../../Images/pwd.png');" placeholder="请输入密码..." /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td align="right" style="color:#000;">确认密码：</td>
+                <td><input class="Input_Register" style="background-image: url('../../Images/pwd.png');" placeholder="请再次输入密码..." /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" style="width:40%" value="立即注册" class="btn" /></td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+</div>

@@ -1,0 +1,110 @@
+﻿body{
+    BACKGROUND: #f6f7f9;
+    padding-top: 5px;
+}
+.article_body {
+            top: 20px;
+            width: 80%;
+            height: 400px;
+            margin: 0 auto 0 auto;
+        }
+
+        .article_titel {
+            top: 0px;
+            width: 100%;
+            margin: auto 0 auto;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            height: 25px;
+            line-height: 25px;
+        }
+
+        .article_info {
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            margin-top: 5px;
+            color: #727272;
+        }
+
+        .article_content {
+            margin: 10px auto 0 auto;
+            width: 95%;
+            height: auto;
+        }
+
+        .article_attachment {
+            width: 95%;
+            height: auto;
+            margin: 50px auto 0 auto;
+        }
+
+        .attach_link {
+            white-space: nowrap;
+            word-wrap: break-word;
+            margin-right: 15px;
+            line-height: 22px;
+        }
+
+        .attach_div {
+            width: 110px;
+            border: #cccccc 1px solid;
+            padding: 0px;
+            background: #FFFFFF;
+        }
+
+        .article_share {
+            width: 95%;
+            margin: 10px auto 20px auto;
+        }
+
+        .article_discuss {
+            width: 95%;
+            margin: 10px auto 0 auto;
+            border: #C8C8C8 solid 1px;
+            height: auto;
+            background: #E9E9E9;
+        }
+
+        .article_discuss_title {
+            width: 100%;
+        }
+
+        .article_comment {
+            width: 95%;
+            margin: 10px auto 0 auto;
+            border: #C8C8C8 solid 1px;
+            height: auto;
+            background: #E9E9E9;
+        }
+
+        .article_discuss_conten {
+            position: relative;
+            top: 0px;
+            padding-left: 55px;
+            padding-right: 5px;
+            font-size: 14px;
+            line-height: 18px;
+        }
+
+        .article_discuss_conten_time {
+            position: relative;
+            text-align: right;
+            font-size: 13px;
+            color: #727272;
+            margin: 10px 10px 5px auto;
+        }
+
+        .article_discuss_head {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+        }
+
+        .article_discuss_conten a {
+            text-decoration: none;
+            color: #222DFF;
+            font-size: 15px;
+            line-height: 25px;
+        }

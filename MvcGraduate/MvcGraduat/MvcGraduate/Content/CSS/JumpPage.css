@@ -1,0 +1,111 @@
+﻿#page {
+    height: 15px;
+    width: 100%;
+    padding-left: 330px;
+    margin-bottom: 30px;
+    margin-top: -30px;
+}
+
+.page div div {
+    position: relative;
+    font: "微软雅黑";
+    font-size: 12px;
+    color: #000000;
+    display: inline-block;
+}
+
+.page div .btns {
+    width: 12px;
+    height: 13px !important;
+    margin-right: 7px;
+    top: 2px;
+}
+
+.page .btn_first {
+    background: url('../../Images/btn.png') no-repeat;
+    background-position: 1px -13px;
+    margin-left: 5px;
+}
+
+    .page .btn_first:hover {
+        background-position: -13px -13px;
+    }
+
+.page .btn_first0 {
+    background: url('../../Images/btn.png') no-repeat;
+    background-position: -13px -13px;
+    margin-left: 5px;
+}
+
+.page .btn_forward {
+    background: url('../../Images/btn.png') no-repeat;
+    background-position: 0px 1px;
+}
+
+    .page .btn_forward:hover {
+        background: url('../../Images/btn.png') no-repeat;
+        background-position: -13px 1px;
+    }
+
+.page .btn_forward0 {
+    background: url('../../Images/btn.png') no-repeat;
+    background-position: -13px 1px;
+}
+
+.page .btn_back {
+    background: url('../../Images/btn.png') no-repeat;
+    background-position: -24px 1px;
+}
+
+    .page .btn_back:hover {
+        background: url('../../Images/btn.png') no-repeat;
+        background-position: -37px 1px;
+    }
+
+.page .btn_back0 {
+    background: url('../../Images/btn.png') no-repeat;
+    background-position: -37px 1px;
+}
+
+.page .btn_end {
+    background: url('../../Images/btn.png') no-repeat;
+    background-position: -27px -13px;
+    margin-right: 15px !important;
+}
+
+    .page .btn_end:hover {
+        background: url('../../Images/btn.png') no-repeat;
+        background-position: -39px -13px;
+        margin-right: 15px !important;
+    }
+
+.page .btn_end0 {
+    background: url('../../Images/btn.png') no-repeat;
+    background-position: -39px -13px;
+    margin-right: 15px !important;
+}
+
+.page div input {
+    width: 30px;
+    height: 18px;
+    margin-top: 0px;
+    margin-left: 7px;
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+.page .go_btn {
+    right: 0px;
+    width: 17px;
+    height: 17px;
+    background-image: url('../../Images/btn.png');
+    background-position: 0px -28px;
+    background-repeat: no-repeat;
+    margin-left: 10px;
+    top: -1px;
+}
+
+.page * {
+    position: relative;
+    float: left;
+}

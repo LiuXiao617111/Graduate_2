@@ -1,0 +1,45 @@
+﻿@model MvcGraduate.Models.Images
+
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/DetailsTableCss.css" />
+</head>
+<body>
+    <div id="#details_table_div">
+        <table border="0" width="80%" cellspacing="0">
+            <tr>
+                <td>
+                    <img align="left" src="~/Images/notify_new.gif" />
+                    <span class="big3">照片管理详情</span>
+                </td>
+            </tr>
+        </table>
+        <table width="80%" align="center" class="TableBlock">
+            <tr>
+                <td style="width:146px" align="center">上传时间</td>
+                <td>@Model.PubLishTime</td>
+            </tr>
+            <tr>
+                <td align="center">上传人</td>
+                <td>@Model.Students.Name</td>
+            </tr>
+            <tr>
+                <td align="center">照片描述</td>
+                <td>@Html.Raw(Model.Description)</td>
+            </tr>
+            <tr>
+                <td align="center">分享给：</td>
+                <td>@ViewBag.SharesName</td>
+            </tr>
+            <tr>
+                <td align="center">图片描述</td>
+                <td><img style="margin:4px" src="@Model.ImagePath"/></td>
+            </tr>
+            <tr align="center">
+                <td nowrap="" colspan="2" class="TableControl">
+                    <input class="BigButton" type="button" value="关闭" onclick="window.close()" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>

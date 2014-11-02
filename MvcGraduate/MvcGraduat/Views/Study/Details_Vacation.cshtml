@@ -1,0 +1,65 @@
+﻿@model MvcGraduate.Models.Vacation
+@{
+    TimeSpan timeSpan =(TimeSpan)(Model.EndTime - Model.StartTime);
+}
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/DetailsTableCss.css" />
+</head>
+<body>
+    <table border="0" width="80%" cellspacing="0" >
+        <tr>
+            <td>
+                <img  src="~/Images/notify_new.gif" />
+                <span class="big3">学生请假详情</span>
+            </td>
+        </tr>
+    </table>
+    <table width="80%" align="center" class="TableBlock">
+        <tr>
+            <td align="center">年级</td>
+            <td>@Html.DisplayFor(model => model.Students.Grade.Faculty.Name)</td>
+        </tr>
+        <tr>
+            <td align="center">班级</td>
+            <td>@Html.DisplayFor(model => model.Students.Grade.Name)</td>
+        </tr>
+        <tr>
+            <td align="center">姓名</td>
+            <td>@Html.DisplayFor(model => model.Students.Name)</td>
+        </tr>
+        <tr>
+            <td align="center">创建时间</td>
+            <td>@Html.DisplayFor(model => model.ApplyTime)</td>
+        </tr>
+        <tr>
+            <td align="center">开始时间</td>
+            <td>@Html.DisplayFor(model => model.StartTime)</td>
+        </tr>
+        <tr>
+            <td align="center">结束时间</td>
+            <td>@Html.DisplayFor(model => model.EndTime)</td>
+        </tr>
+        <tr>
+            <td align="center">请假天数</td>
+            <td>@timeSpan.Days 天</td>
+        </tr>
+        <tr>
+            <td align="center">请假原因</td>
+            <td>@Html.DisplayFor(model => model.Reason)</td>
+        </tr>
+        <tr>
+            <td align="center">审批状态</td>
+            <td>@Html.DisplayFor(model => model.State)</td>
+        </tr>
+        <tr>
+            <td align="center">附件</td>
+            <td>@Html.DisplayFor(model => model.Appendix)</td>
+        </tr>
+        <tr align="center">
+            <td nowrap="" colspan="2" class="TableControl">
+                <input class="BigButton" type="button" value="关闭" onclick="window.close()" />
+            </td>
+        </tr>
+    </table>
+</body>

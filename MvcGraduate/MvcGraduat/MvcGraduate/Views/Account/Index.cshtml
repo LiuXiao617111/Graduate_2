@@ -1,0 +1,75 @@
+﻿@model MvcGraduate.Models.Account
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Login_Layout.cshtml";
+}
+<div style="height: 300px;width: 100%;background-image:url(../../Images/login-bg.png);line-height:300px;">
+    <form name="formSub" id="signupForm" action="@Url.Action("ValidateCount", "Account")" method="post">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <table style="margin-left:220px">
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td align="right" style="color:#fff;">用户名：</td>
+                <td>@Html.TextBoxFor(model => model.LoginID, new { @placeholder = "请输入账户...", number = "number", minlength="10", maxlength = "10", required = "required", @class = "input_LoginID" })</td>
+                <td align="left" style="color:#333333;padding-left:4px">@Html.ValidationMessageFor(item => item.LoginID)</td>
+            </tr>
+            <tr>
+                <td align="right" style="color:#fff;">密 码：</td>
+                <td>@Html.TextBoxFor(model => model.Pwd, new { @placeholder = "请输入密码...", type = "Password", required = "required",  @class = "Input_pwd" })</td>
+                <td align="left" style="color:#333333;padding-left:4px"> @Html.ValidationMessageFor(item => item.Pwd)</td>
+            </tr>
+            <tr>
+                <td align="right">验证码：</td>
+                <td align="left">
+                    <input id="validateCode" type="text" minlength="4" maxlength="4" required="required" style="height:38px;width:100px;vertical-align:middle;font-size:16px;" />
+                    <img id="validateImage" onclick="ChangeValidateCode()" src="@Url.Action("ValidateImage", "Account")" style="vertical-align: middle" />
+                    <div style="display:inline-block;">
+                        <span style="font-size:12px;">看不清?<a href="#" onclick="ChangeValidateCode()">换一张</a></span>
+                    </div>
+                    <div style="height:16px;"><a id="forgetPwd" href="@Url.Action("ForgetAccount", "Account")">忘记密码?</a><a id="forgetPwd" style="margin-left:10px" href="@Url.Action("Register", "Account")">免费注册</a></div>
+                </td>
+                <td align="left" style="color:#333333;padding-left:4px"><span id="Error_Code"></span></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input style="margin-top:-20px;" type="button" onclick="Validate()" value="登 录" class="btn" />
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script src="~/Scripts/jquery.metadata.js"></script>
+<script>
+    function ChangeValidateCode() {
+        $('#validateImage').attr("src", "@Url.Action("ValidateImage", "Account")?rand=" + Math.random());
+    }
+    function Validate(id) {
+        $.post(
+            "@Url.Action("ValidateCode")",
+            { validateCode:$('#validateCode').val() },
+            function (data) {
+                if (data != "True") {
+                    $('#Error_Code').text("验证码输入错误");
+                }
+                else {
+                    document.formSub.submit()
+                }
+            });
+    }
+    jQuery.extend(jQuery.validator.messages, {
+        required: "字段不能为空",
+        remote: "请修正该字段",
+        email: "请输入正确格式的电子邮件",
+        date: "请输入合法的日期",
+        number: "该字段只能为数字",
+        equalTo: "两次输入不一样",
+        maxlength: jQuery.validator.format("请输入一个长度最多是 {0} 的字符串"),
+        minlength: jQuery.validator.format("请输入一个长度最少是 {0} 的字符串")
+    });
+</script>

@@ -1,0 +1,85 @@
+﻿
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script type="text/javascript" charset="utf-8" src="~/Content/UEditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="~/Content/UEditor/ueditor.all.min.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="~/Content/UEditor/lang/zh-cn/zh-cn.js"></script>
+    <link href="~/Content/CSS/Home_AddArticle_Dialog.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="write_article" class="modal hide fade in" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="width: 760px; margin:auto; display: block;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">新建文章  </h3>
+        </div>
+
+        <div class="modal-body ">
+            <form action="@Url.Action("SaveArticle", "Home")" method="post" enctype="multipart/form-data" >
+                <table class="TableBlock" width="90%" align="center">
+                    <tbody>
+                        <tr>
+                            <td class="TableData" align="center">文章标题：</td>
+                            <td class="TableData">
+                                <input type="text" size="44" class="BigInput" name="Title">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td nowrap="" class="TableData" align="center">分享给：</td>
+                            <td class="TableData">
+                                <textarea cols="40" rows="3" class="BigStatic" wrap="yes" readonly=""></textarea>
+                                <a href="javascript:;" class="orgAdd">添加</a>
+                                <a href="javascript:;" class="orgClear">清空</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="TableData" align="center">附件：</td>
+                            <td class="TableData">
+                                <span>无附件</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="TableData" align="center">附件上传：</td>
+                            <td class="TableData">
+                                <input type="file" size="44" class="BigInput" id="fileUpload" name="fileUpload">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="TableData" align="center">文章内容：</td>
+                            <td class="TableData">
+                                <div id="UEditor">
+                                    <script id="editor" type="text/plain" style="width:100%;height:500px;">
+                                    </script>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right" colspan="2">
+                                <button class="btn" onclick="CloseThisWindow(); return false;">关闭</button>
+                                <button class="btn" type="submit">保存</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+    <div class="modal-backdrop fade in"></div>
+    <script>
+    var ue = UE.getEditor('editor', {
+        toolbars: [
+        ['fullscreen', 'source', 'undo', 'redo'],
+        ['bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc']
+        ]
+    });
+    function CloseThisWindow() {
+        location.href = "@Url.Action("Index", "Home")";
+    }
+    </script>
+</body>
+</html>
